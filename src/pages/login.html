@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+  </head>
+  <body>
+    <main>
+      <!--Area de login-->
+      <div class="login-form-area" style="display: block">
+        <h2>Efetue Login!</h2>
+        <form id="login-form">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="insira seu melhor e-mail"
+            id="email"
+          />
+          <label for="senha">Senha</label>
+          <input
+            type="password"
+            name="senha"
+            placeholder="*********"
+            id="senha"
+          />
+          <input type="submit" value="Entrar" />
+        </form>
+        <label for="cadastrar">Não possui uma conta? Cadastre-se agora! </label>
+        <button id="cadastrar" onclick="showCadastrar()" style="display: none">
+          Cadastre-se
+        </button>
+        <button
+          id="redefinirSenha"
+          onclick="showRedefinirSenha()"
+          style="display: none"
+        >
+          Redefinir senha
+        </button>
+        <label for="redefinirSenha">Esqueceu sua senha?</label>
+      </div>
+
+      <!--Area de cadastro-->
+      <div class="cadastrar-form-area" style="display: none">
+        <h2>Cadastre-se!</h2>
+        <form id="cadastrar-form">
+          <label for="nome">Nome</label>
+          <input
+            type="text"
+            name="nome"
+            placeholder="insira seu nome completo"
+            id="nome"
+          />
+          <label for="email-cadastro">E-mail</label>
+          <input
+            type="email"
+            name="email-cadastro"
+            placeholder="insira seu melhor e-mail"
+            id="email-cadastro"
+          />
+          <label for="senha-cadastro">Senha</label>
+          <input
+            type="password"
+            name="senha-cadastro"
+            placeholder="*********"
+            id="senha-cadastro"
+          />
+          <input type="submit" value="Cadastrar" />
+        </form>
+        <label for="login">Já possui uma conta? Faça seu login! </label>
+        <button id="login" onclick="showLogin()" style="display: none">
+          Login
+        </button>
+      </div>
+    </main>
+    <script>
+        //mostrar campo de cadastrar
+      showCadastrar = () => {
+        document.querySelector(".login-form-area").style.display = "none";
+        document.querySelector(".cadastrar-form-area").style.display = "block";
+      };
+        //mostrar campo de fazer login
+      showLogin = () => {
+        document.querySelector(".login-form-area").style.display = "block";
+        document.querySelector(".cadastrar-form-area").style.display = "none";
+      };
+        //mostrar campo de redefinir senha
+      showRedefinirSenha = () => {
+        alert("Funcionalidade de redefinição de senha em desenvolvimento.");
+      };
+    </script>
+  </body>
+</html>
