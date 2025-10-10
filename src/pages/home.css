@@ -1,0 +1,428 @@
+:root {
+    
+    --cor-fundo-escuro: #100E19;
+    --cor-fundo-componente: #1D1A2C;
+    --cor-principal-violeta: #8257E5;
+    --cor-destaque-amarelo: #F7DF1E; 
+    --cor-destaque-ciano: #61DAFB;
+    --cor-borda: #2C2844;
+    --cor-texto-principal: #FFFFFF;
+    --cor-texto-secundario: #A8A8B3;
+
+    
+    --fonte-logo: "Faster One", system-ui;
+    --fonte-destaque: "Permanent Marker", cursive;
+    --fonte-corpo: "Poppins", sans-serif;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-corpo);
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-texto-principal);
+    font-weight: 400;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+.cabecalho {
+    background-color: var(--cor-fundo-componente);
+    padding: 20px 0;
+    border-bottom: 1px solid var(--cor-borda);
+}
+
+.cabecalho .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.cabecalho .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.cabecalho .logo i {
+    color: var(--cor-principal-violeta);
+    font-size: 1.8rem;
+}
+
+.cabecalho .logo h1 {
+    font-family: var(--fonte-logo);
+    font-size: 2rem; 
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: var(--cor-texto-principal);
+}
+
+.cabecalho .barra-busca {
+    display: flex;
+    flex-grow: 1;
+    min-width: 250px;
+    max-width: 500px;
+}
+
+.cabecalho .barra-busca input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 6px 0 0 6px;
+    background-color: var(--cor-fundo-escuro);
+    color: var(--cor-texto-principal);
+    font-family: var(--fonte-corpo);
+    font-size: 0.9rem;
+}
+
+.cabecalho .barra-busca button {
+    padding: 12px 15px;
+    border: none;
+    background-color: var(--cor-principal-violeta);
+    color: var(--cor-texto-principal);
+    cursor: pointer;
+    border-radius: 0 6px 6px 0;
+    font-size: 1rem;
+}
+
+.cabecalho .navegacao {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.cabecalho .navegacao a {
+    color: var(--cor-texto-secundario);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+    font-size: 0.9rem;
+}
+
+.cabecalho .navegacao a:hover {
+    color: var(--cor-texto-principal);
+}
+
+.cabecalho .navegacao .btn-registrar {
+    background-color: var(--cor-principal-violeta);
+    color: var(--cor-texto-principal);
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+.cabecalho .navegacao .carrinho {
+    font-size: 1.5rem;
+}
+
+
+.secao-carrossel {
+    position: relative;
+    height: 500px;
+    margin-bottom: 80px;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.container-carrossel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Trilho com animação automática infinita */
+.trilho-carrossel {
+    display: flex;
+    width: 400%; /* 100% x 4 (3 slides + 1 duplicado para loop) */
+    height: 100%;
+    animation: deslize-automatico 9s infinite linear; /* 3s por slide x 3 = 9s ciclo */
+    transition: transform 0.5s ease; /* Para pausar no hover */
+}
+
+@keyframes deslize-automatico {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-75%); } /* Move 75% para 3 slides (100% cada, mas com duplicado) */
+}
+
+.secao-carrossel:hover .trilho-carrossel {
+    animation-play-state: paused; /* Pausa no hover */
+}
+
+.quadro-carrossel {
+    min-width: 25%; 
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.quadro-carrossel img {
+    width: 680px;
+    height: 850px;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    filter: brightness(0.8);
+    transition: filter 0.5s ease;
+}
+
+.quadro-carrossel:hover img {
+    filter: brightness(1);
+}
+
+
+.overlay-conteudo {
+    position: absolute;
+    bottom: 20%;
+    left: 5%;
+    right: 5%;
+    background: rgba(29, 26, 44, 0.8);
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(130, 87, 229, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    color: var(--cor-texto-principal);
+    text-align: left;
+    max-width: 500px;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.quadro-carrossel:hover .overlay-conteudo {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.overlay-conteudo h2 {
+    font-family: var(--fonte-destaque);
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: var(--cor-destaque-amarelo);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.overlay-conteudo p {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+.btn-comprar {
+    display: inline-block;
+    background: linear-gradient(45deg, var(--cor-principal-violeta), #6a40d3);
+    color: var(--cor-texto-principal);
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(130, 87, 229, 0.3);
+}
+
+.btn-comprar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(130, 87, 229, 0.4);
+}
+
+.lancamentos { 
+    padding: 80px 0; 
+}
+
+.titulo-secao { 
+    text-align: center; 
+    margin-bottom: 50px; 
+}
+
+.titulo-secao .subtitulo {
+    font-family: var(--fonte-corpo);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--cor-destaque-amarelo);
+    margin-bottom: 10px;
+    display: block;
+    letter-spacing: 1px;
+}
+
+.titulo-secao h2 { 
+    font-family: var(--fonte-destaque); 
+    font-size: 3rem; 
+    font-weight: 400; 
+}
+
+.grade-jogos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.cartao-jogo {
+    background-color: var(--cor-fundo-componente);
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--cor-borda);
+    transition: transform 0.3s, border-color 0.3s;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.cartao-jogo:hover { 
+    transform: translateY(-5px); 
+    border-color: var(--cor-principal-violeta); 
+}
+
+.cartao-jogo img {
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    background-color: #000;
+}
+
+.cartao-jogo .info-jogo {
+    padding: 20px;
+    flex-grow: 1;
+}
+
+.cartao-jogo h3 { 
+    font-family: var(--fonte-corpo); 
+    font-size: 1.2rem; 
+    font-weight: 600; 
+    margin-bottom: 10px; 
+}
+
+.cartao-jogo .preco { 
+    font-size: 1.1rem; 
+    font-weight: 700; 
+    color: var(--cor-destaque-ciano); 
+}
+
+.btn-adicionar-carrinho {
+    background-color: var(--cor-destaque-amarelo);
+    color: var(--cor-fundo-escuro);
+    border: none;
+    font-size: 1.2rem;
+    padding: 15px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-content: center;
+    transition: transform 0.3s;
+}
+
+.btn-adicionar-carrinho:hover {
+    transform: scale(1.1);
+}
+
+.ver-mais {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.btn-secundario {
+    background: transparent;
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-principal);
+    font-family: var(--fonte-corpo);
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.btn-secundario:hover {
+    background-color: var(--cor-fundo-componente);
+    border-color: var(--cor-principal-violeta);
+}
+
+.rodape {
+    background-color: var(--cor-fundo-componente);
+    padding: 40px 0;
+    margin-top: 40px;
+    border-top: 1px solid var(--cor-borda);
+}
+
+.rodape .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.rodape-links a {
+    color: var(--cor-texto-secundario);
+    text-decoration: none;
+    margin-right: 20px;
+    transition: color 0.3s;
+}
+
+.rodape-links a:hover {
+    color: var(--cor-texto-principal);
+}
+
+.rodape .icones-sociais a {
+    color: var(--cor-texto-secundario);
+    font-size: 1.5rem;
+    margin-left: 20px;
+    transition: color 0.3s;
+}
+
+.rodape .icones-sociais a:hover {
+    color: var(--cor-principal-violeta);
+}
+
+@media (max-width: 768px) {
+    .cabecalho .container {
+        justify-content: center;
+    }
+
+    .secao-carrossel {
+        height: 400px;
+        border-radius: 15px;
+    }
+
+    .trilho-carrossel {
+        animation-duration: 12s; 
+    }
+
+    .overlay-conteudo h2 {
+        font-size: 2rem;
+    }
+
+    .overlay-conteudo p {
+        font-size: 0.9rem;
+    }
+
+    .btn-comprar {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+}
