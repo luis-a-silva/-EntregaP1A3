@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGames - Detalhes do Jogo</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="info_jogo_digital.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Faster+One&family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<body>
+    <header class="cabecalho">
+        <div class="logo">
+            <i class="fas fa-gamepad"></i>
+            <h1>EduGames</h1>
+        </div>
+        <div class="barra-busca">
+            <input type="text" placeholder="Procurar jogos...">
+            <button aria-label="Buscar">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <nav class="navegacao">
+            <a href="#" class="btn-entrar">Entrar</a>
+            <a href="#" class="btn-registrar">Criar Conta</a>
+            <a href="#" class="carrinho" aria-label="Ver carrinho de compras">
+                <i class="fas fa-shopping-cart"></i>
+            </a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="secao-detalhes-jogo">
+            <div class="imagem-jogo">
+                <img src="/src/assets/thewitcher3.jpg" alt="Imagem do Jogo The Witcher 3">
+            </div>
+            <div class="info-jogo">
+                <h1 class="nome-jogo">The Witcher 3: Wild Hunt</h1>
+                <p class="empresa-jogo">Empresa: <a href="#">CD PROJEKT RED *ver isso no backend*</a></p>
+                <div class="categorias-jogo">
+                    <span class="tag">Aventura</span>
+                    <span class="tag">RPG</span>
+                </div>
+                <p class="preco-jogo">R$ 129,99</p>
+                <button class="btn-comprar-grande">Comprar Agora</button>
+
+                <h2 class="titulo-descricao">Descrição completa do jogo</h2>
+                <p class="texto-descricao">
+                    Vencedor de mais de 250 prêmios de Jogo do Ano, The Witcher 3: Wild Hunt é uma aventura de mundo aberto, sombria e de fantasia, com uma história fascinante. Você é Geralt de Rívia, um mercenário caçador de monstros. À sua disposição, você tem todas as ferramentas do seu ofício: espadas afiadas, misturas letais, bestas e poderosa magia de combate.
+                </p>
+            </div>
+        </section>
+
+        <section class="secao-avaliacoes">
+            <h2 class="titulo-secao-avaliacoes">Avaliações e Comentários</h2>
+
+            <div class="avaliacao-geral">
+                <span>Avaliação Média:</span>
+                <div class="estrelas">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i> </div>
+                <span class="info-avaliacoes">(4.8 de 5) – baseada em 1.234 avaliações.</span>
+            </div>
+
+            <form class="form-avaliacao">
+                <h3>Sua Avaliação</h3>
+                <div class="campo-form-avaliacao">
+                    <label>Sua nota:</label>
+                    <div class="rating-input">
+                        <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 estrelas"></label>
+                        <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 estrelas"></label>
+                        <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 estrelas"></label>
+                        <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 estrelas"></label>
+                        <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 estrela"></label>
+                    </div>
+                </div>
+                <div class="campo-form-avaliacao">
+                    <label for="comentario">Deixe um comentário (opcional):</label>
+                    <textarea id="comentario" rows="4" placeholder="blablablablablablablabla"></textarea>
+                </div>
+                <button type="submit" class="btn-enviar-avaliacao">Enviar Avaliação</button>
+            </form>
+
+            <div class="lista-comentarios">
+                <div class="comentario-usuario">
+                    <div class="comentario-cabecalho">
+                        <span class="nome-usuario">Usuário: Jade123</span>
+                        <span class="nota-usuario">Nota: 3 ★</span>
+                    </div>
+                    <p class="texto-comentario">"Esse jogo é muito louco, recomendo apenas para os não loucos"</p>
+                </div>
+                <div class="comentario-usuario">
+                    <div class="comentario-cabecalho">
+                        <span class="nome-usuario">Usuário: Adailton123</span>
+                        <span class="nota-usuario">Nota: 5 ★</span>
+                    </div>
+                    <p class="texto-comentario">"Esse jogo é tão bom que estou há 90 dias sem dormir, só jogando ele"</p>
+                </div>
+            </div>
+
+            <div class="ver-mais">
+                <a href="#" class="btn-secundario">Carregar mais comentários</a>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="container">
+            <div class="rodape-links">
+                <a href="#">Sobre</a>
+                <a href="#">Suporte</a>
+                <a href="#">Contato</a>
+            </div>
+            <div class="icones-sociais">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
