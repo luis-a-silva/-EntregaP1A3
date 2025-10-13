@@ -1,119 +1,94 @@
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
+/* Background escuro para a página */
 body {
+  background: linear-gradient(135deg, #232946 0%, #16161a 100%);
   min-height: 100vh;
+  margin: 0;
   display: flex;
   flex-direction: column;
-  font-family: 'Segoe UI', Arial, sans-serif;
-  background: #f5f6fa;
-}
-
-header {
-  background: #2d3e50;
-  color: #fff;
-  padding: 1rem 0 0.7rem 0;
-  text-align: center;
-  font-size: 1.1rem;
-  flex-shrink: 0;
-}
-
-header nav {
-  margin-top: 0.3rem;
-}
-
-header nav a {
-  color: #fff;
-  margin: 0 1rem;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 1rem;
-}
-
-header nav a:hover {
-  text-decoration: underline;
-}
-
-footer {
-  background: #2d3e50;
-  color: #fff;
-  text-align: center;
-  padding: 0.7rem 0 0.5rem 0;
-  font-size: 0.95rem;
-  flex-shrink: 0;
 }
 
 main {
-  flex: 1 1 auto;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 0;
+  min-height: 70vh;
 }
 
-.container {
-  position: relative;
-  width: 700px;
-  max-width: 98vw;
-  min-height: 420px;
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-}
-
-.form-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
+footer {
   width: 100%;
-  height: 100%;
+  background: #232946;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  position: relative;
+  bottom: 0;
+}
+/* Wrapper centralizado no main, respeitando header/footer */
+/* Wrapper centralizado e sobreposto, só o ativo aparece */
+/* Wrapper centralizado no main, respeitando header/footer */
+.form-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 40px auto;
+  min-height: 400px;
   display: flex;
-  background: #fff;
+  align-items: center;
+  justify-content: center;
+  background: rgba(35,41,70,0.95);
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.18);
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.5s;
   z-index: 1;
+  visibility: hidden;
 }
 
+/* Só o wrapper ativo aparece */
 .form-wrapper.login-active,
 .form-wrapper.cadastrar-active {
   opacity: 1;
   pointer-events: auto;
   z-index: 2;
+  visibility: visible;
 }
 
+/* Conteúdo e imagem centralizados verticalmente */
 .form-content, .form-image {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   padding: 2.5rem;
-  min-width: 0;
+  min-width: 400px;
   min-height: 0;
   transition: order 0.6s cubic-bezier(.77,0,.18,1), background 0.3s;
 }
 
+/* Remover fundo do formulário para combinar com fundo escuro */
 .form-content {
-  background: #fff;
+  background: transparent;
 }
 
+/* Remover fundo claro da imagem */
 .form-image {
-  background: #eaf0fa;
+  background: transparent;
   align-items: center;
   justify-content: center;
 }
 
+/* Imagem centralizada e responsiva */
 .form-image img {
   width: 220px;
   max-width: 100%;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  display: block;
+  margin: 0 auto;
 }
 
 /* Transição de posição da imagem e formulário */
@@ -134,11 +109,10 @@ main {
 }
 
 /* Esconde o wrapper não ativo */
-#login-wrapper:not(.login-active) {
-  z-index: 1;
-}
+/* Esconde completamente o wrapper não ativo */
+#login-wrapper:not(.login-active),
 #cadastrar-wrapper:not(.cadastrar-active) {
-  z-index: 1;
+  display: none;
 }
 
 /* Formulário */
@@ -146,15 +120,16 @@ form {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  min-width: 350px;
 }
 form h2 {
   margin-bottom: 1rem;
-  color: #2d3e50;
+  color: #FFFFFF;;
 }
 form label {
   font-size: 0.9rem;
   font-weight: 500;
-  color: #2d3e50;
+  color: #FFFFFF;
 }
 form input[type="text"],
 form input[type="email"],
@@ -175,7 +150,7 @@ form input[type="password"]:focus {
 form input[type="submit"] {
   margin-top: 1rem;
   padding: 0.8rem;
-  background: #4a90e2;
+  background: var(--cor-principal-violeta);
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -192,6 +167,7 @@ form input[type="submit"]:hover {
   align-items: center;
   gap: 0.5rem;
   font-size: 0.98rem;
+  
 }
 .form-links button {
   background: none;
@@ -207,21 +183,24 @@ form input[type="submit"]:hover {
 
 /* Responsivo */
 @media (max-width: 800px) {
-  .container {
-    min-width: 0;
-    width: 99vw;
-    min-height: 0;
+  main {
+    min-height: 60vh;
   }
   .form-wrapper {
     flex-direction: column;
+    max-width: 98vw;
+    margin: 20px auto;
     min-width: 0;
     min-height: 0;
     height: auto;
-    position: static;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    position: relative;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.18);
+    background: rgba(35,41,70,0.98);
   }
   .form-content, .form-image {
     padding: 1.2rem;
+    align-items: center;
+    justify-content: center;
   }
   #login-wrapper .form-content,
   #cadastrar-wrapper .form-content,
