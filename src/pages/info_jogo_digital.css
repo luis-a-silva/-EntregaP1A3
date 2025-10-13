@@ -105,7 +105,6 @@ main.container {
 }
 
 
-
 .secao-avaliacoes {
     border-top: 1px solid var(--cor-borda);
     padding-top: 40px;
@@ -138,7 +137,6 @@ main.container {
 .info-avaliacoes {
     color: var(--cor-texto-secundario);
 }
-
 
 .form-avaliacao {
     background-color: var(--cor-fundo-componente);
@@ -189,10 +187,9 @@ main.container {
     transform: scale(1.05);
 }
 
-/* Sistema de Estrelas para Input */
 .rating-input {
     display: flex;
-    flex-direction: row-reverse; /* Inverte a ordem para a mágica do CSS funcionar */
+    flex-direction: row-reverse;
     justify-content: flex-end;
 }
 .rating-input input[type="radio"] {
@@ -203,7 +200,7 @@ main.container {
     color: var(--cor-borda);
     cursor: pointer;
     transition: color 0.2s;
-    margin: 0 2px !important; /* Sobrescreve o margin-bottom do label genérico */
+    margin: 0 2px !important;
 }
 .rating-input label::before {
     content: '★';
@@ -214,7 +211,6 @@ main.container {
     color: var(--cor-destaque-amarelo);
 }
 
-
 .lista-comentarios {
     margin-bottom: 40px;
 }
@@ -223,8 +219,11 @@ main.container {
     border: 1px solid var(--cor-borda);
     padding: 20px;
     border-radius: 8px;
+}
+.comentario-usuario:not(:last-child) {
     margin-bottom: 20px;
 }
+
 .comentario-cabecalho {
     display: flex;
     justify-content: space-between;
@@ -241,15 +240,50 @@ main.container {
 .texto-comentario {
     color: var(--cor-texto-secundario);
     font-style: italic;
+    padding-bottom: 5px; 
 }
 .texto-comentario::before { content: '“'; margin-right: 4px; }
 .texto-comentario::after { content: '”'; margin-left: 4px; }
+
+
+.comentario-acoes {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.btn-acao {
+    background-color: transparent;
+    border: 1px solid var(--cor-borda);
+    color: var(--cor-texto-secundario);
+    padding: 6px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-acao.btn-editar:hover {
+    background-color: var(--cor-destaque-ciano);
+    border-color: var(--cor-destaque-ciano);
+    color: var(--cor-fundo-escuro);
+}
+
+.btn-acao.btn-excluir:hover {
+    background-color: #E55757; 
+    border-color: #E55757;
+    color: var(--cor-texto-principal);
+}
+
 
 .ver-mais {
     text-align: center;
     margin-top: 50px;
 }
 
+/* --- RESPONSIVIDADE --- */
 @media (max-width: 768px) {
     .secao-detalhes-jogo {
         flex-direction: column;

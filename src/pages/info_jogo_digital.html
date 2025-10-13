@@ -6,7 +6,6 @@
     <title>EduGames - Detalhes do Jogo</title>
 
     <link rel="stylesheet" href="style.css">
-    
     <link rel="stylesheet" href="info_jogo_digital.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -39,11 +38,11 @@
     <main class="container">
         <section class="secao-detalhes-jogo">
             <div class="imagem-jogo">
-                <img src="/src/assets/thewitcher3.jpg" alt="Imagem do Jogo The Witcher 3">
+                <img src="/src/assets/thewitcher3.jpg" alt="Capa do Jogo The Witcher 3">
             </div>
             <div class="info-jogo">
                 <h1 class="nome-jogo">The Witcher 3: Wild Hunt</h1>
-                <p class="empresa-jogo">Empresa: <a href="#">CD PROJEKT RED *ver isso no backend*</a></p>
+                <p class="empresa-jogo">Empresa: <a href="#">CD PROJEKT RED</a></p>
                 <div class="categorias-jogo">
                     <span class="tag">Aventura</span>
                     <span class="tag">RPG</span>
@@ -68,7 +67,8 @@
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i> </div>
+                    <i class="fas fa-star-half-alt"></i> 
+                </div>
                 <span class="info-avaliacoes">(4.8 de 5) – baseada em 1.234 avaliações.</span>
             </div>
 
@@ -86,20 +86,25 @@
                 </div>
                 <div class="campo-form-avaliacao">
                     <label for="comentario">Deixe um comentário (opcional):</label>
-                    <textarea id="comentario" rows="4" placeholder="blablablablablablablabla"></textarea>
+                    <textarea id="comentario" rows="4" placeholder="Descreva sua experiência com o jogo..."></textarea>
                 </div>
                 <button type="submit" class="btn-enviar-avaliacao">Enviar Avaliação</button>
             </form>
 
             <div class="lista-comentarios">
-                <div class="comentario-usuario">
+                <div class="comentario-usuario" data-avaliacao-id="99">
                     <div class="comentario-cabecalho">
-                        <span class="nome-usuario">Usuário: Jade123</span>
+                        <span class="nome-usuario">Usuário: Jade123 (Você)</span>
                         <span class="nota-usuario">Nota: 3 ★</span>
                     </div>
                     <p class="texto-comentario">"Esse jogo é muito louco, recomendo apenas para os não loucos"</p>
+                    <div class="comentario-acoes">
+                        <button class="btn-acao btn-editar">Editar</button>
+                        <button class="btn-acao btn-excluir">Excluir</button>
+                    </div>
                 </div>
-                <div class="comentario-usuario">
+
+                <div class="comentario-usuario" data-avaliacao-id="101">
                     <div class="comentario-cabecalho">
                         <span class="nome-usuario">Usuário: Adailton123</span>
                         <span class="nota-usuario">Nota: 5 ★</span>
@@ -111,7 +116,6 @@
             <div class="ver-mais">
                 <a href="#" class="btn-secundario">Carregar mais comentários</a>
             </div>
-
         </section>
     </main>
 
@@ -130,5 +134,7 @@
             </div>
         </div>
     </footer>
+
+
 </body>
 </html>
