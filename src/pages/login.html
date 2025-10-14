@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduGames - Login</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="login.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Faster+One&family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EduGames - Login</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="login.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Faster+One&family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-
-</head>
-
-<body>
-  <header class="cabecalho">
+  <body>
+    <header class="cabecalho">
       <div class="logo">
         <i class="fas fa-gamepad"></i>
         <h1>EduGames</h1>
       </div>
       <div class="barra-busca">
-        <input type="text" placeholder="Procurar jogos...">
+        <input type="text" placeholder="Procurar jogos..." />
         <button aria-label="Buscar">
           <i class="fas fa-search"></i>
         </button>
@@ -35,84 +37,118 @@
           <i class="fas fa-shopping-cart"></i>
         </a>
       </nav>
-  </header>
+    </header>
 
-  <main>
-    <div class="container">
-      <!-- Login -->
-      <div class="form-wrapper login-active" id="login-wrapper">
-        <div class="form-content">
-          <form id="login-form">
-            <h2>Efetue Login!</h2>
-            <label for="email">E-mail</label>
-            <input type="email" name="email" placeholder="insira seu melhor e-mail" id="email" />
-            <label for="senha">Senha</label>
-            <input type="password" name="senha" placeholder="*********" id="senha" />
-            <input type="submit" value="Entrar" />
-            <div class="form-links">
-              <span>Não possui uma conta?</span>
-              <button type="button" onclick="showCadastrar()">
-                Cadastre-se
-              </button>
-              <span>|</span>
-              <button type="button" onclick="showRedefinirSenha()">
-                Esqueceu sua senha?
-              </button>
-            </div>
-          </form>
+    <main>
+      <div class="container">
+        <div id="alerta-centralizado"></div>
+
+        <!-- Login -->
+        <div class="form-wrapper login-active" id="login-wrapper">
+          <div class="form-content">
+            <form id="login-form">
+              <h2>Efetue Login!</h2>
+              <label for="email">E-mail</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="insira seu melhor e-mail"
+                id="email"
+              />
+              <label for="senha">Senha</label>
+              <input
+                type="password"
+                name="senha"
+                placeholder="*********"
+                id="senha"
+              />
+              <input type="submit" value="Entrar" />
+              <div class="form-links">
+                <span>Não possui uma conta?</span>
+                <button type="button" id="btn-cadastrar">Cadastre-se</button>
+                <span>|</span>
+                <button type="button" id="btn-redefinir">
+                  Esqueceu sua senha?
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="form-image">
+            <img src="/src/assets/login-img.png" alt="Login" />
+          </div>
         </div>
-        <div class="form-image">
-          <img src="/src/assets/login-img.png" alt="Login" />
+        <!-- Cadastro -->
+        <div class="form-wrapper" id="cadastrar-wrapper">
+          <div class="form-image">
+            <img src="/src/assets/register-img.png" alt="Cadastro" />
+          </div>
+          <div class="form-content">
+            <form id="cadastrar-form">
+              <h2>Cadastre-se!</h2>
+              <label for="nome">Nome</label>
+              <input
+                type="text"
+                name="nome"
+                placeholder="insira seu nome completo"
+                id="nome"
+              />
+              <label for="email-cadastro">E-mail</label>
+              <input
+                type="email"
+                name="email-cadastro"
+                placeholder="insira seu melhor e-mail"
+                id="email-cadastro"
+              />
+              <label for="senha-cadastro">Senha</label>
+              <input
+                type="password"
+                name="senha-cadastro"
+                placeholder="*********"
+                id="senha-cadastro"
+              />
+              <input type="submit" value="Cadastrar" />
+              <div class="form-links">
+                <span>Já possui uma conta?</span>
+                <button type="button" id="btn-login">Login</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <!-- Redefinir a senha -->
+        <div class="form-wrapper" id="redefinir-wrapper">
+          <div class="form-content">
+            <form id="redefinir-form">
+              <h2>Redefina sua senha!</h2>
+              <p>
+                Para redefinir sua senha é necessário entrar em contato com o
+                suporte pelo e-mail: edugames_support@email.com
+              </p>
+              <div class="form-links">
+                <span>Já possui uma conta?</span>
+                <button type="button" id="btn-voltar-login">Login</button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-      <!-- Cadastro -->
-      <div class="form-wrapper" id="cadastrar-wrapper">
-        <div class="form-image">
-          <img src="/src/assets/register-img.png" alt="Cadastro" />
+    </main>
+    <footer class="rodape">
+      <div class="container">
+        <div class="rodape-links">
+          <a href="#">Sobre</a>
+          <a href="#">Suporte</a>
+          <a href="#">Contato</a>
         </div>
-        <div class="form-content">
-          <form id="cadastrar-form">
-            <h2>Cadastre-se!</h2>
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" placeholder="insira seu nome completo" id="nome" />
-            <label for="email-cadastro">E-mail</label>
-            <input type="email" name="email-cadastro" placeholder="insira seu melhor e-mail" id="email-cadastro" />
-            <label for="senha-cadastro">Senha</label>
-            <input type="password" name="senha-cadastro" placeholder="*********" id="senha-cadastro" />
-            <input type="submit" value="Cadastrar" />
-            <div class="form-links">
-              <span>Já possui uma conta?</span>
-              <button type="button" onclick="showLogin()">Login</button>
-            </div>
-          </form>
+        &copy 2025 EduGames. Todos os direitos reservados.
+        <div class="icones-sociais">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
-    </div>
-  </main>
-  <footer class="rodape">
-    <p>&copy; 2025 EduGames. Todos os direitos reservados.</p>
-  </footer>
-  <script type="module" src="scripts/login.js"></script>
-  <script>
-    //Exibir formulários
-    function showCadastrar() {
-      document
-        .getElementById("login-wrapper")
-        .classList.remove("login-active");
-      document
-        .getElementById("cadastrar-wrapper")
-        .classList.add("cadastrar-active");
-    }
-    function showLogin() {
-      document
-        .getElementById("cadastrar-wrapper")
-        .classList.remove("cadastrar-active");
-      document.getElementById("login-wrapper").classList.add("login-active");
-    }
-    function showRedefinirSenha() {
-      alert("Funcionalidade de redefinição de senha em desenvolvimento.");
-    }
-  </script>
-</body>
-
+    </footer>
+    <script type="module" src="scripts/login.js"></script>
+  </body>
 </html>

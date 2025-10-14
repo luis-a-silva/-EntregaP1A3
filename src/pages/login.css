@@ -49,7 +49,8 @@ footer {
 
 /* Só o wrapper ativo aparece */
 .form-wrapper.login-active,
-.form-wrapper.cadastrar-active {
+.form-wrapper.cadastrar-active,
+.form-wrapper.redefinir-active {
   opacity: 1;
   pointer-events: auto;
   z-index: 2;
@@ -111,7 +112,8 @@ footer {
 /* Esconde o wrapper não ativo */
 /* Esconde completamente o wrapper não ativo */
 #login-wrapper:not(.login-active),
-#cadastrar-wrapper:not(.cadastrar-active) {
+#cadastrar-wrapper:not(.cadastrar-active),
+#redefinir-wrapper:not(.redefinir-active) {
   display: none;
 }
 
