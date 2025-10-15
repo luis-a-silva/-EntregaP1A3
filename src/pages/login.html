@@ -1,154 +1,249 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Faster+One&family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <title>EduGames - Login</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="login.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Faster+One&family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
-  </head>
+</head>
+<style>
+    /* NOVO contêiner interno, controla o espaço e as animações */
+    .form-wrapper {
+        position: relative;
+        width: 100%;
+        max-width: 900px;
+        height: 800px;
+        margin: 80px auto;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-  <body>
+    /* Contêiner base dos forms */
+    /* 🔹 Dentro da .form-container, equilibramos imagem e form */
+    .form-container {
+        position: absolute;
+        width: 100%;
+        height: max-content;
+        padding: 20px;
+        gap: 20px   ;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--cor-fundo-componente);
+        border: 1px solid var(--cor-borda);
+        border-radius: 12px;
+        transition: all 0.8s ease;
+    }
+
+    /* 🔹 Imagens maiores, mantendo responsividade */
+    .form-container img {
+        width: 100%;
+        max-width: 420px;
+        /* Tamanho máximo confortável em desktop */
+        height: auto;
+        border-radius: 12px;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+
+    /* Pequeno efeito visual ao trocar */
+    .form-container img:hover {
+        transform: scale(1.02);
+    }
+
+    /* 🔹 Formulários ocupam o mesmo espaço visual que a imagem */
+    form {
+        flex: 1;
+        min-width: 320px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    /* Transições entre os formulários */
+    .form-login-active {
+        opacity: 1;
+        transform: translateX(0);
+        z-index: 2;
+    }
+
+    .form-login-hide {
+        opacity: 0;
+        transform: translateX(-100%);
+        z-index: 1;
+    }
+
+    .form-cadastro {
+        opacity: 0;
+        transform: translateX(100%);
+        z-index: 1;
+    }
+
+    .form-cadastro-active {
+        opacity: 1;
+        transform: translateX(0);
+        z-index: 2;
+    }
+
+    .form-container,
+    form,
+    input,
+    button {
+        transition: all 0.5s ease;
+    }
+
+    /* 🔹 Contêiner de cada campo para alinhar label e input */
+    form label {
+        font-size: 0.9rem;
+        color: var(--cor-texto-secundario);
+        font-weight: 500;
+
+    }
+
+    /* 🔹 Inputs modernos */
+    form input {
+        width: 100%;
+        padding: 14px 12px;
+        font-size: 0.95rem;
+        border: 1px solid var(--cor-borda);
+        border-radius: 8px;
+        background-color: var(--cor-fundo);
+        color: var(--cor-texto-principal);
+        outline: none;
+        transition: all 0.3s ease;
+    }
+
+    /* 🔹 Destaque no foco */
+    form input:focus {
+        border-color: var(--cor-principal-violeta);
+        box-shadow: 0 0 6px rgba(130, 87, 229, 0.3);
+    }
+
+    .form-links {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.98rem;
+    }
+
+    .form-links button {
+        background: none;
+        border: none;
+        color: #4a90e2;
+        cursor: pointer;
+        font-size: 0.98rem;
+        font-weight: 800;
+        padding: 0;
+    }
+
+
+    /* 🔹 Suporte a tema claro */
+    body[data-theme="light"] form input {
+        background-color: var(--cor-fundo-componente);
+    }
+
+    body[data-theme="light"] form input:focus {
+        box-shadow: 0 0 6px rgba(107, 77, 230, 0.2);
+    }
+</style>
+
+<body>
     <header class="cabecalho">
-      <div class="logo">
-        <i class="fas fa-gamepad"></i>
-        <h1>EduGames</h1>
-      </div>
-      <div class="barra-busca">
-        <input type="text" placeholder="Procurar jogos..." />
-        <button aria-label="Buscar">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
-      <nav class="navegacao">
-        <a href="#" class="btn-entrar">Entrar</a>
-        <a href="#" class="btn-registrar">Criar Conta</a>
-        <a href="#" class="carrinho" aria-label="Ver carrinho de compras">
-          <i class="fas fa-shopping-cart"></i>
-        </a>
-      </nav>
+        <div class="logo">
+            <i class="fas fa-gamepad"></i>
+            <h1>EduGames</h1>
+        </div>
+        <div class="barra-busca">
+            <input type="text" placeholder="Procurar jogos..." />
+            <button aria-label="Buscar">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+        <nav class="navegacao">
+            <button class="btn-secundario" id="goToLogin">Entrar</button>
+            <button class="btn-primario" id="goToCadastro">Cadastre-se</button>
+            <button aria-label="Modo claro" id="whiteMode" class="btn-primario">
+                <i class="fas fa-sun"></i>
+            </button>
+
+            <button aria-label="Modo escuro" id="darkMode" class="btn-secundario" style="display: none;">
+                <i class="fas fa-moon"></i>
+            </button>
+        </nav>
     </header>
-
-    <main>
-      <div class="container">
+    <main class="main-container">
         <div id="alerta-centralizado"></div>
+        <div class="form-wrapper">
+            <!-- Form de Login -->
+            <div class="form-container form-login-active" id="container-login">
+                <div class="img-form-login">
+                    <img src="../assets/login-img.png" alt="Login">
+                </div>
+                <form id="login-form">
+                    <h2>Efetue seu login</h2>
+                    <label for="email-login">E-mail</label>
+                    <input type="email" id="email-login" placeholder="Digite seu e-mail" required>
+                    <label for="password-login">Senha</label>
+                    <input type="password" id="password-login" placeholder="Digite sua senha" required>
+                    <button type="submit" class="btn-primario">Entrar</button>
+                    <div class="form-links">
+                        <span>Não possui uma conta?</span>
+                        <button type="button" id="btn-cadastrar">Cadastre-se</button>
 
-        <!-- Login -->
-        <div class="form-wrapper login-active" id="login-wrapper">
-          <div class="form-content">
-            <form id="login-form">
-              <h2>Efetue Login!</h2>
-              <label for="email">E-mail</label>
-              <input
-                type="email"
-                name="email"
-                placeholder="insira seu melhor e-mail"
-                id="email"
-              />
-              <label for="senha">Senha</label>
-              <input
-                type="password"
-                name="senha"
-                placeholder="*********"
-                id="senha"
-              />
-              <input type="submit" value="Entrar" />
-              <div class="form-links">
-                <span>Não possui uma conta?</span>
-                <button type="button" id="btn-cadastrar">Cadastre-se</button>
-                <span>|</span>
-                <button type="button" id="btn-redefinir">
-                  Esqueceu sua senha?
-                </button>
-              </div>
-            </form>
-          </div>
-          <div class="form-image">
-            <img src="/src/assets/login-img.png" alt="Login" />
-          </div>
-        </div>
-        <!-- Cadastro -->
-        <div class="form-wrapper" id="cadastrar-wrapper">
-          <div class="form-image">
-            <img src="/src/assets/register-img.png" alt="Cadastro" />
-          </div>
-          <div class="form-content">
-            <form id="cadastrar-form">
-              <h2>Cadastre-se!</h2>
-              <label for="nome">Nome</label>
-              <input
-                type="text"
-                name="nome"
-                placeholder="insira seu nome completo"
-                id="nome"
-              />
-              <label for="email-cadastro">E-mail</label>
-              <input
-                type="email"
-                name="email-cadastro"
-                placeholder="insira seu melhor e-mail"
-                id="email-cadastro"
-              />
-              <label for="senha-cadastro">Senha</label>
-              <input
-                type="password"
-                name="senha-cadastro"
-                placeholder="*********"
-                id="senha-cadastro"
-              />
-              <input type="submit" value="Cadastrar" />
-              <div class="form-links">
-                <span>Já possui uma conta?</span>
-                <button type="button" id="btn-login">Login</button>
-              </div>
-            </form>
-          </div>
-        </div>
+                    </div>
+                </form>
+            </div>
 
-        <!-- Redefinir a senha -->
-        <div class="form-wrapper" id="redefinir-wrapper">
-          <div class="form-content">
-            <form id="redefinir-form">
-              <h2>Redefina sua senha!</h2>
-              <p>
-                Para redefinir sua senha é necessário entrar em contato com o
-                suporte pelo e-mail: edugames_support@email.com
-              </p>
-              <div class="form-links">
-                <span>Já possui uma conta?</span>
-                <button type="button" id="btn-voltar-login">Login</button>
-              </div>
-            </form>
-          </div>
+            <!-- Form de Cadastro -->
+            <div class="form-container form-cadastro" id="container-cadastro">
+                <form id="cadastrar-form">
+                    <h2>Faça seu cadastro!</h2>
+                    <label for="email-cadastro">E-mail</label>
+                    <input type="email" id="email-cadastro" placeholder="Digite seu e-mail" required>
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="Digite seu nome" required>
+                    <label for="data-nascimento">Data de nascimento</label>
+                    <input type="date" id="data-nascimento" required>
+                    <label for="password-cadastro">Senha</label>
+                    <input type="password" id="password-cadastro" placeholder="Digite sua senha" required>
+                    <label for="confirm-password-cadastro">Confirme sua senha</label>
+                    <input type="password" id="confirm-password-cadastro" placeholder="Confirme sua senha" required>
+                    <button type="submit" class="btn-primario">Cadastrar</button>
+                    <div class="form-links">
+                        <span>Já possui uma conta?</span>
+                        <button type="button" id="btn-login">Login</button>
+                    </div>
+                </form>
+                <div class="img-form-cadastro">
+                    <img src="../assets/register-img.png" alt="Cadastro">
+                </div>
+            </div>
         </div>
-      </div>
     </main>
+
+
     <footer class="rodape">
-      <div class="container">
         <div class="rodape-links">
-          <a href="#">Sobre</a>
-          <a href="#">Suporte</a>
-          <a href="#">Contato</a>
+            <a href="#">Sobre</a>
+            <a href="#">Suporte</a>
+            <a href="#">Contato</a>
         </div>
         &copy 2025 EduGames. Todos os direitos reservados.
         <div class="icones-sociais">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
         </div>
-      </div>
     </footer>
-    <script type="module" src="scripts/login.js"></script>
-  </body>
+    <script type="module" src="login.js"></script>
+</body>
+
 </html>

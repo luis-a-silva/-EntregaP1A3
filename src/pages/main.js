@@ -1,55 +1,36 @@
-//Exibir formulários 
-function showCadastrar() {
-    document.getElementById("login-wrapper").classList.remove("login-active");
-    document.getElementById("redefinir-wrapper").classList.remove("redefinir-active");
-    document.getElementById("cadastrar-wrapper").classList.add("cadastrar-active");
+// tema.js
+export function alternarModos() {
+    const body = document.body;
+    const btnWhite = document.getElementById("whiteMode");
+    const btnDark = document.getElementById("darkMode");
+
+    // 🔹 Função para aplicar tema e atualizar visibilidade dos botões
+    const aplicarTema = (tema) => {
+        if (tema === "light") {
+            body.setAttribute("data-theme", "light");
+            btnWhite.style.display = "none";
+            btnDark.style.display = "inline-flex";
+            localStorage.setItem("tema", "light");
+        } else {
+            body.removeAttribute("data-theme");
+            btnWhite.style.display = "inline-flex";
+            btnDark.style.display = "none";
+            localStorage.setItem("tema", "dark");
+        }
+    };
+
+    // 🔹 Eventos dos botões
+    btnWhite.addEventListener("click", () => aplicarTema("light"));
+    btnDark.addEventListener("click", () => aplicarTema("dark"));
 }
-function showLogin() {
-    document.getElementById("cadastrar-wrapper").classList.remove("cadastrar-active");
-    document.getElementById("redefinir-wrapper").classList.remove("redefinir-active");
-    document.getElementById("login-wrapper").classList.add("login-active");
-}
-function showRedefinirSenha() {
-    document.getElementById("cadastrar-wrapper").classList.remove("cadastrar-active");
-    document.getElementById("login-wrapper").classList.remove("login-active");
-    document.getElementById("redefinir-wrapper").classList.add("redefinir-active");
-}
 
-const btnCadastrar = document.getElementById("btn-cadastrar");
-const btnLogin = document.getElementById("btn-login");
-const btnRedefinirSenha = document.getElementById("btn-redefinir");
-const btnVoltarLogin = document.getElementById("btn-voltar-login");
+/**
+ * Exibe uma mensagem semelhante ao alert do Bootstrap.
+ * @param {string} texto - Texto da mensagem.
+ * @param {'success'|'danger'|'info'} tipo - Tipo da mensagem.
+ */
 
-btnCadastrar.addEventListener("click", showCadastrar);
-btnLogin.addEventListener("click", showLogin);
-btnRedefinirSenha.addEventListener("click", showRedefinirSenha);
-btnVoltarLogin.addEventListener("click", showLogin);
-
-const loginForm = document.getElementById("login-form");
-const cadastrarForm = document.getElementById("cadastrar-form");
-const redefinirForm = document.getElementById("redefinir-form");
-
-loginForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const email = document.getElementById("email").value;
-    const senha = document.getElementById("senha").value;
-
-    if (email === "admin@email.com.br" && senha === "admin123") {
-        mostrarMensagem("Login efetuado com sucesso!", "success");
-        setInterval(() => {
-            window.location.href = "home.html";
-        }, 3000);
-    } else {
-        mostrarMensagem("Usuário ou senha incorretos.", "danger");
-    }
-});
-
-cadastrarForm.addEventListener("submit", function (event) {
-    event.preventDefault();
-});
-
-
-function mostrarMensagem(mensagem, tipo = "info") {
+export function mostrarMensagem(mensagem, tipo = "info") {
     // Remove alerta anterior, se existir
     const alertaExistente = document.getElementById("alerta-centralizado-login");
     if (alertaExistente) alertaExistente.remove();
