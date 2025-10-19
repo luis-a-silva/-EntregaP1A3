@@ -4,6 +4,10 @@
       margin-bottom: 60px;
       align-items: flex-start;
       padding-top: 120px;
+      max-width: 1400px;
+      width: 100%;
+      margin: auto;
+      padding-bottom: 200px;
     }
 
     .imagem-jogo {
@@ -101,7 +105,11 @@
 
     .secao-avaliacoes {
       border-top: 1px solid var(--cor-borda);
-      padding-top: 40px;
+      padding-top: 50px;
+      max-width: 1400px;
+      width: 100%;
+      margin: auto;
+      
     }
 
     .titulo-secao-avaliacoes {
@@ -290,4 +298,5 @@
     .ver-mais {
       text-align: center;
       margin-top: 50px;
+      margin-bottom: 50px;
     }
