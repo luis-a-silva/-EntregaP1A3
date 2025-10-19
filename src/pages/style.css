@@ -300,13 +300,12 @@ header {
     color: var(--cor-principal-violeta);
 }
 
-/* Responsive adjustments: header + sidebar + main flow */
+/* ajustes principais para tablet e celular, ainda em desenvolvimento */
 @media (max-width: 900px) {
   header {
     position: relative;
     height: auto;
-    min-height: auto;
-    top: 0;
+    padding: 12px;
   }
 
   .sidebar {
@@ -315,141 +314,56 @@ header {
     left: 0;
     bottom: auto;
     width: 100%;
-    height: auto;
     border-right: none;
     border-top: 1px solid var(--cor-borda);
     padding: 14px;
-    z-index: 1;
     margin-bottom: 8px;
   }
 
-  .cabecalho .logo {
-    gap: 8px;
-  }
-
-  .cabecalho .logo h1 {
-    font-size: 1.4rem;
+  .container {
+    margin-left: 0; 
+    padding-top: calc(var(--altura-header) + 8px);
   }
 
   .cabecalho .barra-busca {
-    order: 2;
     width: 100%;
-    max-width: none;
-    display: flex;
+    order: 2;
+    margin-top: 8px;
   }
 
-  .cabecalho .barra-busca input {
-    padding: 10px 12px;
-    font-size: 0.9rem;
-  }
-
-  .cabecalho .barra-busca button {
-    padding: 10px 12px;
-  }
-
-  /* make nav buttons wrap and shrink on small screens */
   .navegacao {
-    display: flex;
+    order: 3;
+    justify-content: flex-end;
     gap: 8px;
     flex-wrap: wrap;
-    justify-content: flex-end;
-    order: 3;
-    width: 100%;
   }
 
   .btn-primario, .btn-secundario {
     padding: 10px 14px;
-    font-size: 0.88rem;
-  }
-
-  /* remove fixed left margin so content fills width */
-  .container {
-    margin-left: 0;
-    padding: 12px;
-  }
-
-  /* sidebar becomes a full-width block below header (not overlapping content) */
-  .sidebar {
-    position: relative;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: auto;
-    border-right: none;
-    border-top: 1px solid var(--cor-borda);
-    padding: 14px;
-    z-index: 1;
-    margin-bottom: 8px;
-  }
-
-  /* keep dropdowns readable on small screens */
-  .dropdown-btn {
-    padding: 10px 0;
     font-size: 0.95rem;
-  }
-
-  .dropdown-list {
-    padding-left: 0.6rem;
-  }
-
-  .rodape-links {
-    margin-left: 0;
-    width: 100%;
-    text-align: center;
   }
 }
 
-@media (max-width: 480px) {
-  header {
-    padding: 10px;
-  }
-
-  .cabecalho .logo h1 {
-    font-size: 1.2rem;
-  }
+@media (max-width: 600px) {
+  .cabecalho .logo h1 { font-size: 1.2rem; }
+  .cabecalho .logo i { font-size: 1.4rem; }
 
   .cabecalho .barra-busca input {
-    font-size: 0.85rem;
-    padding: 10px;
-  }
-
-  .navegacao {
-    justify-content: center;
-  }
-
-  .btn-primario, .btn-secundario {
     padding: 8px 10px;
-    font-size: 0.82rem;
+    font-size: 0.9rem;
   }
 
-  /* reduce sidebar paddings and font sizes */
-  .sidebar {
-    padding: 10px;
-  }
+  .sidebar { padding: 12px; }
+  .sidebar h3 { font-size: 1rem; }
 
-  .sidebar h3 {
-    font-size: 1rem;
-  }
+  .btn-primario, .btn-secundario { padding: 8px 12px; font-size: 0.9rem; }
+}
 
-  /* ensure cards and grids are single-column on narrow screens */
-  .oferta-grid,
-  .top10-grid,
-  .grade-jogos {
-    grid-template-columns: 1fr;
-    gap: 14px;
-  }
 
-  /* smaller hero spacing */
-  .hero-minimal {
-    padding: 20px 12px;
-    margin: 18px 0;
-  }
-
-  .hero-minimal h2 {
-    font-size: 1.4rem;
-  }
-
-  .hero-minimal p {
-    font-size: 0.92rem;
-  }
+@media (max-width: 420px) {
+  header { padding: 10px; }
+  .cabecalho .barra-busca { display: none; } 
+  .navegacao { gap: 6px; }
+  .logo h1 { font-size: 1rem; }
+  .container { padding: 8px; }
 }

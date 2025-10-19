@@ -456,3 +456,41 @@
       .btn-adicionar-carrinho:active {
         transform: scale(0.95);
       }
+
+      /* ajustes principais para responsividade: grids, cards e hero, para tablet e celular, ainda em desenvolvimento  */ 
+@media (max-width: 900px) {
+  .container {
+    margin-left: 0;
+    min-height: auto;
+    padding-top: calc(var(--altura-header) + 12px);
+  }
+
+  .hero-minimal {
+    flex-direction: column;
+    padding: 28px 12px;
+  }
+
+  .oferta-grid, .top10-grid {
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .carousel-card { min-width: 200px; }
+}
+
+@media (max-width: 600px) {
+  .oferta-grid, .top10-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .oferta-card img { height: 140px; }
+  .top10-card img { height: 180px; }
+  .carousel-card img { height: 220px; }
+}
+
+@media (max-width: 420px) {
+  .hero-minimal h2 { font-size: 1.4rem; }
+  .btn-primario.small, .btn-secundario.small { padding: 6px 8px; font-size: 0.85rem; }
+  .oferta-info, .top10-info, .carousel-info { padding: 12px; }
+}
