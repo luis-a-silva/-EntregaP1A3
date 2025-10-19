@@ -1,13 +1,14 @@
 .form-wrapper {
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 1200px;
   height: 800px;
   margin: 0 auto;
   overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 180px;
 }
 
 
@@ -24,6 +25,7 @@
   border: 1px solid var(--cor-borda);
   border-radius: 12px;
   transition: all 0.8s ease;
+  
 }
 
 .left-decor {
@@ -141,44 +143,47 @@ body[data-theme="light"] form input:focus {
 }
 
 .torres-direita {
-  position: absolute;
-  right: 1%; 
-  top: 80%; 
+  position: fixed;        
+  right: 2%;
+  top: 50%;
   transform: translateY(-50%);
   display: flex;
-  flex-direction: row; 
   gap: -20px;
+  z-index: 0;             
+  pointer-events: none;
+}
+
+
+.torre-1,
+.torre-2 {
+  position: relative;
+  transition: transform 0.5s ease;
+}
+
+
+.torre-1 {
+  width: 140px;           
+  max-width: 18vw;        
+  height: auto;
+  max-height: 60vh;       
+  object-fit: contain;    
+  border-radius: 8px;
   z-index: 0;
-  pointer-events: none; 
-}
-
-.torre-1 {
-  width: 120px; 
-  height: auto;
-  border-radius: 8px;
-  object-fit: cover;
-  transition: transform 0.5s ease;
 }
 
 .torre-2 {
-  width: 120px; 
+  width: 200px;          
+  max-width: 25vw;
   height: auto;
+  max-height: 70vh;
+  margin-left: -18px;
+  object-fit: contain;
   border-radius: 8px;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.torre-1 {
-  z-index: 1; 
-}
-
-.torre-2 {
-  z-index: 2; 
-  margin-left: -15px; 
+  z-index: 0;
 }
 
 .torres-direita img:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
 
