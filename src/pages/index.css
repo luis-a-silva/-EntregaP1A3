@@ -289,7 +289,7 @@
       }
 
       .carousel-card {
-        min-width: 300px;
+        min-width: 250px;
         background-color: var(--cor-fundo-componente);
         border-radius: 15px;
         overflow: hidden;
@@ -425,7 +425,6 @@
         font-size: 1.3rem;
         font-weight: 700;
         color: var(--cor-destaque-ciano);
-        margin-bottom: 15px;
       }
 
       .btn-adicionar-carrinho {
