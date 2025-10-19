@@ -1,765 +1,695 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduGames - Sua Loja de Jogos Digitais</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Faster+One&family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="index.css">
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EduGames - Sua Loja de Jogos Digitais</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Faster+One&family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="style.css">
-  <style>
-    /* Main Content */
-    .container {
-      margin-left: 260px;
-      min-height: calc(100vh - 200px);
-    }
+  <body>
+    <header class="cabecalho">
+      <a href="index.html" class="logo">
+        <i class="fas fa-gamepad"></i>
+        <h1>EduGames</h1>
+      </a>
+      <div class="barra-busca">
+        <input type="text" placeholder="Procurar jogos..." />
+        <button aria-label="Buscar">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <nav class="navegacao">
+        <button class="btn-secundario" id="goToLogin">Entrar</button>
+        <button class="btn-primario" id="goToCadastro">Cadastre-se</button>
+        <button aria-label="Modo claro" id="whiteMode" class="btn-primario">
+          <i class="fas fa-sun"></i>
+        </button>
 
-    /* Hero Banner */
-    .hero-banner {
-      width: 100%;
-      height: 400px;
-      overflow: hidden;
-    }
+        <button
+          aria-label="Modo escuro"
+          id="darkMode"
+          class="btn-secundario"
+          style="display: none"
+        >
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+    </header>
 
-    .hero-content {
-      width: 100%;
-      margin-top: 100px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg, var(--cor-principal-violeta) 0%, #667eea 100%);
-    }
+    <aside class="sidebar" id="sidebar">
+      <h3>Categorias</h3>
+      <div class="dropdown">
+        <button class="dropdown-btn">
+          Plataformas <i class="fas fa-chevron-down"></i>
+        </button>
+        <ul class="dropdown-list">
+          <li><a href="#">PC</a></li>
+          <li><a href="#">PlayStation</a></li>
+          <li><a href="#">Xbox</a></li>
+          <li><a href="#">Nintendo</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="dropdown-btn">
+          Gêneros <i class="fas fa-chevron-down"></i>
+        </button>
+        <ul class="dropdown-list">
+          <li><a href="#">Ação</a></li>
+          <li><a href="#">RPG</a></li>
+          <li><a href="#">Corrida</a></li>
+          <li><a href="#">Simulação</a></li>
+          <li><a href="#">Terror</a></li>
+          <li><a href="#">Aventura</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="dropdown-btn">
+          Faixa de Preço <i class="fas fa-chevron-down"></i>
+        </button>
+        <ul class="dropdown-list">
+          <li><a href="#">Até R$ 50</a></li>
+          <li><a href="#">R$ 50 - R$ 150</a></li>
+          <li><a href="#">R$ 150 - R$ 300</a></li>
+          <li><a href="#">Acima de R$ 300</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="dropdown-btn">
+          Avaliações <i class="fas fa-chevron-down"></i>
+        </button>
+        <ul class="dropdown-list">
+          <li><a href="#">★★★★★ (5 estrelas)</a></li>
+          <li><a href="#">★★★★☆ (4 estrelas)</a></li>
+          <li><a href="#">★★★☆☆ (3 estrelas)</a></li>
+        </ul>
+      </div>
+    </aside>
 
-    .hero-text {
-      align-items: center;
-      text-align: center;
-      z-index: 2;
-      padding: 40px;
-    }
-
-    .hero-text h2 {
-      font-size: 4rem;
-      color: #FFFFFF;
-      margin-bottom: 20px;
-      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-text p {
-      font-size: 1.5rem;
-      color: #FFFFFF;
-      margin-bottom: 30px;
-      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-text .btn-hero {
-      display: inline-block;
-      background-color: var(--cor-destaque-amarelo);
-      color: #000000;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-      padding: 15px 40px;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      transition: all 0.3s ease;
-    }
-
-    .hero-text .btn-hero:hover {
-      transform: translateY(-3px);
-      border: var(--cor-fundo-escuro) 2px solid;
-    }
-
-    /* Section Title */
-    .titulo-secao {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .titulo-secao .subtitulo {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--cor-destaque-amarelo);
-      margin-bottom: 10px;
-      display: block;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-    }
-
-    .titulo-secao h2 {
-      font-family: var(--fonte-destaque);
-      font-size: 2.5rem;
-      color: var(--cor-texto-principal);
-    }
-
-    /* Top 10 Section */
-    .top10-section {
-      margin-bottom: 80px;
-      padding: 0 20px;
-    }
-
-    .top10-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 25px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .top10-card {
-      background-color: var(--cor-fundo-componente);
-      border-radius: 15px;
-      overflow: hidden;
-      border: 2px solid var(--cor-borda);
-      transition: all 0.3s;
-      cursor: pointer;
-      position: relative;
-    }
-
-    .top10-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--cor-principal-violeta);
-      box-shadow: 0 15px 40px rgba(130, 87, 229, 0.3);
-    }
-
-    .top10-rank {
-      position: absolute;
-      top: 15px;
-      left: 15px;
-      background: var(--cor-principal-violeta);
-      color: var(--cor-fundo-escuro);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 1.3rem;
-      z-index: 2;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .top10-card img {
-      width: 100%;
-      height: 280px;
-      object-fit: cover;
-      transition: transform 0.3s;
-    }
-
-    .top10-card:hover img {
-      transform: scale(1.1);
-    }
-
-    .top10-info {
-      padding: 20px;
-    }
-
-    .top10-info h3 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-      color: var(--cor-texto-principal);
-    }
-
-    .top10-info .rating {
-      color: var(--cor-destaque-amarelo);
-      margin-bottom: 8px;
-      font-size: 0.9rem;
-    }
-
-    .top10-info .preco {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--cor-destaque-ciano);
-    }
-
-    /* Carousel Section */
-    .carousel-section {
-      margin-bottom: 80px;
-      position: relative;
-      padding: 0 20px;
-    }
-
-    .carousel-container {
-      position: relative;
-      overflow: hidden;
-      border-radius: 15px;
-    }
-
-    .carousel-track {
-      display: flex;
-      gap: 20px;
-      transition: transform 0.5s ease;
-      padding: 10px 0;
-    }
-
-    .carousel-card {
-      min-width: 300px;
-      background-color: var(--cor-fundo-componente);
-      border-radius: 15px;
-      overflow: hidden;
-      border: 2px solid var(--cor-borda);
-      transition: all 0.3s;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    .carousel-card:hover {
-      transform: translateY(-5px);
-      border-color: var(--cor-principal-violeta);
-      box-shadow: 0 10px 30px rgba(130, 87, 229, 0.3);
-    }
-
-    .carousel-card img {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-    }
-
-    .carousel-info {
-      padding: 20px;
-    }
-
-    .carousel-info h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .carousel-info .preco {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--cor-destaque-ciano);
-    }
-
-    .carousel-info .tag {
-      display: inline-block;
-      background-color: var(--cor-principal-violeta);
-      color: white;
-      padding: 4px 12px;
-      border-radius: 15px;
-      font-size: 0.8rem;
-      margin-top: 10px;
-      font-weight: 600;
-    }
-
-    .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(130, 87, 229, 0.9);
-      color: white;
-      border: none;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s;
-      z-index: 10;
-    }
-
-    .carousel-btn:hover {
-      background-color: var(--cor-principal-violeta);
-      transform: translateY(-50%) scale(1.1);
-    }
-
-    .carousel-btn.prev {
-      left: 10px;
-    }
-
-    .carousel-btn.next {
-      right: 10px;
-    }
-
-    /* Games Grid */
-    .games-section {
-      margin-bottom: 80px;
-      padding: 0 20px;
-    }
-
-    .grade-jogos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
-      max-width: 1400px;
-      margin: 0 auto;
-    }
-
-    .cartao-jogo {
-      background-color: var(--cor-fundo-componente);
-      border-radius: 15px;
-      overflow: hidden;
-      border: 2px solid var(--cor-borda);
-      transition: all 0.3s;
-      position: relative;
-      cursor: pointer;
-    }
-
-    .cartao-jogo:hover {
-      transform: translateY(-8px);
-      border-color: var(--cor-principal-violeta);
-      box-shadow: 0 15px 40px rgba(130, 87, 229, 0.3);
-    }
-
-    .cartao-jogo img {
-      width: 100%;
-      height: 350px;
-      object-fit: cover;
-      transition: transform 0.3s;
-    }
-
-    .cartao-jogo:hover img {
-      transform: scale(1.05);
-    }
-
-    .cartao-jogo .info-jogo {
-      padding: 20px;
-    }
-
-    .cartao-jogo h3 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .cartao-jogo .preco {
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--cor-destaque-ciano);
-      margin-bottom: 15px;
-    }
-
-    .btn-adicionar-carrinho {
-      background-color: var(--cor-destaque-amarelo);
-      color: #000000;
-      border: none;
-      font-size: 1.2rem;
-      padding: 12px;
-      cursor: pointer;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s;
-      position: absolute;
-      bottom: 20px;
-      right: 20px;
-      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
-    }
-
-    .btn-adicionar-carrinho:hover {
-      transform: scale(1.15);
-      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
-    }
-
-    .btn-adicionar-carrinho:active {
-      transform: scale(0.95);
-    }
-  </style>
-</head>
-
-<body>
-  <header class="cabecalho">
-    <div class="logo">
-      <i class="fas fa-gamepad"></i>
-      <h1>EduGames</h1>
-    </div>
-    <div class="barra-busca">
-      <input type="text" placeholder="Procurar jogos..." />
-      <button aria-label="Buscar">
-        <i class="fas fa-search"></i>
-      </button>
-    </div>
-    <nav class="navegacao">
-      <button class="btn-secundario" id="goToLogin">Entrar</button>
-      <button class="btn-primario" id="goToCadastro">Cadastre-se</button>
-      <button aria-label="Modo claro" id="whiteMode" class="btn-primario">
-        <i class="fas fa-sun"></i>
-      </button>
-
-      <button aria-label="Modo escuro" id="darkMode" class="btn-secundario" style="display: none;">
-        <i class="fas fa-moon"></i>
-      </button>
-    </nav>
-  </header>
-
-  <aside class="sidebar" id="sidebar">
-    <h3>Categorias</h3>
-    <div class="dropdown">
-      <button class="dropdown-btn">Plataformas <i class="fas fa-chevron-down"></i></button>
-      <ul class="dropdown-list">
-        <li><a href="#">PC</a></li>
-        <li><a href="#">PlayStation</a></li>
-        <li><a href="#">Xbox</a></li>
-        <li><a href="#">Nintendo</a></li>
-      </ul>
-    </div>
-    <div class="dropdown">
-      <button class="dropdown-btn">Gêneros <i class="fas fa-chevron-down"></i></button>
-      <ul class="dropdown-list">
-        <li><a href="#">Ação</a></li>
-        <li><a href="#">RPG</a></li>
-        <li><a href="#">Corrida</a></li>
-        <li><a href="#">Simulação</a></li>
-        <li><a href="#">Terror</a></li>
-        <li><a href="#">Aventura</a></li>
-      </ul>
-    </div>
-    <div class="dropdown">
-      <button class="dropdown-btn">Faixa de Preço <i class="fas fa-chevron-down"></i></button>
-      <ul class="dropdown-list">
-        <li><a href="#">Até R$ 50</a></li>
-        <li><a href="#">R$ 50 - R$ 150</a></li>
-        <li><a href="#">R$ 150 - R$ 300</a></li>
-        <li><a href="#">Acima de R$ 300</a></li>
-      </ul>
-    </div>
-    <div class="dropdown">
-      <button class="dropdown-btn">Avaliações <i class="fas fa-chevron-down"></i></button>
-      <ul class="dropdown-list">
-        <li><a href="#">★★★★★ (5 estrelas)</a></li>
-        <li><a href="#">★★★★☆ (4 estrelas)</a></li>
-        <li><a href="#">★★★☆☆ (3 estrelas)</a></li>
-      </ul>
-    </div>
-  </aside>
-
-  <main>
-    <div class="container">
-      <!-- Hero Banner -->
-      <section class="hero-banner">
-        <div class="hero-content">
+    <main>
+      <div class="container">
+        <!-- Hero Banner (minimal) -->
+        <section class="hero-banner hero-minimal">
           <div class="hero-text">
             <h2>Bem-vindo ao EduGames</h2>
-            <p>Descubra os melhores jogos digitais com os melhores preços!</p>
-            <a href="#top10" class="btn-hero">Ver Top 10</a>
-          </div>
-        </div>
-      </section>
-
-      <!-- Top 10 Section -->
-      <section class="top10-section" id="top10">
-        <div class="titulo-secao">
-          <span class="subtitulo">OS MAIS VENDIDOS</span>
-          <h2>Top 10 Jogos</h2>
-        </div>
-        <div class="top10-grid">
-          <div class="top10-card">
-            <div class="top10-rank">1</div>
-            <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=300&fit=crop"
-              alt="Jogo em primeiro lugar" />
-            <div class="top10-info">
-              <h3>Elden Ring</h3>
-              <div class="rating">★★★★★ (4.9)</div>
-              <p class="preco">R$ 249,90</p>
+            <p>Jogos, ofertas e lançamentos — encontre o melhor para você.</p>
+            <div class="hero-nav" role="navigation" aria-label="Guia da página">
+              <a href="#lancamentos" class="btn-secundario">Lançamentos</a>
+              <a href="#top10" class="btn-secundario">Top 10</a>
+              <a href="#ofertas" class="btn-secundario">Ofertas</a>
             </div>
           </div>
-          <div class="top10-card">
-            <div class="top10-rank">2</div>
-            <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&h=300&fit=crop"
-              alt="Jogo em segundo lugar" />
-            <div class="top10-info">
-              <h3>Cyberpunk 2077</h3>
-              <div class="rating">★★★★☆ (4.5)</div>
-              <p class="preco">R$ 199,99</p>
-            </div>
+        </section>
+        <div id="statusRegion"></div>
+        <!-- Ofertas Section -->
+        <section class="ofertas-section" id="ofertas">
+          <div class="titulo-secao">
+            <span class="subtitulo">PROMOÇÕES</span>
+            <h2>Ofertas Imperdíveis</h2>
           </div>
-          <div class="top10-card">
-            <div class="top10-rank">3</div>
-            <img src="https://images.unsplash.com/photo-1556438064-2d7646166914?w=400&h=300&fit=crop"
-              alt="Jogo em terceiro lugar" />
-            <div class="top10-info">
-              <h3>God of War Ragnarök</h3>
-              <div class="rating">★★★★★ (4.8)</div>
-              <p class="preco">R$ 299,90</p>
-            </div>
-          </div>
-          <div class="top10-card">
-            <div class="top10-rank">4</div>
-            <img src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=400&h=300&fit=crop"
-              alt="Jogo em quarto lugar" />
-            <div class="top10-info">
-              <h3>The Witcher 3</h3>
-              <div class="rating">★★★★★ (4.9)</div>
-              <p class="preco">R$ 149,90</p>
-            </div>
-          </div>
-          <div class="top10-card">
-            <div class="top10-rank">5</div>
-            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop"
-              alt="Jogo em quinto lugar" />
-            <div class="top10-info">
-              <h3>Hogwarts Legacy</h3>
-              <div class="rating">★★★★☆ (4.6)</div>
-              <p class="preco">R$ 279,90</p>
-            </div>
-          </div>
-          <div class="top10-card">
-            <div class="top10-rank">6</div>
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop"
-              alt="Jogo em sexto lugar" />
-            <div class="top10-info">
-              <h3>Spider-Man 2</h3>
-              <div class="rating">★★★★★ (4.8)</div>
-              <p class="preco">R$ 349,90</p>
-            </div>
-          </div>
-          <div class="top10-card">
-            <div class="top10-rank">7</div>
-            <img src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=400&h=300&fit=crop"
-              alt="Jogo em sétimo lugar" />
-            <div class="top10-info">
-              <h3>Red Dead Redemption 2</h3>
-              <div class="rating">★★★★★ (4.9)</div>
-              <p class="preco">R$ 189,90</p>
-            </div>
-          </div>
-          <div class="top10-card">
-            <div class="top10-rank">8</div>
-            <img src="https://images.unsplash.com/photo-1580327344181-c1163234e5a0?w=400&h=300&fit=crop"
-              alt="Jogo em oitavo lugar" />
-            <div class="top10-info">
-              <h3>Starfield</h3>
-              <div class="rating">★★★★☆ (4.4)</div>
-              <p class="preco">R$ 299,90</p>
-            </div>
-          </div>
-          <div class="top10-card">
-            <div class="top10-rank">9</div>
-            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=400&h=300&fit=crop"
-              alt="Jogo em nono lugar" />
-            <div class="top10-info">
-              <h3>Baldur's Gate 3</h3>
-              <div class="rating">★★★★★ (4.9)</div>
-              <p class="preco">R$ 229,90</p>
-            </div>
-          </div>
-          <div class="top10-card">
-            <div class="top10-rank">10</div>
-            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop"
-              alt="Jogo em décimo lugar" />
-            <div class="top10-info">
-              <h3>Resident Evil 4</h3>
-              <div class="rating">★★★★★ (4.7)</div>
-              <p class="preco">R$ 249,90</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Carousel Section -->
-      <section class="carousel-section">
-        <div class="titulo-secao">
-          <span class="subtitulo">ACABARAM DE CHEGAR</span>
-          <h2>Novos Lançamentos</h2>
-        </div>
-        <div class="carousel-container">
-          <button class="carousel-btn prev" aria-label="Anterior">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          <div class="carousel-track" id="carouselTrack">
-            <div class="carousel-card">
-
-              <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&h=400&fit=crop"
-                alt="Novo lançamento 1" />
-              <div class="carousel-info">
-                <h3>Final Fantasy XVI</h3>
-                <p class="preco">R$ 349,90</p>
-                <span class="tag">Lançamento</span>
+          <div class="oferta-grid">
+            <div class="oferta-card">
+              <img
+                src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=450&fit=crop"
+                alt="Oferta 1"
+              />
+              <div class="oferta-info">
+                <h3>Diablo IV - Edição Standard</h3>
+                <p class="preco">
+                  <span class="antigo">R$ 279,90</span> R$ 119,90
+                </p>
+                <a class="btn-comprar" href="#comprar">Comprar</a>
               </div>
             </div>
-            <div class="carousel-card">
-
-              <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=400&fit=crop"
-                alt="Novo lançamento 2" />
-              <div class="carousel-info">
-                <h3>Alan Wake 2</h3>
-                <p class="preco">R$ 299,90</p>
-                <span class="tag">Lançamento</span>
+            <div class="oferta-card">
+              <img
+                src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=800&h=450&fit=crop"
+                alt="Oferta 2"
+              />
+              <div class="oferta-info">
+                <h3>Elden Ring - Complete</h3>
+                <p class="preco">
+                  <span class="antigo">R$ 249,90</span> R$ 149,90
+                </p>
+                <a class="btn-comprar" href="#comprar">Comprar</a>
               </div>
             </div>
-            <div class="carousel-card">
-
-              <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=400&fit=crop"
-                alt="Novo lançamento 3" />
-              <div class="carousel-info">
-                <h3>Assassin's Creed Mirage</h3>
-                <p class="preco">R$ 279,90</p>
-                <span class="tag">Lançamento</span>
-              </div>
-            </div>
-            <div class="carousel-card">
-
-              <img src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=400&h=400&fit=crop"
-                alt="Novo lançamento 4" />
-              <div class="carousel-info">
-                <h3>Mortal Kombat 1</h3>
-                <p class="preco">R$ 329,90</p>
-                <span class="tag">Lançamento</span>
-              </div>
-            </div>
-            <div class="carousel-card">
-
-              <img src="https://images.unsplash.com/photo-1556438064-2d7646166914?w=400&h=400&fit=crop"
-                alt="Novo lançamento 5" />
-              <div class="carousel-info">
-                <h3>Lies of P</h3>
-                <p class="preco">R$ 249,90</p>
-                <span class="tag">Lançamento</span>
-              </div>
-            </div>
-            <div class="carousel-card">
-
-              <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=400&fit=crop"
-                alt="Novo lançamento 6" />
-              <div class="carousel-info">
-                <h3>Payday 3</h3>
-                <p class="preco">R$ 199,90</p>
-                <span class="tag">Lançamento</span>
+            <div class="oferta-card">
+              <img
+                src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=800&h=450&fit=crop"
+                alt="Oferta 3"
+              />
+              <div class="oferta-info">
+                <h3>Forza Motorsport</h3>
+                <p class="preco">
+                  <span class="antigo">R$ 349,90</span> R$ 179,90
+                </p>
+                <a class="btn-comprar" href="#comprar">Comprar</a>
               </div>
             </div>
           </div>
-          <button class="carousel-btn next" aria-label="Próximo">
-            <i class="fas fa-chevron-right"></i>
-          </button>
-        </div>
-      </section>
+        </section>
 
-      <!-- Games Grid Section -->
-      <section class="games-section">
-        <div class="titulo-secao">
-          <span class="subtitulo">CONFIRA TAMBÉM</span>
-          <h2>Todos os Jogos</h2>
-        </div>
-        <div class="grade-jogos">
-          <div class="cartao-jogo">
-            <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&h=400&fit=crop"
-              alt="Capa do jogo" />
-            <div class="info-jogo">
-              <h3>Street Fighter 6</h3>
-              <p class="preco">R$ 299,90</p>
-            </div>
-            <button class="btn-adicionar-carrinho" aria-label="Adicionar ao carrinho">
-              <i class="fas fa-shopping-cart"></i>
-            </button>
+        <!-- Top 10 Section -->
+        <section class="top10-section" id="top10">
+          <div class="titulo-secao">
+            <span class="subtitulo">OS MAIS VENDIDOS</span>
+            <h2>Top 10 Jogos</h2>
           </div>
-          <div class="cartao-jogo">
-            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=400&fit=crop"
-              alt="Capa do jogo" />
-            <div class="info-jogo">
-              <h3>Diablo IV</h3>
-              <p class="preco">R$ 279,90</p>
+          <div class="top10-grid">
+            <div class="top10-card">
+              <div class="top10-rank">1</div>
+              <img
+                src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=300&fit=crop"
+                alt="Jogo em primeiro lugar"
+              />
+              <div class="top10-info">
+                <h3>Elden Ring</h3>
+                <div class="rating">★★★★★ (4.9)</div>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 249,90</p>
+                  <button class="btn-comprar" aria-label="Comprar Elden Ring">
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
             </div>
-            <button class="btn-adicionar-carrinho" aria-label="Adicionar ao carrinho">
-              <i class="fas fa-shopping-cart"></i>
-            </button>
-          </div>
-          <div class="cartao-jogo">
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=400&fit=crop"
-              alt="Capa do jogo" />
-            <div class="info-jogo">
-              <h3>Forza Motorsport</h3>
-              <p class="preco">R$ 349,90</p>
-            </div>
-            <button class="btn-adicionar-carrinho" aria-label="Adicionar ao carrinho">
-              <i class="fas fa-shopping-cart"></i>
-            </button>
-          </div>
-          <div class="cartao-jogo">
-            <img src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=400&h=400&fit=crop"
-              alt="Capa do jogo" />
-            <div class="info-jogo">
-              <h3>Tekken 8</h3>
-              <p class="preco">R$ 329,90</p>
-            </div>
-            <button class="btn-adicionar-carrinho" aria-label="Adicionar ao carrinho">
-              <i class="fas fa-shopping-cart"></i>
-            </button>
-          </div>
-          <div class="cartao-jogo">
-            <img src="https://images.unsplash.com/photo-1556438064-2d7646166914?w=400&h=400&fit=crop"
-              alt="Capa do jogo" />
-            <div class="info-jogo">
-              <h3>Dragon's Dogma 2</h3>
-              <p class="preco">R$ 299,90</p>
-            </div>
-            <button class="btn-adicionar-carrinho" aria-label="Adicionar ao carrinho">
-              <i class="fas fa-shopping-cart"></i>
-            </button>
-          </div>
-          <div class="cartao-jogo">
-            <img src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=400&fit=crop"
-              alt="Capa do jogo" />
-            <div class="info-jogo">
-              <h3>Cities: Skylines II</h3>
-              <p class="preco">R$ 249,90</p>
-            </div>
-            <button class="btn-adicionar-carrinho" aria-label="Adicionar ao carrinho">
-              <i class="fas fa-shopping-cart"></i>
-            </button>
-          </div>
-          <div class="cartao-jogo">
-            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop"
-              alt="Capa do jogo" />
-            <div class="info-jogo">
-              <h3>Persona 5 Tactica</h3>
-              <p class="preco">R$ 279,90</p>
-            </div>
-            <button class="btn-adicionar-carrinho" aria-label="Adicionar ao carrinho">
-              <i class="fas fa-shopping-cart"></i>
-            </button>
-          </div>
-          <div class="cartao-jogo">
-            <img src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=400&h=300&fit=crop"
-              alt="Capa do jogo" />
-            <div class="info-jogo">
-              <h3>Like a Dragon: Infinite</h3>
-              <p class="preco">R$ 299,90</p>
-            </div>
-            <button class="btn-adicionar-carrinho" aria-label="Adicionar ao carrinho">
-              <i class="fas fa-shopping-cart"></i>
-            </button>
-          </div>
-          <div class="cartao-jogo">
-            <img src="https://images.unsplash.com/photo-1580327344181-c1163234e5a0?w=400&h=300&fit=crop"
-              alt="Capa do jogo" />
-            <div class="info-jogo">
-              <h3>Sonic Superstars</h3>
-              <p class="preco">R$ 199,90</p>
-            </div>
-            <button class="btn-adicionar-carrinho" aria-label="Adicionar ao carrinho">
-              <i class="fas fa-shopping-cart"></i>
-            </button>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
-  <footer class="rodape">
-    <div class="rodape-links">
-      <a href="#">Sobre</a>
-      <a href="#">Suporte</a>
-      <a href="#">Contato</a>
-    </div>
-    &copy 2025 EduGames. Todos os direitos reservados.
-    <div class="icones-sociais">
-      <a href="#"><i class="fab fa-facebook-f"></i></a>
-      <a href="#"><i class="fab fa-twitter"></i></a>
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
-    </div>
-  </footer>
 
-  <script type="module" src="index.js"></script>
-</body>
+            <div class="top10-card">
+              <div class="top10-rank">2</div>
+              <img
+                src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&h=300&fit=crop"
+                alt="Jogo em segundo lugar"
+              />
+              <div class="top10-info">
+                <h3>Cyberpunk 2077</h3>
+                <div class="rating">★★★★☆ (4.5)</div>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 199,99</p>
+                  <button
+                    class="btn-comprar"
+                    aria-label="Comprar Cyberpunk 2077"
+                  >
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
 
+            <div class="top10-card">
+              <div class="top10-rank">3</div>
+              <img
+                src="https://images.unsplash.com/photo-1556438064-2d7646166914?w=400&h=300&fit=crop"
+                alt="Jogo em terceiro lugar"
+              />
+              <div class="top10-info">
+                <h3>God of War Ragnarök</h3>
+                <div class="rating">★★★★★ (4.8)</div>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 299,90</p>
+                  <button class="btn-comprar" aria-label="Comprar God of War">
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="top10-card">
+              <div class="top10-rank">4</div>
+              <img
+                src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=400&h=300&fit=crop"
+                alt="Jogo em quarto lugar"
+              />
+              <div class="top10-info">
+                <h3>The Witcher 3</h3>
+                <div class="rating">★★★★★ (4.9)</div>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 149,90</p>
+                  <button
+                    class="btn-comprar"
+                    aria-label="Comprar The Witcher 3"
+                  >
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="top10-card">
+              <div class="top10-rank">5</div>
+              <img
+                src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=300&fit=crop"
+                alt="Jogo em quinto lugar"
+              />
+              <div class="top10-info">
+                <h3>Hogwarts Legacy</h3>
+                <div class="rating">★★★★☆ (4.6)</div>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 279,90</p>
+                  <button
+                    class="btn-comprar"
+                    aria-label="Comprar Hogwarts Legacy"
+                  >
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="top10-card">
+              <div class="top10-rank">6</div>
+              <img
+                src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=300&fit=crop"
+                alt="Jogo em sexto lugar"
+              />
+              <div class="top10-info">
+                <h3>Spider-Man 2</h3>
+                <div class="rating">★★★★★ (4.8)</div>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 349,90</p>
+                  <button class="btn-comprar" aria-label="Comprar Spider-Man 2">
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="top10-card">
+              <div class="top10-rank">7</div>
+              <img
+                src="https://images.unsplash.com/photo-1551103782-8ab07afd45c1?w=400&h=300&fit=crop"
+                alt="Jogo em sétimo lugar"
+              />
+              <div class="top10-info">
+                <h3>Red Dead Redemption 2</h3>
+                <div class="rating">★★★★★ (4.9)</div>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 189,90</p>
+                  <button
+                    class="btn-comprar"
+                    aria-label="Comprar Red Dead Redemption 2"
+                  >
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="top10-card">
+              <div class="top10-rank">8</div>
+              <img
+                src="https://images.unsplash.com/photo-1580327344181-c1163234e5a0?w=400&h=300&fit=crop"
+                alt="Jogo em oitavo lugar"
+              />
+              <div class="top10-info">
+                <h3>Starfield</h3>
+                <div class="rating">★★★★☆ (4.4)</div>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 299,90</p>
+                  <button class="btn-comprar" aria-label="Comprar Starfield">
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="top10-card">
+              <div class="top10-rank">9</div>
+              <img
+                src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=400&h=300&fit=crop"
+                alt="Jogo em nono lugar"
+              />
+              <div class="top10-info">
+                <h3>Baldur's Gate 3</h3>
+                <div class="rating">★★★★★ (4.9)</div>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 229,90</p>
+                  <button
+                    class="btn-comprar"
+                    aria-label="Comprar Baldur's Gate 3"
+                  >
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="top10-card">
+              <div class="top10-rank">10</div>
+              <img
+                src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop"
+                alt="Jogo em décimo lugar"
+              />
+              <div class="top10-info">
+                <h3>Resident Evil 4</h3>
+                <div class="rating">★★★★★ (4.7)</div>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 249,90</p>
+                  <button
+                    class="btn-comprar"
+                    aria-label="Comprar Resident Evil 4"
+                  >
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Carousel Section -->
+        <section class="carousel-section" id="lancamentos">
+          <div class="titulo-secao">
+            <span class="subtitulo">ACABARAM DE CHEGAR</span>
+            <h2>Novos Lançamentos</h2>
+          </div>
+          <div class="carousel-container">
+            <button class="carousel-btn prev" aria-label="Anterior">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="carousel-track" id="carouselTrack">
+              <div class="carousel-card">
+                <img
+                  src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&h=400&fit=crop"
+                  alt="Novo lançamento 1"
+                />
+                <div class="carousel-info">
+                  <h3>Final Fantasy XVI</h3>
+                  <div class="preco-comprar">
+                    <p class="preco">R$ 349,90</p>
+                    <button
+                      class="btn-comprar"
+                      aria-label="Comprar Final Fantasy XVI"
+                    >
+                      <i class="fas fa-shopping-cart"></i> Comprar
+                    </button>
+                  </div>
+                  <span class="tag">Lançamento</span>
+                </div>
+              </div>
+
+              <div class="carousel-card">
+                <img
+                  src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=400&fit=crop"
+                  alt="Novo lançamento 2"
+                />
+                <div class="carousel-info">
+                  <h3>Alan Wake 2</h3>
+                  <div class="preco-comprar">
+                    <p class="preco">R$ 299,90</p>
+                    <button
+                      class="btn-comprar"
+                      aria-label="Comprar Alan Wake 2"
+                    >
+                      <i class="fas fa-shopping-cart"></i> Comprar
+                    </button>
+                  </div>
+                  <span class="tag">Lançamento</span>
+                </div>
+              </div>
+
+              <div class="carousel-card">
+                <img
+                  src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=400&fit=crop"
+                  alt="Novo lançamento 3"
+                />
+                <div class="carousel-info">
+                  <h3>Assassin's Creed Mirage</h3>
+                  <div class="preco-comprar">
+                    <p class="preco">R$ 279,90</p>
+                    <button
+                      class="btn-comprar"
+                      aria-label="Comprar Assassin's Creed Mirage"
+                    >
+                      <i class="fas fa-shopping-cart"></i> Comprar
+                    </button>
+                  </div>
+                  <span class="tag">Lançamento</span>
+                </div>
+              </div>
+
+              <div class="carousel-card">
+                <img
+                  src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=400&h=400&fit=crop"
+                  alt="Novo lançamento 4"
+                />
+                <div class="carousel-info">
+                  <h3>Mortal Kombat 1</h3>
+                  <div class="preco-comprar">
+                    <p class="preco">R$ 329,90</p>
+                    <button
+                      class="btn-comprar"
+                      aria-label="Comprar Mortal Kombat 1"
+                    >
+                      <i class="fas fa-shopping-cart"></i> Comprar
+                    </button>
+                  </div>
+                  <span class="tag">Lançamento</span>
+                </div>
+              </div>
+
+              <div class="carousel-card">
+                <img
+                  src="https://images.unsplash.com/photo-1556438064-2d7646166914?w=400&h=400&fit=crop"
+                  alt="Novo lançamento 5"
+                />
+                <div class="carousel-info">
+                  <h3>Lies of P</h3>
+                  <div class="preco-comprar">
+                    <p class="preco">R$ 249,90</p>
+                    <button class="btn-comprar" aria-label="Comprar Lies of P">
+                      <i class="fas fa-shopping-cart"></i> Comprar
+                    </button>
+                  </div>
+                  <span class="tag">Lançamento</span>
+                </div>
+              </div>
+
+              <div class="carousel-card">
+                <img
+                  src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=400&fit=crop"
+                  alt="Novo lançamento 6"
+                />
+                <div class="carousel-info">
+                  <h3>Payday 3</h3>
+                  <div class="preco-comprar">
+                    <p class="preco">R$ 199,90</p>
+                    <button class="btn-comprar" aria-label="Comprar Payday 3">
+                      <i class="fas fa-shopping-cart"></i> Comprar
+                    </button>
+                  </div>
+                  <span class="tag">Lançamento</span>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-btn next" aria-label="Próximo">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </section>
+
+        <!-- Games Grid Section -->
+        <section class="games-section">
+          <div class="titulo-secao">
+            <span class="subtitulo">CONFIRA TAMBÉM</span>
+            <h2>Todos os Jogos</h2>
+          </div>
+          <div class="grade-jogos">
+            <div class="cartao-jogo">
+              <img
+                src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=400&h=400&fit=crop"
+                alt="Capa do jogo"
+              />
+              <div class="info-jogo">
+                <h3>Street Fighter 6</h3>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 299,90</p>
+                  <button
+                    class="btn-comprar"
+                    aria-label="Comprar Street Fighter 6"
+                  >
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="cartao-jogo">
+              <img
+                src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=400&fit=crop"
+                alt="Capa do jogo"
+              />
+              <div class="info-jogo">
+                <h3>Diablo IV</h3>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 279,90</p>
+                  <button class="btn-comprar" aria-label="Comprar Diablo IV">
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="cartao-jogo">
+              <img
+                src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=400&h=400&fit=crop"
+                alt="Capa do jogo"
+              />
+              <div class="info-jogo">
+                <h3>Forza Motorsport</h3>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 349,90</p>
+                  <button
+                    class="btn-comprar"
+                    aria-label="Comprar Forza Motorsport"
+                  >
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="cartao-jogo">
+              <img
+                src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=400&h=400&fit=crop"
+                alt="Capa do jogo"
+              />
+              <div class="info-jogo">
+                <h3>Tekken 8</h3>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 329,90</p>
+                  <button class="btn-comprar" aria-label="Comprar Tekken 8">
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="cartao-jogo">
+              <img
+                src="https://images.unsplash.com/photo-1556438064-2d7646166914?w=400&h=400&fit=crop"
+                alt="Capa do jogo"
+              />
+              <div class="info-jogo">
+                <h3>Dragon's Dogma 2</h3>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 299,90</p>
+                  <button
+                    class="btn-comprar"
+                    aria-label="Comprar Dragon's Dogma 2"
+                  >
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="cartao-jogo">
+              <img
+                src="https://images.unsplash.com/photo-1538481199705-c710c4e965fc?w=400&h=400&fit=crop"
+                alt="Capa do jogo"
+              />
+              <div class="info-jogo">
+                <h3>Cities: Skylines II</h3>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 249,90</p>
+                  <button
+                    class="btn-comprar"
+                    aria-label="Comprar Cities: Skylines II"
+                  >
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="cartao-jogo">
+              <img
+                src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=400&h=300&fit=crop"
+                alt="Capa do jogo"
+              />
+              <div class="info-jogo">
+                <h3>Persona 5 Tactica</h3>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 279,90</p>
+                  <button
+                    class="btn-comprar"
+                    aria-label="Comprar Persona 5 Tactica"
+                  >
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="cartao-jogo">
+              <img
+                src="https://images.unsplash.com/photo-1509198397868-475647b2a1e5?w=400&h=300&fit=crop"
+                alt="Capa do jogo"
+              />
+              <div class="info-jogo">
+                <h3>Like a Dragon: Infinite</h3>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 299,90</p>
+                  <button
+                    class="btn-comprar"
+                    aria-label="Comprar Like a Dragon: Infinite"
+                  >
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="cartao-jogo">
+              <img
+                src="https://images.unsplash.com/photo-1580327344181-c1163234e5a0?w=400&h=300&fit=crop"
+                alt="Capa do jogo"
+              />
+              <div class="info-jogo">
+                <h3>Sonic Superstars</h3>
+                <div class="preco-comprar">
+                  <p class="preco">R$ 199,90</p>
+                  <button
+                    class="btn-comprar"
+                    aria-label="Comprar Sonic Superstars"
+                  >
+                    <i class="fas fa-shopping-cart"></i> Comprar
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="rodape">
+      <div class="rodape-links">
+        <a href="#">Sobre</a>
+        <a href="#">Suporte</a>
+        <a href="#">Contato</a>
+      </div>
+      &copy 2025 EduGames. Todos os direitos reservados.
+      <div class="icones-sociais">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </footer>
+
+    <!-- add redirect script so every .btn-comprar goes to info_jogo_digital.html -->
+
+
+    <script type="module" src="index.js"></script>
+  </body>
 </html>

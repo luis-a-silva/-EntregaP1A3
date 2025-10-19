@@ -42,7 +42,6 @@ body {
 
 header {
     z-index: 999;
-    position: fixed;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -59,6 +58,7 @@ header {
     display: flex;
     align-items: center;
     gap: 12px;
+    text-decoration: none;
 }
 
 .cabecalho .logo i {
@@ -167,9 +167,9 @@ header {
 
 /* Sidebar */
 .sidebar {
-    position: fixed;
+    position: absolute;
     left: 0;
-    top: 90px;
+    top: 100px;
     width: 260px;
     height: calc(100vh - 90px);
     background-color: var(--cor-fundo-componente);
@@ -287,4 +287,145 @@ header {
 
 .rodape .icones-sociais a:hover {
     color: var(--cor-principal-violeta);
+}
+
+/* Responsive adjustments: header + sidebar + main flow */
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px;
+    min-height: auto;
+  }
+
+  .cabecalho .logo {
+    gap: 8px;
+  }
+
+  .cabecalho .logo h1 {
+    font-size: 1.4rem;
+  }
+
+  .cabecalho .barra-busca {
+    order: 2;
+    width: 100%;
+    max-width: none;
+    display: flex;
+  }
+
+  .cabecalho .barra-busca input {
+    padding: 10px 12px;
+    font-size: 0.9rem;
+  }
+
+  .cabecalho .barra-busca button {
+    padding: 10px 12px;
+  }
+
+  /* make nav buttons wrap and shrink on small screens */
+  .navegacao {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    order: 3;
+    width: 100%;
+  }
+
+  .btn-primario, .btn-secundario {
+    padding: 10px 14px;
+    font-size: 0.88rem;
+  }
+
+  /* remove fixed left margin so content fills width */
+  .container {
+    margin-left: 0;
+    padding: 12px;
+  }
+
+  /* sidebar becomes a full-width block below header (not overlapping content) */
+  .sidebar {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-top: 1px solid var(--cor-borda);
+    padding: 14px;
+    z-index: 1;
+    margin-bottom: 8px;
+  }
+
+  /* keep dropdowns readable on small screens */
+  .dropdown-btn {
+    padding: 10px 0;
+    font-size: 0.95rem;
+  }
+
+  .dropdown-list {
+    padding-left: 0.6rem;
+  }
+
+  .rodape-links {
+    margin-left: 0;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 10px;
+  }
+
+  .cabecalho .logo h1 {
+    font-size: 1.2rem;
+  }
+
+  .cabecalho .barra-busca input {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  .navegacao {
+    justify-content: center;
+  }
+
+  .btn-primario, .btn-secundario {
+    padding: 8px 10px;
+    font-size: 0.82rem;
+  }
+
+  /* reduce sidebar paddings and font sizes */
+  .sidebar {
+    padding: 10px;
+  }
+
+  .sidebar h3 {
+    font-size: 1rem;
+  }
+
+  /* ensure cards and grids are single-column on narrow screens */
+  .oferta-grid,
+  .top10-grid,
+  .grade-jogos {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* smaller hero spacing */
+  .hero-minimal {
+    padding: 20px 12px;
+    margin: 18px 0;
+  }
+
+  .hero-minimal h2 {
+    font-size: 1.4rem;
+  }
+
+  .hero-minimal p {
+    font-size: 0.92rem;
+  }
 }

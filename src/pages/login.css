@@ -1,0 +1,138 @@
+    /* NOVO contêiner interno, controla o espaço e as animações */
+    .form-wrapper {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      height: 800px;
+      margin: 0 auto;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Contêiner base dos forms */
+    /* 🔹 Dentro da .form-container, equilibramos imagem e form */
+    .form-container {
+      position: absolute;
+      width: 100%;
+      height: max-content;
+      padding: 20px;
+      gap: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--cor-fundo-componente);
+      border: 1px solid var(--cor-borda);
+      border-radius: 12px;
+      transition: all 0.8s ease;
+    }
+
+    /* 🔹 Imagens maiores, mantendo responsividade */
+    .form-container img {
+      width: 100%;
+      max-width: 420px;
+      /* Tamanho máximo confortável em desktop */
+      height: auto;
+      border-radius: 12px;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    /* Pequeno efeito visual ao trocar */
+    .form-container img:hover {
+      transform: scale(1.02);
+    }
+
+    /* 🔹 Formulários ocupam o mesmo espaço visual que a imagem */
+    form {
+      flex: 1;
+      min-width: 320px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    /* Transições entre os formulários */
+    .form-login-active {
+      opacity: 1;
+      transform: translateX(0);
+      z-index: 2;
+    }
+
+    .form-login-hide {
+      opacity: 0;
+      transform: translateX(-100%);
+      z-index: 1;
+    }
+
+    .form-cadastro {
+      opacity: 0;
+      transform: translateX(100%);
+      z-index: 1;
+    }
+
+    .form-cadastro-active {
+      opacity: 1;
+      transform: translateX(0);
+      z-index: 2;
+    }
+
+    .form-container,
+    form,
+    input,
+    button {
+      transition: all 0.5s ease;
+    }
+
+    /* 🔹 Contêiner de cada campo para alinhar label e input */
+    form label {
+      font-size: 0.9rem;
+      color: var(--cor-texto-secundario);
+      font-weight: 500;
+    }
+
+    /* 🔹 Inputs modernos */
+    form input {
+      width: 100%;
+      padding: 14px 12px;
+      font-size: 0.95rem;
+      border: 1px solid var(--cor-borda);
+      border-radius: 8px;
+      background-color: var(--cor-fundo);
+      color: var(--cor-texto-principal);
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    /* 🔹 Destaque no foco */
+    form input:focus {
+      border-color: var(--cor-principal-violeta);
+      box-shadow: 0 0 6px rgba(130, 87, 229, 0.3);
+    }
+
+    .form-links {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.98rem;
+    }
+
+    .form-links button {
+      background: none;
+      border: none;
+      color: #4a90e2;
+      cursor: pointer;
+      font-size: 0.98rem;
+      font-weight: 800;
+      padding: 0;
+    }
+
+    /* 🔹 Suporte a tema claro */
+    body[data-theme="light"] form input {
+      background-color: var(--cor-fundo-componente);
+    }
+
+    body[data-theme="light"] form input:focus {
+      box-shadow: 0 0 6px rgba(107, 77, 230, 0.2);
+    }

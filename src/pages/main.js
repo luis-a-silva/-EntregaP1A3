@@ -32,7 +32,7 @@ export function alternarModos() {
 
 export function mostrarMensagem(mensagem, tipo = "info") {
     // Remove alerta anterior, se existir
-    const alertaExistente = document.getElementById("alerta-centralizado-login");
+    const alertaExistente = document.getElementById("alerta-centralizado");
     if (alertaExistente) alertaExistente.remove();
 
     // Ícones SVG animados

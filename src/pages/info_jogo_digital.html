@@ -1,489 +1,234 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EduGames - Detalhes do Jogo</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="info_jogo_digital.css">
     <link
-        href="https://fonts.googleapis.com/css2?family=Faster+One&family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
-<style>
-    .secao-detalhes-jogo {
-        display: flex;
-        gap: 40px;
-        margin-bottom: 60px;
-        align-items: flex-start;
-        padding-top: 120px;
-    }
-
-    .imagem-jogo {
-        flex: 1;
-        max-width: 400px;
-    }
-
-    .imagem-jogo img {
-        width: 100%;
-        border-radius: 8px;
-        border: 1px solid var(--cor-borda);
-        object-fit: cover;
-        aspect-ratio: 3 / 4;
-    }
-
-    .info-jogo {
-        flex: 1.5;
-        display: flex;
-        flex-direction: column;
-    }
-
-    .nome-jogo {
-        font-family: var(--fonte-destaque);
-        font-size: 3.5rem;
-        font-weight: 400;
-        margin-bottom: 10px;
-    }
-
-    .empresa-jogo {
-        color: var(--cor-texto-secundario);
-        margin-bottom: 15px;
-    }
-
-    .empresa-jogo a {
-        color: var(--cor-destaque-ciano);
-        text-decoration: none;
-    }
-
-    .empresa-jogo a:hover {
-        text-decoration: underline;
-    }
-
-    .categorias-jogo {
-        display: flex;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-
-    .tag {
-        background-color: var(--cor-fundo-componente);
-        border: 1px solid var(--cor-borda);
-        padding: 5px 15px;
-        border-radius: 20px;
-        font-size: 0.8rem;
-        font-weight: 500;
-    }
-
-    .preco-jogo {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: var(--cor-destaque-amarelo);
-        margin-bottom: 25px;
-    }
-
-    .btn-comprar-grande {
-        background-color: var(--cor-principal-violeta);
-        color: var(--cor-texto-principal);
-        border: none;
-        padding: 15px 30px;
-        border-radius: 6px;
-        font-size: 1.2rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        align-self: flex-start;
-        margin-bottom: 40px;
-    }
-
-    .btn-comprar-grande:hover {
-        background-color: #6a40d3;
-    }
-
-    .titulo-descricao {
-        font-size: 1.5rem;
-        font-weight: 600;
-        border-bottom: 2px solid var(--cor-principal-violeta);
-        padding-bottom: 10px;
-        margin-bottom: 15px;
-    }
-
-    .texto-descricao {
-        color: var(--cor-texto-secundario);
-        line-height: 1.6;
-    }
-
-
-    .secao-avaliacoes {
-        border-top: 1px solid var(--cor-borda);
-        padding-top: 40px;
-    }
-
-    .titulo-secao-avaliacoes {
-        text-align: center;
-        font-family: var(--fonte-destaque);
-        font-size: 2.5rem;
-        margin-bottom: 30px;
-    }
-
-    .avaliacao-geral {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 15px;
-        margin-bottom: 40px;
-        background-color: var(--cor-fundo-componente);
-        padding: 20px;
-        border-radius: 8px;
-    }
-
-    .avaliacao-geral .estrelas i {
-        color: var(--cor-destaque-amarelo);
-        font-size: 1.2rem;
-    }
-
-    .info-avaliacoes {
-        color: var(--cor-texto-secundario);
-    }
-
-    .form-avaliacao {
-        background-color: var(--cor-fundo-componente);
-        padding: 30px;
-        border-radius: 8px;
-        border: 1px solid var(--cor-borda);
-        margin-bottom: 40px;
-    }
-
-    .form-avaliacao h3 {
-        font-size: 1.3rem;
-        margin-bottom: 20px;
-    }
-
-    .campo-form-avaliacao {
-        margin-bottom: 20px;
-    }
-
-    .campo-form-avaliacao label {
-        display: block;
-        margin-bottom: 10px;
-        color: var(--cor-texto-secundario);
-    }
-
-    .campo-form-avaliacao textarea {
-        width: 100%;
-        padding: 12px;
-        background-color: var(--cor-fundo-escuro);
-        border: 1px solid var(--cor-borda);
-        border-radius: 6px;
-        color: var(--cor-texto-principal);
-        font-family: var(--fonte-corpo);
-        resize: vertical;
-    }
-
-    .btn-enviar-avaliacao {
-        background-color: var(--cor-destaque-amarelo);
-        color: var(--cor-fundo-escuro);
-        border: none;
-        padding: 12px 25px;
-        border-radius: 6px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: transform 0.2s;
-    }
-
-    .btn-enviar-avaliacao:hover {
-        transform: scale(1.05);
-    }
-
-    .rating-input {
-        display: flex;
-        flex-direction: row-reverse;
-        justify-content: flex-end;
-    }
-
-    .rating-input input[type="radio"] {
-        display: none;
-    }
-
-    .rating-input label {
-        font-size: 1.8rem;
-        color: var(--cor-borda);
-        cursor: pointer;
-        transition: color 0.2s;
-        margin: 0 2px !important;
-    }
-
-    .rating-input label::before {
-        content: '★';
-    }
-
-    .rating-input input[type="radio"]:checked~label,
-    .rating-input label:hover,
-    .rating-input label:hover~label {
-        color: var(--cor-destaque-amarelo);
-    }
-
-    .lista-comentarios {
-        margin-bottom: 40px;
-    }
-
-    .comentario-usuario {
-        background-color: var(--cor-fundo-componente);
-        border: 1px solid var(--cor-borda);
-        padding: 20px;
-        border-radius: 8px;
-    }
-
-    .comentario-usuario:not(:last-child) {
-        margin-bottom: 20px;
-    }
-
-    .comentario-cabecalho {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 10px;
-    }
-
-    .nome-usuario {
-        font-weight: 600;
-    }
-
-    .nota-usuario {
-        color: var(--cor-destaque-amarelo);
-        font-weight: 500;
-    }
-
-    .texto-comentario {
-        color: var(--cor-texto-secundario);
-        font-style: italic;
-        padding-bottom: 5px;
-    }
-
-    .texto-comentario::before {
-        content: '“';
-        margin-right: 4px;
-    }
-
-    .texto-comentario::after {
-        content: '”';
-        margin-left: 4px;
-    }
-
-
-    .comentario-acoes {
-        margin-top: 15px;
-        display: flex;
-        gap: 10px;
-        justify-content: flex-end;
-    }
-
-    .btn-acao {
-        background-color: transparent;
-        border: 1px solid var(--cor-borda);
-        color: var(--cor-texto-secundario);
-        padding: 6px 12px;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 0.8rem;
-        font-weight: 500;
-        transition: all 0.2s ease;
-    }
-
-    .btn-acao.btn-editar:hover {
-        background-color: var(--cor-destaque-ciano);
-        border-color: var(--cor-destaque-ciano);
-        color: var(--cor-fundo-escuro);
-    }
-
-    .btn-acao.btn-excluir:hover {
-        background-color: #E55757;
-        border-color: #E55757;
-        color: var(--cor-texto-principal);
-    }
-
-
-    .ver-mais {
-        text-align: center;
-        margin-top: 50px;
-    }
-</style>
-
-<body>
+      href="https://fonts.googleapis.com/css2?family=Faster+One&family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
     <header class="cabecalho">
-        <div class="logo">
-            <i class="fas fa-gamepad"></i>
-            <h1>EduGames</h1>
-        </div>
-        <div class="barra-busca">
-            <input type="text" placeholder="Procurar jogos..." />
-            <button aria-label="Buscar">
-                <i class="fas fa-search"></i>
-            </button>
-        </div>
-        <nav class="navegacao">
-            <button class="btn-secundario" id="goToLogin">Entrar</button>
-            <button class="btn-primario" id="goToCadastro">Cadastre-se</button>
-            <button aria-label="Modo claro" id="whiteMode" class="btn-primario">
-                <i class="fas fa-sun"></i>
-            </button>
+      <a href="index.html" class="logo">
+        <i class="fas fa-gamepad"></i>
+        <h1>EduGames</h1>
+      </a>
+      <div class="barra-busca">
+        <input type="text" placeholder="Procurar jogos..." />
+        <button aria-label="Buscar">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+      <nav class="navegacao">
+        <button class="btn-secundario" id="goToLogin">Entrar</button>
+        <button class="btn-primario" id="goToCadastro">Cadastre-se</button>
+        <button aria-label="Modo claro" id="whiteMode" class="btn-primario">
+          <i class="fas fa-sun"></i>
+        </button>
 
-            <button aria-label="Modo escuro" id="darkMode" class="btn-secundario" style="display: none;">
-                <i class="fas fa-moon"></i>
-            </button>
-        </nav>
+        <button
+          aria-label="Modo escuro"
+          id="darkMode"
+          class="btn-secundario"
+          style="display: none"
+        >
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
     </header>
 
     <aside class="sidebar" id="sidebar">
-        <h3>Categorias</h3>
-        <div class="dropdown">
-            <button class="dropdown-btn">Plataformas <i class="fas fa-chevron-down"></i></button>
-            <ul class="dropdown-list">
-                <li><a href="#">PC</a></li>
-                <li><a href="#">PlayStation</a></li>
-                <li><a href="#">Xbox</a></li>
-                <li><a href="#">Nintendo</a></li>
-            </ul>
-        </div>
-        <div class="dropdown">
-            <button class="dropdown-btn">Gêneros <i class="fas fa-chevron-down"></i></button>
-            <ul class="dropdown-list">
-                <li><a href="#">Ação</a></li>
-                <li><a href="#">RPG</a></li>
-                <li><a href="#">Corrida</a></li>
-                <li><a href="#">Simulação</a></li>
-                <li><a href="#">Terror</a></li>
-                <li><a href="#">Aventura</a></li>
-            </ul>
-        </div>
-        <div class="dropdown">
-            <button class="dropdown-btn">Faixa de Preço <i class="fas fa-chevron-down"></i></button>
-            <ul class="dropdown-list">
-                <li><a href="#">Até R$ 50</a></li>
-                <li><a href="#">R$ 50 - R$ 150</a></li>
-                <li><a href="#">R$ 150 - R$ 300</a></li>
-                <li><a href="#">Acima de R$ 300</a></li>
-            </ul>
-        </div>
-        <div class="dropdown">
-            <button class="dropdown-btn">Avaliações <i class="fas fa-chevron-down"></i></button>
-            <ul class="dropdown-list">
-                <li><a href="#">★★★★★ (5 estrelas)</a></li>
-                <li><a href="#">★★★★☆ (4 estrelas)</a></li>
-                <li><a href="#">★★★☆☆ (3 estrelas)</a></li>
-            </ul>
-        </div>
+      <h3>Categorias</h3>
+      <div class="dropdown">
+        <button class="dropdown-btn">
+          Plataformas <i class="fas fa-chevron-down"></i>
+        </button>
+        <ul class="dropdown-list">
+          <li><a href="#">PC</a></li>
+          <li><a href="#">PlayStation</a></li>
+          <li><a href="#">Xbox</a></li>
+          <li><a href="#">Nintendo</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="dropdown-btn">
+          Gêneros <i class="fas fa-chevron-down"></i>
+        </button>
+        <ul class="dropdown-list">
+          <li><a href="#">Ação</a></li>
+          <li><a href="#">RPG</a></li>
+          <li><a href="#">Corrida</a></li>
+          <li><a href="#">Simulação</a></li>
+          <li><a href="#">Terror</a></li>
+          <li><a href="#">Aventura</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="dropdown-btn">
+          Faixa de Preço <i class="fas fa-chevron-down"></i>
+        </button>
+        <ul class="dropdown-list">
+          <li><a href="#">Até R$ 50</a></li>
+          <li><a href="#">R$ 50 - R$ 150</a></li>
+          <li><a href="#">R$ 150 - R$ 300</a></li>
+          <li><a href="#">Acima de R$ 300</a></li>
+        </ul>
+      </div>
+      <div class="dropdown">
+        <button class="dropdown-btn">
+          Avaliações <i class="fas fa-chevron-down"></i>
+        </button>
+        <ul class="dropdown-list">
+          <li><a href="#">★★★★★ (5 estrelas)</a></li>
+          <li><a href="#">★★★★☆ (4 estrelas)</a></li>
+          <li><a href="#">★★★☆☆ (3 estrelas)</a></li>
+        </ul>
+      </div>
     </aside>
 
     <main class="container">
-        <section class="secao-detalhes-jogo">
-            <div class="imagem-jogo">
-                <img src="../assets/thewitcher3.jpg" alt="Capa do Jogo The Witcher 3">
+      <section class="secao-detalhes-jogo">
+        <div class="imagem-jogo">
+          <img
+            src="../assets/thewitcher3.jpg"
+            alt="Capa do Jogo The Witcher 3"
+          />
+        </div>
+        <div class="info-jogo">
+          <h1 class="nome-jogo">The Witcher 3: Wild Hunt</h1>
+          <p class="empresa-jogo">Empresa: <a href="#">CD PROJEKT RED</a></p>
+          <div class="categorias-jogo">
+            <span class="tag">Aventura</span>
+            <span class="tag">RPG</span>
+          </div>
+          <p class="preco-jogo">R$ 129,99</p>
+          <button class="btn-comprar-grande">Comprar Agora</button>
+
+          <h2 class="titulo-descricao">Descrição completa do jogo</h2>
+          <p class="texto-descricao">
+            Vencedor de mais de 250 prêmios de Jogo do Ano, The Witcher 3: Wild
+            Hunt é uma aventura de mundo aberto, sombria e de fantasia, com uma
+            história fascinante. Você é Geralt de Rívia, um mercenário caçador
+            de monstros. À sua disposição, você tem todas as ferramentas do seu
+            ofício: espadas afiadas, misturas letais, bestas e poderosa magia de
+            combate.
+          </p>
+        </div>
+      </section>
+
+      <section class="secao-avaliacoes">
+        <h2 class="titulo-secao-avaliacoes">Avaliações e Comentários</h2>
+
+        <div class="avaliacao-geral">
+          <span>Avaliação Média:</span>
+          <div class="estrelas">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <span class="info-avaliacoes"
+            >(4.8 de 5) – baseada em 1.234 avaliações.</span
+          >
+        </div>
+
+        <form class="form-avaliacao">
+          <h3>Sua Avaliação</h3>
+          <div class="campo-form-avaliacao">
+            <label>Sua nota:</label>
+            <div class="rating-input">
+              <input type="radio" id="star5" name="rating" value="5" /><label
+                for="star5"
+                title="5 estrelas"
+              ></label>
+              <input type="radio" id="star4" name="rating" value="4" /><label
+                for="star4"
+                title="4 estrelas"
+              ></label>
+              <input type="radio" id="star3" name="rating" value="3" /><label
+                for="star3"
+                title="3 estrelas"
+              ></label>
+              <input type="radio" id="star2" name="rating" value="2" /><label
+                for="star2"
+                title="2 estrelas"
+              ></label>
+              <input type="radio" id="star1" name="rating" value="1" /><label
+                for="star1"
+                title="1 estrela"
+              ></label>
             </div>
-            <div class="info-jogo">
-                <h1 class="nome-jogo">The Witcher 3: Wild Hunt</h1>
-                <p class="empresa-jogo">Empresa: <a href="#">CD PROJEKT RED</a></p>
-                <div class="categorias-jogo">
-                    <span class="tag">Aventura</span>
-                    <span class="tag">RPG</span>
-                </div>
-                <p class="preco-jogo">R$ 129,99</p>
-                <button class="btn-comprar-grande">Comprar Agora</button>
+          </div>
+          <div class="campo-form-avaliacao">
+            <label for="comentario">Deixe um comentário (opcional):</label>
+            <textarea
+              id="comentario"
+              rows="4"
+              placeholder="Descreva sua experiência com o jogo..."
+            ></textarea>
+          </div>
+          <button type="submit" class="btn-enviar-avaliacao">
+            Enviar Avaliação
+          </button>
+        </form>
 
-                <h2 class="titulo-descricao">Descrição completa do jogo</h2>
-                <p class="texto-descricao">
-                    Vencedor de mais de 250 prêmios de Jogo do Ano, The Witcher 3: Wild Hunt é uma aventura de mundo
-                    aberto, sombria e de fantasia, com uma história fascinante. Você é Geralt de Rívia, um mercenário
-                    caçador de monstros. À sua disposição, você tem todas as ferramentas do seu ofício: espadas afiadas,
-                    misturas letais, bestas e poderosa magia de combate.
-                </p>
+        <div class="lista-comentarios">
+          <div class="comentario-usuario" data-avaliacao-id="99">
+            <div class="comentario-cabecalho">
+              <span class="nome-usuario">Usuário: Jade123 (Você)</span>
+              <span class="nota-usuario">Nota: 3 ★</span>
             </div>
-        </section>
-
-        <section class="secao-avaliacoes">
-            <h2 class="titulo-secao-avaliacoes">Avaliações e Comentários</h2>
-
-            <div class="avaliacao-geral">
-                <span>Avaliação Média:</span>
-                <div class="estrelas">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star-half-alt"></i>
-                </div>
-                <span class="info-avaliacoes">(4.8 de 5) – baseada em 1.234 avaliações.</span>
+            <p class="texto-comentario">
+              "Esse jogo é muito louco, recomendo apenas para os não loucos"
+            </p>
+            <div class="comentario-acoes">
+              <button class="btn-acao btn-editar">Editar</button>
+              <button class="btn-acao btn-excluir">Excluir</button>
             </div>
+          </div>
 
-            <form class="form-avaliacao">
-                <h3>Sua Avaliação</h3>
-                <div class="campo-form-avaliacao">
-                    <label>Sua nota:</label>
-                    <div class="rating-input">
-                        <input type="radio" id="star5" name="rating" value="5"><label for="star5"
-                            title="5 estrelas"></label>
-                        <input type="radio" id="star4" name="rating" value="4"><label for="star4"
-                            title="4 estrelas"></label>
-                        <input type="radio" id="star3" name="rating" value="3"><label for="star3"
-                            title="3 estrelas"></label>
-                        <input type="radio" id="star2" name="rating" value="2"><label for="star2"
-                            title="2 estrelas"></label>
-                        <input type="radio" id="star1" name="rating" value="1"><label for="star1"
-                            title="1 estrela"></label>
-                    </div>
-                </div>
-                <div class="campo-form-avaliacao">
-                    <label for="comentario">Deixe um comentário (opcional):</label>
-                    <textarea id="comentario" rows="4" placeholder="Descreva sua experiência com o jogo..."></textarea>
-                </div>
-                <button type="submit" class="btn-enviar-avaliacao">Enviar Avaliação</button>
-            </form>
-
-            <div class="lista-comentarios">
-                <div class="comentario-usuario" data-avaliacao-id="99">
-                    <div class="comentario-cabecalho">
-                        <span class="nome-usuario">Usuário: Jade123 (Você)</span>
-                        <span class="nota-usuario">Nota: 3 ★</span>
-                    </div>
-                    <p class="texto-comentario">"Esse jogo é muito louco, recomendo apenas para os não loucos"</p>
-                    <div class="comentario-acoes">
-                        <button class="btn-acao btn-editar">Editar</button>
-                        <button class="btn-acao btn-excluir">Excluir</button>
-                    </div>
-                </div>
-
-                <div class="comentario-usuario" data-avaliacao-id="101">
-                    <div class="comentario-cabecalho">
-                        <span class="nome-usuario">Usuário: Adailton123</span>
-                        <span class="nota-usuario">Nota: 5 ★</span>
-                    </div>
-                    <p class="texto-comentario">"Esse jogo é tão bom que estou há 90 dias sem dormir, só jogando ele"
-                    </p>
-                </div>
+          <div class="comentario-usuario" data-avaliacao-id="101">
+            <div class="comentario-cabecalho">
+              <span class="nome-usuario">Usuário: Adailton123</span>
+              <span class="nota-usuario">Nota: 5 ★</span>
             </div>
+            <p class="texto-comentario">
+              "Esse jogo é tão bom que estou há 90 dias sem dormir, só jogando
+              ele"
+            </p>
+          </div>
+        </div>
 
-            <div class="ver-mais">
-                <a href="#" class="btn-secundario">Carregar mais comentários</a>
-            </div>
-        </section>
+        <div class="ver-mais">
+          <a href="#" class="btn-secundario">Carregar mais comentários</a>
+        </div>
+      </section>
     </main>
 
     <footer class="rodape">
-        <div class="rodape-links">
-            <a href="#">Sobre</a>
-            <a href="#">Suporte</a>
-            <a href="#">Contato</a>
-        </div>
-        &copy 2025 EduGames. Todos os direitos reservados.
-        <div class="icones-sociais">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-        </div>
+      <div class="rodape-links">
+        <a href="#">Sobre</a>
+        <a href="#">Suporte</a>
+        <a href="#">Contato</a>
+      </div>
+      &copy 2025 EduGames. Todos os direitos reservados.
+      <div class="icones-sociais">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
     </footer>
 
     <script type="module" src="info_jogo.js"></script>
-</body>
+  </body>
 </html>

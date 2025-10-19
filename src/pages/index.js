@@ -31,4 +31,48 @@ prevBtn.addEventListener('click', () => {
     track.style.transform = `translateX(-${currentPosition}px)`;
 });
 
+
+document.querySelectorAll(".btn-comprar").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        const status = document.getElementById("statusRegion");
+        // mensagem clara (heurística 1 e 9)
+        status.innerHTML = `
+      <div id="purchaseToast" style="
+            background:var(--cor-fundo-componente);
+            opacity:0.85;
+            padding:10px 14px;
+            border-radius:8px;
+            box-shadow:0 6px 18px rgba(0,0,0,0.4);
+            color:var(--cor-texto-principal);      
+            position: fixed;
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            z-index: 9999;">
+        Redirecionando para a página do jogo...
+        <button id="cancelRedirect" style="margin-left:12px;padding:6px 10px;border-radius:6px;background:transparent;border:1px solid rgba(255,255,255,0.08);color:var(--cor-texto-principal);cursor:pointer;">Cancelar</button>
+      </div>
+    `;
+        let cancelled = false;
+        const cancelBtn = document.getElementById("cancelRedirect");
+        const toastTimeout = setTimeout(() => {
+            if (!cancelled) {
+                window.location.href = "info_jogo_digital.html";
+            }
+        }, 2500); // 2.5s para desfazer (heurística 3)
+
+        cancelBtn.addEventListener("click", () => {
+            cancelled = true;
+            clearTimeout(toastTimeout);
+            setTimeout(() => (status.textContent = ""), 1800);
+        });
+    });
+});
+
+
 alternarModos();
