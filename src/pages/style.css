@@ -9,6 +9,9 @@
     --cor-texto-secundario: #A8A8B3;
     --fonte-logo: "Faster One", system-ui;
     --fonte-corpo: "Poppins", sans-serif;
+
+    /* altura fixa do header — isso aqui é pra que o header fique fixo, e que o conteúdo não fique por trás dele ou desalinhado */
+    --altura-header: 100px;
 }
 
 /* 🌞 Tema claro — ativo quando body[data-theme="light"] for definido */
@@ -41,6 +44,11 @@ body {
 }
 
 header {
+  
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 999;
     display: flex;
     justify-content: space-around;
@@ -50,8 +58,9 @@ header {
     background-color: var(--cor-fundo-componente);
     padding: 20px;
     border-bottom: 1px solid var(--cor-borda);
-    width: 100%;
-    min-height: 100px;
+  
+    height: var(--altura-header);
+    box-sizing: border-box;
 }
 
 .logo {
@@ -136,6 +145,7 @@ header {
 .container {
     margin-left: 260px;
     padding: 0 20px;
+    padding-top: var(--altura-header); 
 }
 
 .btn-secundario {
@@ -167,11 +177,12 @@ header {
 
 /* Sidebar */
 .sidebar {
-    position: absolute;
+    
+    position: fixed;
     left: 0;
-    top: 100px;
+    top: var(--altura-header); 
+    bottom: 0;
     width: 260px;
-    height: calc(100vh - 90px);
     background-color: var(--cor-fundo-componente);
     border-right: 1px solid var(--cor-borda);
     padding: 30px 20px;
@@ -292,11 +303,24 @@ header {
 /* Responsive adjustments: header + sidebar + main flow */
 @media (max-width: 900px) {
   header {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 12px;
-    padding: 12px;
+    position: relative;
+    height: auto;
     min-height: auto;
+    top: 0;
+  }
+
+  .sidebar {
+    position: relative;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-top: 1px solid var(--cor-borda);
+    padding: 14px;
+    z-index: 1;
+    margin-bottom: 8px;
   }
 
   .cabecalho .logo {
