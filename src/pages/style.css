@@ -71,7 +71,7 @@ header {
 }
 
 .cabecalho .logo img {
-  max-height: calc(100% - 12px); 
+  max-height: calc(100% - -40px); 
   height: auto;
   width: auto;
   display: block;
@@ -86,7 +86,7 @@ header {
     display: flex;
     flex-grow: 1;
     min-width: 250px;
-    max-width: 500px;
+    max-width: 1200px;
 }
 
 .cabecalho .barra-busca input {
