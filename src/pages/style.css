@@ -1,78 +1,86 @@
 :root {
-    --cor-fundo: #100E19;
-    --cor-fundo-componente: #1D1A2C;
-    --cor-principal-violeta: #8257E5;
-    --cor-destaque-amarelo: #F7DF1E;
-    --cor-destaque-ciano: #61DAFB;
-    --cor-borda: #2C2844;
-    --cor-texto-principal: #FFFFFF;
-    --cor-texto-secundario: #A8A8B3;
-    --fonte-logo: "Faster One", system-ui;
-    --fonte-corpo: "Poppins", sans-serif;
-
-    /* altura fixa do header — isso aqui é pra que o header fique fixo, e que o conteúdo não fique por trás dele ou desalinhado */
-    --altura-header: 100px;
+  --cor-fundo: #100e19;
+  --cor-fundo-componente: #1d1a2c;
+  --cor-principal-violeta: #8257e5;
+  --cor-destaque-amarelo: #f7df1e;
+  --cor-destaque-ciano: #61dafb;
+  --cor-borda: #2c2844;
+  --cor-texto-principal: #ffffff;
+  --cor-texto-secundario: #a8a8b3;
+  --fonte-logo: "Faster One", system-ui;
+  --fonte-corpo: "Poppins", sans-serif;
+  --altura-header: 100px;
 }
 
-/* 🌞 Tema claro — ativo quando body[data-theme="light"] for definido */
 body[data-theme="light"] {
-    --cor-fundo: #F5F5F5;
-    --cor-fundo-componente: #FFFFFF;
-    --cor-principal-violeta: #6B4DE6;
-    --cor-destaque-amarelo: #F7C948;
-    --cor-destaque-ciano: #40CFFF;
-    --cor-borda: #E0E0E0;
-    --cor-texto-principal: #1A1A1A;
-    --cor-texto-secundario: #555555;
+  --cor-fundo: #f5f5f5;
+  --cor-fundo-componente: #ffffff;
+  --cor-principal-violeta: #6b4de6;
+  --cor-destaque-amarelo: #f7c948;
+  --cor-destaque-ciano: #40cfff;
+  --cor-borda: #e0e0e0;
+  --cor-texto-principal: #1a1a1a;
+  --cor-texto-secundario: #555555;
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 body {
-    font-family: "Roboto", sans-serif;
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto-principal);
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.container {
+  margin-left: 260px;
+  padding: 0 20px;
+  padding-top: var(--altura-header);
 }
 
 header {
-  
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    background-color: var(--cor-fundo-componente);
-    padding: 20px;
-    border-bottom: 1px solid var(--cor-borda);
-    height: var(--altura-header);
-    box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: var(--cor-fundo-componente);
+  padding: 20px;
+  border-bottom: 1px solid var(--cor-borda);
+  height: var(--altura-header);
+  box-sizing: border-box;
 }
 
-
 .logo {
-  height: 100%;               
+  height: 100%;
   display: flex;
-  align-items: center;       
+  align-items: center;
   gap: 12px;
 }
 
-
 .cabecalho .logo img {
-  max-height: calc(100% - -50px); 
+  max-height: calc(100% - -50px);
   height: auto;
   width: auto;
   display: block;
@@ -81,230 +89,211 @@ header {
   padding-bottom: 10px;
 }
 
-
 .cabecalho .logo img:hover {
   transform: scale(1.03);
 }
 
 .cabecalho .barra-busca {
-    display: flex;
-    flex-grow: 1;
-    min-width: 250px;
-    max-width: 1400px;
+  display: flex;
+  flex-grow: 1;
+  min-width: 250px;
+  max-width: 1400px;
 }
 
 .cabecalho .barra-busca input {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--cor-borda);
-    border-radius: 6px 0 0 6px;
-    background-color: var(--cor-fundo);
-    color: var(--cor-texto-principal);
-    font-family: var(--fonte-corpo);
-    font-size: 0.9rem;
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px 0 0 6px;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  font-family: var(--fonte-corpo);
+  font-size: 0.9rem;
 }
 
 .cabecalho .barra-busca button {
-    padding: 12px 15px;
-    border: none;
-    background-color: var(--cor-principal-violeta);
-    color: var(--cor-texto-principal);
-    cursor: pointer;
-    border-radius: 0 6px 6px 0;
-    font-size: 1rem;
+  padding: 12px 15px;
+  border: none;
+  background-color: var(--cor-principal-violeta);
+  color: var(--cor-texto-principal);
+  cursor: pointer;
+  border-radius: 0 6px 6px 0;
+  font-size: 1rem;
 }
 
 .cabecalho .btn-login {
-    color: var(--cor-texto-secundario);
-    text-decoration: none;
-    font-weight: 500;
-    transition: color 0.3s;
-    font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+  font-size: 0.9rem;
 }
 
 .cabecalho a:hover {
-    color: var(--cor-texto-principal);
+  color: var(--cor-texto-principal);
 }
 
-.btn-primario {
-    cursor: pointer;
-    background: var(--cor-principal-violeta);
-    border: 1px solid var(--cor-borda);
-    color: var(--cor-texto-principal);
-    font-family: var(--fonte-corpo);
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: background-color 0.3s, border-color 0.3s;
-    display: inline-block;
-}
-
-.btn-primario:hover {
-    border-color: var(--cor-fundo);
-}
-
-.container {
-    margin-left: 260px;
-    padding: 0 20px;
-    padding-top: var(--altura-header); 
-}
-
-.btn-secundario {
-    cursor: pointer;
-    background: transparent;
-    border: 1px solid var(--cor-borda);
-    color: var(--cor-texto-principal);
-    font-family: var(--fonte-corpo);
-    font-size: 0.9rem;
-    font-weight: 600;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: background-color 0.3s, border-color 0.3s;
-    display: inline-block;
-}
-
-.btn-secundario:hover {
-    background-color: var(--cor-fundo-componente);
-    border-color: var(--cor-principal-violeta);
-}
-
-.main-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    width: 100%;
-    position: relative; 
-}
-
-/* Sidebar */
 .sidebar {
-    
-    position: fixed;
-    left: 0;
-    top: var(--altura-header); 
-    bottom: 0;
-    width: 260px;
-    background-color: var(--cor-fundo-componente);
-    border-right: 1px solid var(--cor-borda);
-    padding: 30px 20px;
-    overflow-y: auto;
-    z-index: 100;
-    transition: transform 0.3s ease;
+  position: fixed;
+  left: 0;
+  top: var(--altura-header);
+  bottom: 0;
+  width: 260px;
+  background-color: var(--cor-fundo-componente);
+  border-right: 1px solid var(--cor-borda);
+  padding: 30px 20px;
+  overflow-y: auto;
+  z-index: 100;
+  transition: transform 0.3s ease;
 }
 
 .sidebar h3 {
-    color: var(--cor-texto-principal);
-    font-size: 1.2rem;
-    font-weight: 600;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+  color: var(--cor-texto-principal);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .dropdown {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .dropdown-btn {
-    width: 100%;
-    background: none;
-    border: none;
-    color: var(--cor-texto-principal);
-    text-align: left;
-    font-size: 1rem;
-    font-weight: 500;
-    cursor: pointer;
-    padding: 12px 0;
-    border-bottom: 1px solid var(--cor-borda);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: color 0.3s;
+  width: 100%;
+  background: none;
+  border: none;
+  color: var(--cor-texto-principal);
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--cor-borda);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: color 0.3s;
 }
 
 .dropdown-btn:hover {
-    color: var(--cor-principal-violeta);
+  color: var(--cor-principal-violeta);
 }
 
 .dropdown-btn i {
-    transition: transform 0.3s;
+  transition: transform 0.3s;
 }
 
 .dropdown.open .dropdown-btn i {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .dropdown-list {
-    list-style: none;
-    margin: 10px 0 0;
-    padding-left: 10px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+  list-style: none;
+  margin: 10px 0 0;
+  padding-left: 10px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
 }
 
 .dropdown.open .dropdown-list {
-    max-height: 500px;
+  max-height: 500px;
 }
 
 .dropdown-list li {
-    margin: 8px 0;
+  margin: 8px 0;
 }
 
 .dropdown-list li a {
-    color: var(--cor-texto-secundario);
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.3s;
-    display: block;
-    padding: 5px 0;
+  color: var(--cor-texto-secundario);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+  display: block;
+  padding: 5px 0;
 }
 
 .dropdown-list li a:hover {
-    color: var(--cor-principal-violeta);
+  color: var(--cor-principal-violeta);
 }
 
 .rodape {
-    background-color: var(--cor-fundo-componente);
-    padding: 40px 0;
-    border-top: 1px solid var(--cor-borda);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+  background-color: var(--cor-fundo-componente);
+  padding: 40px 0;
+  border-top: 1px solid var(--cor-borda);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .rodape-links {
-    margin-left: 260px;
+  margin-left: 260px;
 }
 
 .rodape-links a {
-    color: var(--cor-texto-secundario);
-    text-decoration: none;
-    margin-right: 20px;
-    transition: color 0.3s;
+  color: var(--cor-texto-secundario);
+  text-decoration: none;
+  margin-right: 20px;
+  transition: color 0.3s;
 }
 
 .rodape-links a:hover {
-    color: var(--cor-texto-principal);
+  color: var(--cor-texto-principal);
 }
 
 .rodape .icones-sociais a {
-    color: var(--cor-texto-secundario);
-    font-size: 1.5rem;
-    margin-left: 20px;
-    transition: color 0.3s;
+  color: var(--cor-texto-secundario);
+  font-size: 1.5rem;
+  margin-left: 20px;
+  transition: color 0.3s;
 }
 
 .rodape .icones-sociais a:hover {
-    color: var(--cor-principal-violeta);
+  color: var(--cor-principal-violeta);
 }
 
+.btn-primario {
+  cursor: pointer;
+  background: var(--cor-principal-violeta);
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto-principal);
+  font-family: var(--fonte-corpo);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s, border-color 0.3s;
+  display: inline-block;
+}
 
+.btn-primario:hover {
+  border-color: var(--cor-fundo);
+}
+
+.btn-secundario {
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto-principal);
+  font-family: var(--fonte-corpo);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 15px 30px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s, border-color 0.3s;
+  display: inline-block;
+}
+
+.btn-secundario:hover {
+  background-color: var(--cor-fundo-componente);
+  border-color: var(--cor-principal-violeta);
+}
 
 @media (max-width: 900px) {
   header {
@@ -329,14 +318,13 @@ header {
     order: 1;
   }
 
-  .cabecalho .logo img,
-  .logo img {
+  .cabecalho .logo img {
     max-height: 88px;
     width: auto;
     height: auto;
     display: block;
+    padding: 0;
   }
-
 
   .cabecalho .barra-busca {
     order: 2;
@@ -378,10 +366,6 @@ header {
     flex: 0 0 auto;
   }
 
-  
-  .torres-direita { display: none; }
-
-
   .container {
     margin-left: 0;
     padding-top: calc(var(--altura-header) + 8px);
@@ -389,14 +373,16 @@ header {
 }
 
 @media (max-width: 700px) {
-  header { padding: 12px 10px; }
+  header {
+    padding: 12px 10px;
+  }
 
-  .cabecalho .logo img,
-  .logo img {
+  .cabecalho .logo img {
     max-height: 76px;
   }
 
-  .btn-primario, .btn-secundario {
+  .btn-primario,
+  .btn-secundario {
     padding: 9px 12px;
     font-size: 0.92rem;
   }
@@ -406,14 +392,17 @@ header {
     font-size: 0.9rem;
   }
 
-  .container { padding-top: calc(var(--altura-header) + 6px); }
+  .container {
+    padding-top: calc(var(--altura-header) + 6px);
+  }
 }
 
 @media (max-width: 600px) {
-  header { padding: 10px 8px; }
+  header {
+    padding: 10px 8px;
+  }
 
-  .cabecalho .logo img,
-  .logo img {
+  .cabecalho .logo img {
     max-height: 64px;
   }
 
@@ -422,49 +411,61 @@ header {
     font-size: 0.9rem;
   }
 
-  .sidebar { padding: 12px; }
-  .sidebar h3 { font-size: 1rem; }
-
-  .btn-primario, .btn-secundario { padding: 8px 12px; font-size: 0.9rem; }
-
-  .left-decor img {
-    max-width: 250px;
-    max-height: 180px;
-    object-fit: cover;
+  .sidebar {
+    padding: 12px;
+  }
+  .sidebar h3 {
+    font-size: 1rem;
   }
 
-  .form-container { flex-direction: column; align-items: stretch; gap: 12px; }
+  .btn-primario,
+  .btn-secundario {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+  }
 }
 
 @media (max-width: 500px) {
-  header { padding: 10px 8px; }
-  .cabecalho .logo img,
-  .logo img {
+  header {
+    padding: 10px 8px;
+  }
+  .cabecalho .logo img {
     max-height: 56px;
   }
 
-  .navegacao { gap: 8px; }
-  .btn-primario, .btn-secundario { padding: 8px 10px; font-size: 0.88rem; }
-
-  .form-wrapper { padding: 10px; }
-  .form-container { padding: 10px; gap: 10px; }
-  .left-decor img { max-height: 160px; max-width: 220px; }
+  .navegacao {
+    gap: 8px;
+  }
+  .btn-primario,
+  .btn-secundario {
+    padding: 8px 10px;
+    font-size: 0.88rem;
+  }
 }
 
 @media (max-width: 420px) {
-  header { padding: 8px; }
-  .cabecalho .barra-busca { display: none; }
-  .navegacao { gap: 6px; }
+  header {
+    padding: 8px;
+  }
+  .cabecalho .barra-busca {
+    display: none;
+  }
+  .navegacao {
+    gap: 6px;
+  }
 
-  .cabecalho .logo img,
-  .logo img {
+  .cabecalho .logo img {
     max-height: 40px;
     width: auto;
     height: auto;
   }
 
-  .container { padding: 8px; }
-  .form-wrapper { padding: 8px; }
-  .left-decor img { width: 80%; max-height: 140px; object-fit: cover; }
-  .btn-primario, .btn-secundario { padding: 8px 10px; font-size: 0.86rem; }
+  .container {
+    padding: 8px;
+  }
+  .btn-primario,
+  .btn-secundario {
+    padding: 8px 10px;
+    font-size: 0.86rem;
+  }
 }
