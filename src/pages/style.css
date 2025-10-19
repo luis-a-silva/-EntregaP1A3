@@ -63,13 +63,48 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   gap: 20px;
   background-color: var(--cor-fundo-componente);
   padding: 20px;
   border-bottom: 1px solid var(--cor-borda);
   height: var(--altura-header);
   box-sizing: border-box;
+  transition: height 0.3s ease;
+}
+
+.btn-menu-hamburger {
+  display: none;
+  background: none;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto-secundario);
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 8px 10px;
+  border-radius: 6px;
+  z-index: 1001;
+  transition: all 0.3s ease;
+}
+.btn-menu-hamburger:hover {
+  color: var(--cor-texto-principal);
+  border-color: var(--cor-principal-violeta);
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.open {
+  display: block;
+  opacity: 1;
 }
 
 .logo {
@@ -77,6 +112,7 @@ header {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-shrink: 0;
 }
 
 .cabecalho .logo img {
@@ -84,7 +120,7 @@ header {
   height: auto;
   width: auto;
   display: block;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, max-height 0.3s ease;
   padding-left: 12px;
   padding-bottom: 10px;
 }
@@ -96,7 +132,8 @@ header {
 .cabecalho .barra-busca {
   display: flex;
   flex-grow: 1;
-  min-width: 250px;
+  flex-shrink: 1;
+  min-width: 100px;
   max-width: 1400px;
 }
 
@@ -109,6 +146,7 @@ header {
   color: var(--cor-texto-principal);
   font-family: var(--fonte-corpo);
   font-size: 0.9rem;
+  transition: all 0.3s ease;
 }
 
 .cabecalho .barra-busca button {
@@ -119,6 +157,14 @@ header {
   cursor: pointer;
   border-radius: 0 6px 6px 0;
   font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.navegacao {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 .cabecalho .btn-login {
@@ -144,7 +190,13 @@ header {
   padding: 30px 20px;
   overflow-y: auto;
   z-index: 100;
-  transition: transform 0.3s ease;
+  transform: translateX(0);
+  transition: transform 0.3s ease, top 0.3s ease;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+  z-index: 1000;
 }
 
 .sidebar h3 {
@@ -155,11 +207,9 @@ header {
   text-transform: uppercase;
   letter-spacing: 1px;
 }
-
 .dropdown {
   margin-bottom: 20px;
 }
-
 .dropdown-btn {
   width: 100%;
   background: none;
@@ -176,19 +226,15 @@ header {
   align-items: center;
   transition: color 0.3s;
 }
-
 .dropdown-btn:hover {
   color: var(--cor-principal-violeta);
 }
-
 .dropdown-btn i {
   transition: transform 0.3s;
 }
-
 .dropdown.open .dropdown-btn i {
   transform: rotate(180deg);
 }
-
 .dropdown-list {
   list-style: none;
   margin: 10px 0 0;
@@ -197,15 +243,12 @@ header {
   overflow: hidden;
   transition: max-height 0.3s ease;
 }
-
 .dropdown.open .dropdown-list {
   max-height: 500px;
 }
-
 .dropdown-list li {
   margin: 8px 0;
 }
-
 .dropdown-list li a {
   color: var(--cor-texto-secundario);
   text-decoration: none;
@@ -214,11 +257,9 @@ header {
   display: block;
   padding: 5px 0;
 }
-
 .dropdown-list li a:hover {
   color: var(--cor-principal-violeta);
 }
-
 .rodape {
   background-color: var(--cor-fundo-componente);
   padding: 40px 0;
@@ -229,33 +270,27 @@ header {
   flex-wrap: wrap;
   gap: 20px;
 }
-
 .rodape-links {
   margin-left: 260px;
 }
-
 .rodape-links a {
   color: var(--cor-texto-secundario);
   text-decoration: none;
   margin-right: 20px;
   transition: color 0.3s;
 }
-
 .rodape-links a:hover {
   color: var(--cor-texto-principal);
 }
-
 .rodape .icones-sociais a {
   color: var(--cor-texto-secundario);
   font-size: 1.5rem;
   margin-left: 20px;
   transition: color 0.3s;
 }
-
 .rodape .icones-sociais a:hover {
   color: var(--cor-principal-violeta);
 }
-
 .btn-primario {
   cursor: pointer;
   background: var(--cor-principal-violeta);
@@ -267,14 +302,14 @@ header {
   padding: 15px 30px;
   text-decoration: none;
   border-radius: 6px;
-  transition: background-color 0.3s, border-color 0.3s;
+  transition: background-color 0.3s, border-color 0.3s, padding 0.3s ease,
+    font-size 0.3s ease;
   display: inline-block;
+  white-space: nowrap;
 }
-
 .btn-primario:hover {
   border-color: var(--cor-fundo);
 }
-
 .btn-secundario {
   cursor: pointer;
   background: transparent;
@@ -286,186 +321,192 @@ header {
   padding: 15px 30px;
   text-decoration: none;
   border-radius: 6px;
-  transition: background-color 0.3s, border-color 0.3s;
+  transition: background-color 0.3s, border-color 0.3s, padding 0.3s ease,
+    font-size 0.3s ease;
   display: inline-block;
+  white-space: nowrap;
 }
-
 .btn-secundario:hover {
   background-color: var(--cor-fundo-componente);
   border-color: var(--cor-principal-violeta);
 }
 
-
 @media (max-width: 900px) {
-  header {
-    position: relative; 
-    height: auto;
-    padding: 14px 12px;
+  :root {
+    --altura-header: 70px;
   }
 
-  .cabecalho {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  header {
+    padding: 0 15px;
+    height: var(--altura-header);
+    flex-wrap: nowrap;
     gap: 10px;
   }
 
-  .cabecalho .logo,
-  .logo {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    order: 1;
-  }
-
   .cabecalho .logo img {
-    max-height: 88px;
-    width: auto;
-    height: auto;
-    display: block;
+    max-height: 40px;
     padding: 0;
   }
 
   .cabecalho .barra-busca {
-    order: 2;
-    width: 100%;
-    max-width: 760px;
     display: flex;
-    justify-content: center;
-    padding: 0 8px;
-    box-sizing: border-box;
-  }
-
-  .cabecalho .barra-busca input {
-    width: 100%;
-    max-width: 600px;
-    box-sizing: border-box;
-  }
-
-  .navegacao {
-    order: 3;
-    width: 100%;
-    max-width: 760px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
-    padding: 0 8px;
-    box-sizing: border-box;
-  }
-
-  .navegacao button,
-  .navegacao .btn-primario,
-  .navegacao .btn-secundario {
-    flex: 0 1 auto;
-    min-width: 120px;
-    padding: 10px 14px;
-  }
-
-  #whiteMode {
-    flex: 0 0 auto;
-  }
-
-  .sidebar {
-    display: none;
-  }
-
-  .container {
-    margin-left: 0;
-    padding-top: 20px; 
-    padding-left: 15px; 
-    padding-right: 15px; 
-  }
-}
-
-@media (max-width: 700px) {
-  header {
-    padding: 12px 10px;
-  }
-
-  .cabecalho .logo img {
-    max-height: 76px;
-  }
-
-  .btn-primario,
-  .btn-secundario {
-    padding: 9px 12px;
-    font-size: 0.92rem;
-  }
-
-  .cabecalho .barra-busca input {
-    padding: 10px 12px;
-    font-size: 0.9rem;
-  }
-
-}
-
-@media (max-width: 600px) {
-  header {
-    padding: 10px 8px;
-  }
-
-  .cabecalho .logo img {
-    max-height: 64px;
+    min-width: 100px;
   }
 
   .cabecalho .barra-busca input {
     padding: 8px 10px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
   }
 
-
-  .btn-primario,
-  .btn-secundario {
-    padding: 8px 12px;
-    font-size: 0.9rem;
-  }
-}
-
-@media (max-width: 500px) {
-  header {
-    padding: 10px 8px;
-  }
-  .cabecalho .logo img {
-    max-height: 56px;
+  .cabecalho .barra-busca button {
+    padding: 8px 10px;
   }
 
   .navegacao {
     gap: 8px;
   }
-  .btn-primario,
-  .btn-secundario {
+
+  .btn-menu-hamburger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 8px 10px;
-    font-size: 0.88rem;
+  }
+
+  .navegacao .btn-primario,
+  .navegacao .btn-secundario {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+
+  .navegacao button#whiteMode,
+  .navegacao button#darkMode {
+    padding: 8px 10px;
+  }
+
+  .sidebar {
+    transform: translateX(-100%);
+    width: 280px;
+    top: var(--altura-header);
+    height: calc(100% - var(--altura-header));
+    z-index: 1000;
+  }
+
+  .container {
+    margin-left: 0;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: var(--altura-header); 
+  }
+
+  .rodape-links {
+    margin-left: 0;
+    justify-content: center;
+    display: flex;
+    width: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  header {
+    gap: 8px;
+  }
+
+  .cabecalho .logo img {
+    max-height: 35px;
+  }
+
+  .cabecalho .barra-busca {
+    min-width: 80px;
+  }
+
+  .navegacao {
+    gap: 6px;
+  }
+
+  .navegacao .btn-primario,
+  .navegacao .btn-secundario {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+
+  .btn-menu-hamburger {
+    padding: 6px 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    gap: 6px;
+    padding: 0 10px;
+  }
+
+  .cabecalho .logo img {
+    max-height: 32px;
+  }
+
+  .cabecalho .barra-busca {
+    min-width: 50px;
+  }
+
+  .cabecalho .barra-busca input {
+    font-size: 0.8rem;
+    padding: 6px 8px;
+  }
+
+  .cabecalho .barra-busca button {
+    padding: 6px 8px;
+  }
+
+  .navegacao button#whiteMode,
+  .navegacao button#darkMode {
+    display: none;
+  }
+
+  .navegacao .btn-primario,
+  .navegacao .btn-secundario {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+
+  .btn-menu-hamburger {
+    padding: 6px 8px;
+  }
+
+  .sidebar {
+    padding: 20px 12px;
+  }
+
+  .sidebar h3 {
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 420px) {
   header {
-    padding: 8px;
-  }
-  .cabecalho .barra-busca {
-    display: none;
-  }
-  .navegacao {
-    gap: 6px;
+    gap: 5px;
   }
 
   .cabecalho .logo img {
-    max-height: 40px;
-    width: auto;
-    height: auto;
+    max-height: 30px;
+  }
+
+  .cabecalho .barra-busca {
+    min-width: 40px;
+  }
+
+  .navegacao .btn-primario,
+  .navegacao .btn-secundario {
+    padding: 5px 6px;
+    font-size: 0.75rem;
+  }
+
+  .btn-menu-hamburger {
+    padding: 5px 6px;
   }
 
   .container {
     padding-left: 10px;
     padding-right: 10px;
-  }
-
-  .btn-primario,
-  .btn-secundario {
-    padding: 8px 10px;
-    font-size: 0.86rem;
   }
 }

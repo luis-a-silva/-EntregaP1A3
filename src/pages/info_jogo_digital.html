@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EduGames - Detalhes do Jogo</title>
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="info_jogo_digital.css">
+    <link rel="stylesheet" href="info_jogo_digital.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Faster+One&family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
@@ -16,6 +16,8 @@
     />
   </head>
   <body>
+    <div class="overlay" id="overlay"></div>
+
     <header class="cabecalho">
       <a href="index.html" class="logo">
         <img src="../assets/logo_edugames_horizontal.png" alt="EduGames Logo" />
@@ -26,7 +28,16 @@
           <i class="fas fa-search"></i>
         </button>
       </div>
+
       <nav class="navegacao">
+        <button
+          class="btn-menu-hamburger"
+          id="btn-menu"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
         <button class="btn-secundario" id="goToLogin">Entrar</button>
         <button class="btn-primario" id="goToCadastro">Cadastre-se</button>
         <button aria-label="Modo claro" id="whiteMode" class="btn-primario">
@@ -125,7 +136,6 @@
 
       <section class="secao-avaliacoes">
         <h2 class="titulo-secao-avaliacoes">Avaliações e Comentários</h2>
-
         <div class="avaliacao-geral">
           <span>Avaliação Média:</span>
           <div class="estrelas">
@@ -139,7 +149,6 @@
             >(4.8 de 5) – baseada em 1.234 avaliações.</span
           >
         </div>
-
         <form class="form-avaliacao">
           <h3>Sua Avaliação</h3>
           <div class="campo-form-avaliacao">
@@ -179,7 +188,6 @@
             Enviar Avaliação
           </button>
         </form>
-
         <div class="lista-comentarios">
           <div class="comentario-usuario" data-avaliacao-id="99">
             <div class="comentario-cabecalho">
@@ -194,7 +202,6 @@
               <button class="btn-acao btn-excluir">Excluir</button>
             </div>
           </div>
-
           <div class="comentario-usuario" data-avaliacao-id="101">
             <div class="comentario-cabecalho">
               <span class="nome-usuario">Usuário: Adailton123</span>
@@ -206,7 +213,6 @@
             </p>
           </div>
         </div>
-
         <div class="ver-mais">
           <a href="#" class="btn-secundario">Carregar mais comentários</a>
         </div>
@@ -229,5 +235,5 @@
     </footer>
 
     <script type="module" src="info_jogo.js"></script>
-  </body>
+    </body>
 </html>

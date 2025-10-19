@@ -13,10 +13,12 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css" />
   </head>
 
   <body>
+    <div class="overlay" id="overlay"></div>
+
     <header class="cabecalho">
       <a href="index.html" class="logo">
         <img src="../assets/logo_edugames_horizontal.png" alt="EduGames Logo" />
@@ -28,6 +30,14 @@
         </button>
       </div>
       <nav class="navegacao">
+        <button
+          class="btn-menu-hamburger"
+          id="btn-menu"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
         <button class="btn-secundario" id="goToLogin">Entrar</button>
         <button class="btn-primario" id="goToCadastro">Cadastre-se</button>
         <button aria-label="Modo claro" id="whiteMode" class="btn-primario">
@@ -95,8 +105,8 @@
     </aside>
 
     <main>
+      <!-- Hero Banner (minimal) -->
       <div class="container">
-        <!-- Hero Banner (minimal) -->
         <section class="hero-banner hero-minimal">
           <div class="hero-text">
             <h2>Bem-vindo ao EduGames</h2>
@@ -108,8 +118,8 @@
             </div>
           </div>
         </section>
+         <!-- Ofertas Section -->
         <div id="statusRegion"></div>
-        <!-- Ofertas Section -->
         <section class="ofertas-section" id="ofertas">
           <div class="titulo-secao">
             <span class="subtitulo">PROMOÇÕES</span>
@@ -687,5 +697,5 @@
     </footer>
 
     <script type="module" src="index.js"></script>
-  </body>
+    </body>
 </html>

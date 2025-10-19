@@ -165,7 +165,7 @@
 .campo-form-avaliacao textarea {
   width: 100%;
   padding: 12px;
-  background-color: var(--cor-fundo); 
+  background-color: var(--cor-fundo);
   border: 1px solid var(--cor-borda);
   border-radius: 6px;
   color: var(--cor-texto-principal);
@@ -175,7 +175,7 @@
 
 .btn-enviar-avaliacao {
   background-color: var(--cor-destaque-amarelo);
-  color: var(--cor-fundo); 
+  color: var(--cor-fundo);
   border: none;
   padding: 12px 25px;
   border-radius: 6px;
@@ -302,7 +302,7 @@
 
 @media (max-width: 900px) {
   .secao-detalhes-jogo {
-    padding-top: 30px;
+    padding-top: 20px;
     flex-direction: column;
     gap: 30px;
     padding-left: 0;
@@ -311,20 +311,18 @@
   }
 
   .imagem-jogo {
-    max-width: 500px; 
-    width: 90%; 
-    align-self: center; 
+    max-width: 500px;
+    width: 90%;
+    align-self: center;
   }
 
   .imagem-jogo img {
-    
     aspect-ratio: 16 / 9;
   }
 
   .info-jogo {
-    
     align-items: center;
-    width: 100%; 
+    width: 100%;
   }
 
   .nome-jogo {
@@ -337,20 +335,20 @@
   }
 
   .categorias-jogo {
-    justify-content: center; 
+    justify-content: center;
   }
 
   .btn-comprar-grande {
-    align-self: center; 
+    align-self: center;
   }
 
   .titulo-descricao {
-    align-self: stretch; 
+    align-self: stretch;
     text-align: center;
   }
 
   .texto-descricao {
-    text-align: left; 
+    text-align: left;
   }
 
   .secao-avaliacoes {
@@ -360,7 +358,7 @@
   }
 
   .avaliacao-geral {
-    flex-direction: column; 
+    flex-direction: column;
     gap: 10px;
   }
 }
@@ -378,13 +376,13 @@
     font-size: 2.2rem;
   }
 }
+
 @media (max-width: 500px) {
   .secao-detalhes-jogo {
     padding-top: 20px;
   }
 
   .imagem-jogo img {
-    
     aspect-ratio: 4 / 3;
   }
 
@@ -399,8 +397,8 @@
   .btn-comprar-grande {
     font-size: 1.1rem;
     padding: 14px 28px;
-    width: 100%; 
-    max-width: 400px; 
+    width: 100%;
+    max-width: 400px;
   }
 
   .titulo-descricao {
@@ -416,7 +414,6 @@
   }
 
   .comentario-cabecalho {
-    
     flex-direction: column;
     align-items: flex-start;
     gap: 5px;
