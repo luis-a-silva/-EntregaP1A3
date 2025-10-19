@@ -18,8 +18,7 @@
   <body>
     <header class="cabecalho">
       <a href="index.html" class="logo">
-        <i class="fas fa-gamepad"></i>
-        <h1>EduGames</h1>
+        <img src="../assets/logo_edugames.png" alt="EduGames Logo" />
       </a>
       <div class="barra-busca">
         <input type="text" placeholder="Procurar jogos..." />
@@ -46,11 +45,17 @@
     </header>
     <main class="main-container">
       <div id="alerta-centralizado"></div>
+    
+      <div class="torres-direita">
+        <img src="../assets/torre_1.webp" alt="Torre 1" class="torre-1" />
+        <img src="../assets/torre_2.webp" alt="Torre 2" class="torre-2" />
+      </div>
+
       <div class="form-wrapper">
         <!-- Form de Login -->
         <div class="form-container form-login-active" id="container-login">
-          <div class="img-form-login">
-            <img src="../assets/login-img.png" alt="Login" />
+          <div class="left-decor">
+            <img src="../assets/login-img.png" alt="Decorativo Login" />
           </div>
           <form id="login-form">
             <h2>Efetue seu login</h2>
@@ -78,6 +83,9 @@
 
         <!-- Form de Cadastro -->
         <div class="form-container form-cadastro" id="container-cadastro">
+          <div class="left-decor">
+            <img src="../assets/register-img.png" alt="Decorativo Cadastro" />
+          </div>
           <form id="cadastrar-form">
             <h2>Faça seu cadastro!</h2>
             <label for="email-cadastro">E-mail</label>
@@ -116,9 +124,6 @@
               <button type="button" id="btn-login">Login</button>
             </div>
           </form>
-          <div class="img-form-cadastro">
-            <img src="../assets/register-img.png" alt="Cadastro" />
-          </div>
         </div>
       </div>
     </main>

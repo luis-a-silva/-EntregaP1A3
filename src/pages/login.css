@@ -1,138 +1,427 @@
-    /* NOVO contêiner interno, controla o espaço e as animações */
-    .form-wrapper {
-      position: relative;
-      width: 100%;
-      max-width: 900px;
-      height: 800px;
-      margin: 0 auto;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+.form-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  height: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
-    /* Contêiner base dos forms */
-    /* 🔹 Dentro da .form-container, equilibramos imagem e form */
-    .form-container {
-      position: absolute;
-      width: 100%;
-      height: max-content;
-      padding: 20px;
-      gap: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: var(--cor-fundo-componente);
-      border: 1px solid var(--cor-borda);
-      border-radius: 12px;
-      transition: all 0.8s ease;
-    }
+/* Contêiner base dos forms */
 
-    /* 🔹 Imagens maiores, mantendo responsividade */
-    .form-container img {
-      width: 100%;
-      max-width: 420px;
-      /* Tamanho máximo confortável em desktop */
-      height: auto;
-      border-radius: 12px;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
+.form-container {
+  position: absolute;
+  width: 100%;
+  height: max-content;
+  padding: 20px;
+  gap: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--cor-fundo-componente);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  transition: all 0.8s ease;
+}
 
-    /* Pequeno efeito visual ao trocar */
-    .form-container img:hover {
-      transform: scale(1.02);
-    }
+.left-decor {
+  flex: 0 0 300px; 
+  display: flex;
+  align-items: center;
+  overflow: hidden;       /* garante que o border-radius recorte a imagem */
+  border-radius: 12px;    /* ajuste conforme seu design */
+}
 
-    /* 🔹 Formulários ocupam o mesmo espaço visual que a imagem */
-    form {
-      flex: 1;
-      min-width: 320px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
+.left-decor img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: inherit; /* aplica o mesmo radius do container */
+  object-fit: cover;      /* cover para preencher o container mantendo proporção */
+  transition: transform 0.5s ease;
+}
 
-    /* Transições entre os formulários */
-    .form-login-active {
-      opacity: 1;
-      transform: translateX(0);
-      z-index: 2;
-    }
+.left-decor img:hover {
+  transform: scale(1.02);
+}
 
-    .form-login-hide {
-      opacity: 0;
-      transform: translateX(-100%);
-      z-index: 1;
-    }
+/* 🔹 Formulário no centro/direita relativa */
+form {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
-    .form-cadastro {
-      opacity: 0;
-      transform: translateX(100%);
-      z-index: 1;
-    }
+/* Transições entre os formulários */
+.form-login-active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 2;
+}
 
-    .form-cadastro-active {
-      opacity: 1;
-      transform: translateX(0);
-      z-index: 2;
-    }
+.form-login-hide {
+  opacity: 0;
+  transform: translateX(-100%);
+  z-index: 1;
+}
 
-    .form-container,
-    form,
-    input,
-    button {
-      transition: all 0.5s ease;
-    }
+.form-cadastro {
+  opacity: 0;
+  transform: translateX(100%);
+  z-index: 1;
+}
 
-    /* 🔹 Contêiner de cada campo para alinhar label e input */
-    form label {
-      font-size: 0.9rem;
-      color: var(--cor-texto-secundario);
-      font-weight: 500;
-    }
+.form-cadastro-active {
+  opacity: 1;
+  transform: translateX(0);
+  z-index: 2;
+}
 
-    /* 🔹 Inputs modernos */
-    form input {
-      width: 100%;
-      padding: 14px 12px;
-      font-size: 0.95rem;
-      border: 1px solid var(--cor-borda);
-      border-radius: 8px;
-      background-color: var(--cor-fundo);
-      color: var(--cor-texto-principal);
-      outline: none;
-      transition: all 0.3s ease;
-    }
+.form-container,
+form,
+input,
+button {
+  transition: all 0.5s ease;
+}
 
-    /* 🔹 Destaque no foco */
-    form input:focus {
-      border-color: var(--cor-principal-violeta);
-      box-shadow: 0 0 6px rgba(130, 87, 229, 0.3);
-    }
+/* 🔹 Contêiner de cada campo para alinhar label e input */
+form label {
+  font-size: 0.9rem;
+  color: var(--cor-texto-secundario);
+  font-weight: 500;
+}
 
-    .form-links {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-size: 0.98rem;
-    }
+/* 🔹 Inputs modernos */
+form input {
+  width: 100%;
+  padding: 14px 12px;
+  font-size: 0.95rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto-principal);
+  outline: none;
+  transition: all 0.3s ease;
+}
 
-    .form-links button {
-      background: none;
-      border: none;
-      color: #4a90e2;
-      cursor: pointer;
-      font-size: 0.98rem;
-      font-weight: 800;
-      padding: 0;
-    }
+/* 🔹 Destaque no foco */
+form input:focus {
+  border-color: var(--cor-principal-violeta);
+  box-shadow: 0 0 6px rgba(130, 87, 229, 0.3);
+}
 
-    /* 🔹 Suporte a tema claro */
-    body[data-theme="light"] form input {
-      background-color: var(--cor-fundo-componente);
-    }
+.form-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.98rem;
+}
 
-    body[data-theme="light"] form input:focus {
-      box-shadow: 0 0 6px rgba(107, 77, 230, 0.2);
-    }
+.form-links button {
+  background: none;
+  border: none;
+  color: #4a90e2;
+  cursor: pointer;
+  font-size: 0.98rem;
+  font-weight: 800;
+  padding: 0;
+}
+
+/* 🔹 Suporte a tema claro */
+body[data-theme="light"] form input {
+  background-color: var(--cor-fundo-componente);
+}
+
+body[data-theme="light"] form input:focus {
+  box-shadow: 0 0 6px rgba(107, 77, 230, 0.2);
+}
+
+.torres-direita {
+  position: absolute;
+  right: 1%; 
+  top: 80%; 
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: row; 
+  gap: -20px;
+  z-index: 0;
+  pointer-events: none; 
+}
+
+.torre-1 {
+  width: 120px; 
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.torre-2 {
+  width: 120px; 
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.torre-1 {
+  z-index: 1; 
+}
+
+.torre-2 {
+  z-index: 2; 
+  margin-left: -15px; 
+}
+
+.torres-direita img:hover {
+  transform: scale(1.05);
+}
+
+
+.form-cadastro {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.form-cadastro form {
+  order: 1;
+  flex: 1 1 60%;
+  min-width: 320px;
+}
+
+.form-cadastro .left-decor {
+  order: 2;
+  flex: 0 0 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+}
+
+
+@media (max-width: 900px) {
+  /* evitar que o card encoste nas extremidades da tela */
+  body, main.main-container {
+    padding-left: 12px;
+    padding-right: 12px;
+    box-sizing: border-box;
+  }
+
+  .form-wrapper {
+    max-width: 720px;
+    width: 100%;
+    margin: 12px auto;
+    padding: 12px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* card menor e centralizado */
+  .form-container,
+  #container-login,
+  #container-cadastro {
+    width: 100%;
+    max-width: 720px;
+    margin: 8px auto;
+    padding: 14px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; /* empilha por padrão */
+    gap: 12px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* imagem decorativa vem acima do form */
+  .left-decor {
+    order: -1; /* garante que fique antes do form */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+  .left-decor img {
+    width: 80%;
+    max-width: 360px;
+    height: auto;
+    max-height: 28vh;
+    object-fit: contain;
+    border-radius: 8px;
+    display: block;
+  }
+
+  /* form ocupa 100% do espaço disponível e os itens ficam ajustados */
+  form {
+    order: 0;
+    width: 100%;
+    min-width: 0; /* permite encolher dentro do flex */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+    box-sizing: border-box;
+  }
+
+  form h2 {
+    margin: 0;
+    font-size: 1.35rem;
+    text-align: center;
+  }
+
+  label { font-size: 0.95rem; text-align: left; }
+
+  form input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 0.95rem;
+    box-sizing: border-box;
+  }
+
+  .form-container button {
+    width: 100%;
+    padding: 11px 12px;
+    font-size: 1rem;
+  }
+
+  /* "Não possui conta?" e "Cadastre-se" centralizados e lado a lado */
+  .form-links {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 0 8px;
+  }
+
+  /* garantir que ambos tenham o mesmo tamanho visual */
+  .form-links > * {
+    flex: 1 1 45%;               /* cada um ocupa aproximadamente metade do bloco */
+    min-width: 120px;            /* evita que fiquem muito estreitos */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    padding: 8px 10px;
+    font-size: 0.95rem;
+  }
+
+  /* se o "Não possui conta?" for um span, garantir estilo neutro */
+  .form-links .no-account {
+    background: transparent;
+    color: var(--cor-texto-secundario);
+    text-align: center;
+  }
+
+  /* botão de cadastrar: ajustado para mesmo tamanho */
+  .form-links .cadastre-se,
+  .form-links button,
+  .form-links .register-btn {
+    width: 100%;
+    white-space: nowrap;
+  }
+
+  /* muito pequenas: empilhar mantendo centralização */
+  @media (max-width: 420px) {
+    .form-links { flex-wrap: wrap; gap: 8px; padding: 0; }
+    .form-links > * { flex: 1 1 100%; min-width: 0; }
+  }
+
+  /* proteger contra estouro vertical em telas muito pequenas */
+  .form-container {
+    max-height: calc(100vh - var(--altura-header, 100px) - 80px);
+    overflow: visible;
+  }
+}
+
+/* telas menores: empilha e reduz ainda mais para caber sem overflow */
+@media (max-width: 600px) {
+  .form-wrapper { padding: 14px; }
+  .form-container,
+  #container-login,
+  #container-cadastro {
+    max-width: 420px;
+    padding: 12px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .form-container { gap: 10px; }
+  form { order: 1; width: 100%; }
+  .left-decor { order: 2; flex: 0 0 auto; width: 100%; margin: 0; }
+  .left-decor img {
+    max-width: 100%;
+    max-height: 180px;
+    width: auto;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  form h2 { font-size: 1.2rem; text-align: center; }
+  form input { padding: 9px; font-size: 0.9rem; }
+  .form-container button { width: 100%; padding: 11px; }
+}
+
+/* muito pequenas */
+@media (max-width: 420px) {
+  .form-wrapper { padding: 10px; }
+  .form-container { max-width: 360px; padding: 10px; }
+  .left-decor img { max-height: 140px; }
+  form h2 { font-size: 1.05rem; }
+  form input { padding: 8px; font-size: 0.88rem; }
+  .navegacao button { min-width: 100px; padding: 8px 10px; font-size: 0.86rem; }
+}
+
+/* garantir border-radius visível em imagens responsivas e forçar imagem acima do form em <=600px */
+
+/* aplica sempre o radius no container para que o recorte funcione mesmo quando a img encolhe */
+.left-decor {
+  overflow: hidden;       /* garante que o border-radius recorte a imagem */
+  border-radius: 12px;    /* ajuste conforme seu design */
+}
+
+/* a imagem herda o radius e fica em bloco (remove gaps/anti-aliasing de linha) */
+.left-decor img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;      /* cover para preencher o container mantendo proporção */
+  border-radius: inherit; /* aplica o mesmo radius do container */
+}
+
+/* força a imagem ficar acima do form em telas de 600px ou menores */
+@media (max-width: 600px) {
+  .form-container,
+  .form-wrapper {
+    box-sizing: border-box;
+  }
+
+  .left-decor {
+    order: -1 !important;   /* garante que a imagem venha antes do form */
+    width: 100%;
+    max-height: 220px;      /* limita altura para caber sem overflow */
+    margin-bottom: 10px;
+  }
+
+  .left-decor img {
+    width: 100%;
+    height: 100%;
+    max-height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+}
