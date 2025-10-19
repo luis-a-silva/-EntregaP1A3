@@ -295,9 +295,10 @@ header {
   border-color: var(--cor-principal-violeta);
 }
 
+
 @media (max-width: 900px) {
   header {
-    position: relative;
+    position: relative; 
     height: auto;
     padding: 14px 12px;
   }
@@ -366,9 +367,15 @@ header {
     flex: 0 0 auto;
   }
 
+  .sidebar {
+    display: none;
+  }
+
   .container {
     margin-left: 0;
-    padding-top: calc(var(--altura-header) + 8px);
+    padding-top: 20px; 
+    padding-left: 15px; 
+    padding-right: 15px; 
   }
 }
 
@@ -392,9 +399,6 @@ header {
     font-size: 0.9rem;
   }
 
-  .container {
-    padding-top: calc(var(--altura-header) + 6px);
-  }
 }
 
 @media (max-width: 600px) {
@@ -411,12 +415,6 @@ header {
     font-size: 0.9rem;
   }
 
-  .sidebar {
-    padding: 12px;
-  }
-  .sidebar h3 {
-    font-size: 1rem;
-  }
 
   .btn-primario,
   .btn-secundario {
@@ -461,8 +459,10 @@ header {
   }
 
   .container {
-    padding: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
   }
+
   .btn-primario,
   .btn-secundario {
     padding: 8px 10px;
