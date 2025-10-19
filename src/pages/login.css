@@ -410,3 +410,18 @@ body[data-theme="light"] form input:focus {
     border-radius: 12px;
   }
 }
+
+.logo-login {
+  display: block;
+  width: 180px;        
+  height: auto;
+  max-height: 56px;
+  object-fit: contain;
+}
+
+.cabecalho .logo .logo-login {
+  width: 190px;
+  max-height: 1000px;
+  padding-top: 50px;
+  padding-left: 30px;
+}
