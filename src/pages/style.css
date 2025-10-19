@@ -309,7 +309,6 @@ header {
     padding: 14px 12px;
   }
 
-  /* empilha e centraliza os blocos do header: logo -> busca -> navegacao (entrar/cadastrar/tema) */
   .cabecalho {
     display: flex;
     flex-direction: column;
@@ -334,7 +333,7 @@ header {
     display: block;
   }
 
-  /* barra de busca centralizada e com largura controlada */
+
   .cabecalho .barra-busca {
     order: 2;
     width: 100%;
@@ -351,7 +350,6 @@ header {
     box-sizing: border-box;
   }
 
-  /* área de navegação empilhada/centralizada */
   .navegacao {
     order: 3;
     width: 100%;
@@ -372,15 +370,14 @@ header {
     padding: 10px 14px;
   }
 
-  /* garante que o toggle de tema não quebre a linha isoladamente */
   #whiteMode {
     flex: 0 0 auto;
   }
 
-  /* esconder decorações laterais que atrapalham layout empilhado */
+  
   .torres-direita { display: none; }
 
-  /* pequenos ajustes visuais para manter tudo centralizado */
+
   .container {
     margin-left: 0;
     padding-top: calc(var(--altura-header) + 8px);
@@ -432,7 +429,6 @@ header {
     object-fit: cover;
   }
 
-  /* card/forms: empilha para garantir que caiba na tela */
   .form-container { flex-direction: column; align-items: stretch; gap: 12px; }
 }
 
@@ -468,4 +464,3 @@ header {
   .left-decor img { width: 80%; max-height: 140px; object-fit: cover; }
   .btn-primario, .btn-secundario { padding: 8px 10px; font-size: 0.86rem; }
 }
-/* ---------- fim dos breakpoints ---------- */
