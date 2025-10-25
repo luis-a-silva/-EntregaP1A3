@@ -1,6 +1,7 @@
-import { alternarModos, mostrarMensagem }  from "./main.js";
+import { alternarModos, mostrarMensagem, inicializarDropdownPerfil, inicializarMenuLateral }  from "./main.js";
 
-
+inicializarDropdownPerfil();
+inicializarMenuLateral();
 alternarModos();
 
 // Cria e exibe um modal centralizado para confirmar a compra
@@ -79,3 +80,4 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.addEventListener("click", toggleMenu);
   }
 });
+

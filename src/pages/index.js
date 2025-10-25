@@ -1,4 +1,4 @@
-import { alternarModos } from "./main.js";
+import { alternarModos , inicializarDropdownPerfil, inicializarMenuLateral} from "./main.js";
 
 // Dropdown interativo
 document.querySelectorAll(".dropdown-btn").forEach((btn) => {
@@ -75,24 +75,21 @@ document.querySelectorAll(".btn-comprar").forEach((btn) => {
 });
 
 
-alternarModos();
+// ===== CARRINHO =====
+let cartCount = 0;
+const cartBadge = document.getElementById("cartCount");
 
-
-document.addEventListener("DOMContentLoaded", () => {
-  const menuButton = document.getElementById("btn-menu");
-  const sidebar = document.getElementById("sidebar");
-  const overlay = document.getElementById("overlay");
-
-  if (menuButton && sidebar && overlay) {
-    const toggleMenu = () => {
-      sidebar.classList.toggle("open");
-      overlay.classList.toggle("open");
-
-      const isExpanded = sidebar.classList.contains("open");
-      menuButton.setAttribute("aria-expanded", isExpanded);
-    };
-
-    menuButton.addEventListener("click", toggleMenu);
-    overlay.addEventListener("click", toggleMenu);
-  }
+// Todos os botões de adicionar ao carrinho (criados abaixo)
+document.addEventListener("click", (e) => {
+    if (e.target.closest(".btn-adicionar") || e.target.closest(".btn-add-cart")) {
+        cartCount++;
+        cartBadge.textContent = cartCount;
+    }
 });
+
+
+alternarModos();
+inicializarDropdownPerfil();
+inicializarMenuLateral();
+
+

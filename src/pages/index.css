@@ -4,6 +4,29 @@
  
 }
 
+
+/* ===== CARRINHO ===== */
+#btnCarrinho {
+  position: relative;
+}
+
+.badge {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  background: var(--cor-destaque-amarelo);
+  color: #000;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
 .hero-banner {
   width: 100%;
   height: auto;
@@ -118,17 +141,6 @@
   font-size: 0.95rem;
 }
 
-.oferta-info .btn-comprar {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 8px 14px;
-  border-radius: 8px;
-  background: var(--cor-destaque-amarelo);
-  color: #000;
-  text-decoration: none;
-  font-weight: 700;
-}
-
 .preco-comprar {
   display: flex;
   gap: 10px;
@@ -138,9 +150,8 @@
 }
 
 .btn-comprar {
-  display: inline-flex;
   align-items: center;
-  gap: 8px;
+  height: 40px;
   padding: 6px 10px;
   border-radius: 8px;
   background: var(--cor-destaque-amarelo);
@@ -155,6 +166,39 @@
 .btn-comprar i {
   font-size: 0.95rem;
 }
+
+
+.acoes-jogo {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  align-items: center;
+  padding: 10px;
+}
+
+.btn-add-cart, .btn-favorito {
+  background-color: var(--cor-fundo-componente);
+  border: 2px solid var(--cor-borda);
+  color: var(--cor-texto-principal);
+  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-add-cart:hover, .btn-favorito:hover {
+  border-color: var(--cor-principal-violeta);
+  background: rgba(130,87,229,0.15);
+}
+
+.btn-favorito.ativo i {
+  color: var(--cor-destaque-amarelo);
+}
+
 
 .btn-primario.small,
 .btn-secundario.small {

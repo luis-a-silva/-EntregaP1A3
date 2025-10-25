@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="../assets/favicon.png"
+      type="image/x-icon"
+    />
     <title>EduGames - Sua Loja de Jogos Digitais</title>
     <link
       rel="stylesheet"
@@ -21,6 +25,14 @@
     <div class="overlay" id="overlay"></div>
 
     <header class="cabecalho">
+      <button
+        class="btn-menu-hamburger"
+        id="btn-menu"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
       <a href="index.html" class="logo">
         <img src="../assets/logo_edugames_horizontal.png" alt="EduGames Logo" />
       </a>
@@ -31,20 +43,25 @@
         </button>
       </div>
       <nav class="navegacao">
-        <button
-          class="btn-menu-hamburger"
-          id="btn-menu"
-          aria-label="Abrir menu"
-          aria-expanded="false"
-        >
-          <i class="fas fa-bars"></i>
+        <div class="dropdown perfil-dropdown">
+          <button class="btn-secundario" id="btnPerfil">
+            <i class="fas fa-user"></i> Meu Perfil
+            <i class="fas fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-menu" id="menuPerfil">
+            <li><a href="#">Acessar meu perfil</a></li>
+            <li><a href="#">Lista de Favoritos</a></li>
+          </ul>
+        </div>
+
+        <button class="btn-primario" id="btnCarrinho" aria-label="Carrinho">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="badge" id="cartCount">0</span>
         </button>
-        <button class="btn-secundario" id="goToLogin">Entrar</button>
-        <button class="btn-primario" id="goToCadastro">Cadastre-se</button>
+
         <button aria-label="Modo claro" id="whiteMode" class="btn-primario">
           <i class="fas fa-sun"></i>
         </button>
-
         <button
           aria-label="Modo escuro"
           id="darkMode"
@@ -119,7 +136,7 @@
             </div>
           </div>
         </section>
-         <!-- Ofertas Section -->
+        <!-- Ofertas Section -->
         <div id="statusRegion"></div>
         <section class="ofertas-section" id="ofertas">
           <div class="titulo-secao">
@@ -137,7 +154,17 @@
                 <p class="preco">
                   <span class="antigo">R$ 279,90</span> R$ 119,90
                 </p>
-                <a class="btn-comprar" href="#comprar">Comprar</a>
+                <div class="acoes-jogo">
+                  <button class="btn-comprar">
+                    <i class="fas fa-shopping-bag"></i> Comprar
+                  </button>
+                  <button class="btn-add-cart">
+                    <i class="fas fa-cart-plus"></i>
+                  </button>
+                  <button class="btn-favorito">
+                    <i class="fas fa-star"></i>
+                  </button>
+                </div>
               </div>
             </div>
             <div class="oferta-card">
@@ -150,7 +177,17 @@
                 <p class="preco">
                   <span class="antigo">R$ 249,90</span> R$ 149,90
                 </p>
-                <a class="btn-comprar" href="#comprar">Comprar</a>
+                <div class="acoes-jogo">
+                  <button class="btn-comprar">
+                    <i class="fas fa-shopping-bag"></i> Comprar
+                  </button>
+                  <button class="btn-add-cart">
+                    <i class="fas fa-cart-plus"></i>
+                  </button>
+                  <button class="btn-favorito">
+                    <i class="fas fa-star"></i>
+                  </button>
+                </div>
               </div>
             </div>
             <div class="oferta-card">
@@ -163,7 +200,17 @@
                 <p class="preco">
                   <span class="antigo">R$ 349,90</span> R$ 179,90
                 </p>
-                <a class="btn-comprar" href="#comprar">Comprar</a>
+                <div class="acoes-jogo">
+                  <button class="btn-comprar">
+                    <i class="fas fa-shopping-bag"></i> Comprar
+                  </button>
+                  <button class="btn-add-cart">
+                    <i class="fas fa-cart-plus"></i>
+                  </button>
+                  <button class="btn-favorito">
+                    <i class="fas fa-star"></i>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -187,9 +234,17 @@
                 <div class="rating">★★★★★ (4.9)</div>
                 <div class="preco-comprar">
                   <p class="preco">R$ 249,90</p>
-                  <button class="btn-comprar" aria-label="Comprar Elden Ring">
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -205,12 +260,17 @@
                 <div class="rating">★★★★☆ (4.5)</div>
                 <div class="preco-comprar">
                   <p class="preco">R$ 199,99</p>
-                  <button
-                    class="btn-comprar"
-                    aria-label="Comprar Cyberpunk 2077"
-                  >
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -226,9 +286,17 @@
                 <div class="rating">★★★★★ (4.8)</div>
                 <div class="preco-comprar">
                   <p class="preco">R$ 299,90</p>
-                  <button class="btn-comprar" aria-label="Comprar God of War">
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -244,12 +312,17 @@
                 <div class="rating">★★★★★ (4.9)</div>
                 <div class="preco-comprar">
                   <p class="preco">R$ 149,90</p>
-                  <button
-                    class="btn-comprar"
-                    aria-label="Comprar The Witcher 3"
-                  >
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -265,12 +338,17 @@
                 <div class="rating">★★★★☆ (4.6)</div>
                 <div class="preco-comprar">
                   <p class="preco">R$ 279,90</p>
-                  <button
-                    class="btn-comprar"
-                    aria-label="Comprar Hogwarts Legacy"
-                  >
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -286,9 +364,17 @@
                 <div class="rating">★★★★★ (4.8)</div>
                 <div class="preco-comprar">
                   <p class="preco">R$ 349,90</p>
-                  <button class="btn-comprar" aria-label="Comprar Spider-Man 2">
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -304,12 +390,17 @@
                 <div class="rating">★★★★★ (4.9)</div>
                 <div class="preco-comprar">
                   <p class="preco">R$ 189,90</p>
-                  <button
-                    class="btn-comprar"
-                    aria-label="Comprar Red Dead Redemption 2"
-                  >
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -325,9 +416,17 @@
                 <div class="rating">★★★★☆ (4.4)</div>
                 <div class="preco-comprar">
                   <p class="preco">R$ 299,90</p>
-                  <button class="btn-comprar" aria-label="Comprar Starfield">
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -343,12 +442,17 @@
                 <div class="rating">★★★★★ (4.9)</div>
                 <div class="preco-comprar">
                   <p class="preco">R$ 229,90</p>
-                  <button
-                    class="btn-comprar"
-                    aria-label="Comprar Baldur's Gate 3"
-                  >
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -364,12 +468,17 @@
                 <div class="rating">★★★★★ (4.7)</div>
                 <div class="preco-comprar">
                   <p class="preco">R$ 249,90</p>
-                  <button
-                    class="btn-comprar"
-                    aria-label="Comprar Resident Evil 4"
-                  >
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -395,15 +504,20 @@
                 <div class="carousel-info">
                   <h3>Final Fantasy XVI</h3>
                   <div class="preco-comprar">
+                    <span class="tag">Lançamento</span>
                     <p class="preco">R$ 349,90</p>
-                    <button
-                      class="btn-comprar"
-                      aria-label="Comprar Final Fantasy XVI"
-                    >
-                      <i class="fas fa-shopping-cart"></i> Comprar
-                    </button>
+                    <div class="acoes-jogo">
+                      <button class="btn-comprar">
+                        <i class="fas fa-shopping-bag"></i> Comprar
+                      </button>
+                      <button class="btn-add-cart">
+                        <i class="fas fa-cart-plus"></i>
+                      </button>
+                      <button class="btn-favorito">
+                        <i class="fas fa-star"></i>
+                      </button>
+                    </div>
                   </div>
-                  <span class="tag">Lançamento</span>
                 </div>
               </div>
 
@@ -416,14 +530,19 @@
                   <h3>Alan Wake 2</h3>
                   <div class="preco-comprar">
                     <p class="preco">R$ 299,90</p>
-                    <button
-                      class="btn-comprar"
-                      aria-label="Comprar Alan Wake 2"
-                    >
-                      <i class="fas fa-shopping-cart"></i> Comprar
-                    </button>
+                    <span class="tag">Lançamento</span>
+                    <div class="acoes-jogo">
+                      <button class="btn-comprar">
+                        <i class="fas fa-shopping-bag"></i> Comprar
+                      </button>
+                      <button class="btn-add-cart">
+                        <i class="fas fa-cart-plus"></i>
+                      </button>
+                      <button class="btn-favorito">
+                        <i class="fas fa-star"></i>
+                      </button>
+                    </div>
                   </div>
-                  <span class="tag">Lançamento</span>
                 </div>
               </div>
 
@@ -436,14 +555,19 @@
                   <h3>Assassin's Creed Mirage</h3>
                   <div class="preco-comprar">
                     <p class="preco">R$ 279,90</p>
-                    <button
-                      class="btn-comprar"
-                      aria-label="Comprar Assassin's Creed Mirage"
-                    >
-                      <i class="fas fa-shopping-cart"></i> Comprar
-                    </button>
+                    <span class="tag">Lançamento</span>
+                    <div class="acoes-jogo">
+                      <button class="btn-comprar">
+                        <i class="fas fa-shopping-bag"></i> Comprar
+                      </button>
+                      <button class="btn-add-cart">
+                        <i class="fas fa-cart-plus"></i>
+                      </button>
+                      <button class="btn-favorito">
+                        <i class="fas fa-star"></i>
+                      </button>
+                    </div>
                   </div>
-                  <span class="tag">Lançamento</span>
                 </div>
               </div>
 
@@ -456,14 +580,19 @@
                   <h3>Mortal Kombat 1</h3>
                   <div class="preco-comprar">
                     <p class="preco">R$ 329,90</p>
-                    <button
-                      class="btn-comprar"
-                      aria-label="Comprar Mortal Kombat 1"
-                    >
-                      <i class="fas fa-shopping-cart"></i> Comprar
-                    </button>
+                    <span class="tag">Lançamento</span>
+                    <div class="acoes-jogo">
+                      <button class="btn-comprar">
+                        <i class="fas fa-shopping-bag"></i> Comprar
+                      </button>
+                      <button class="btn-add-cart">
+                        <i class="fas fa-cart-plus"></i>
+                      </button>
+                      <button class="btn-favorito">
+                        <i class="fas fa-star"></i>
+                      </button>
+                    </div>
                   </div>
-                  <span class="tag">Lançamento</span>
                 </div>
               </div>
 
@@ -476,11 +605,19 @@
                   <h3>Lies of P</h3>
                   <div class="preco-comprar">
                     <p class="preco">R$ 249,90</p>
-                    <button class="btn-comprar" aria-label="Comprar Lies of P">
-                      <i class="fas fa-shopping-cart"></i> Comprar
-                    </button>
+                    <span class="tag">Lançamento</span>
+                    <div class="acoes-jogo">
+                      <button class="btn-comprar">
+                        <i class="fas fa-shopping-bag"></i> Comprar
+                      </button>
+                      <button class="btn-add-cart">
+                        <i class="fas fa-cart-plus"></i>
+                      </button>
+                      <button class="btn-favorito">
+                        <i class="fas fa-star"></i>
+                      </button>
+                    </div>
                   </div>
-                  <span class="tag">Lançamento</span>
                 </div>
               </div>
 
@@ -493,11 +630,19 @@
                   <h3>Payday 3</h3>
                   <div class="preco-comprar">
                     <p class="preco">R$ 199,90</p>
-                    <button class="btn-comprar" aria-label="Comprar Payday 3">
-                      <i class="fas fa-shopping-cart"></i> Comprar
-                    </button>
+                    <span class="tag">Lançamento</span>
+                    <div class="acoes-jogo">
+                      <button class="btn-comprar">
+                        <i class="fas fa-shopping-bag"></i> Comprar
+                      </button>
+                      <button class="btn-add-cart">
+                        <i class="fas fa-cart-plus"></i>
+                      </button>
+                      <button class="btn-favorito">
+                        <i class="fas fa-star"></i>
+                      </button>
+                    </div>
                   </div>
-                  <span class="tag">Lançamento</span>
                 </div>
               </div>
             </div>
@@ -523,12 +668,17 @@
                 <h3>Street Fighter 6</h3>
                 <div class="preco-comprar">
                   <p class="preco">R$ 299,90</p>
-                  <button
-                    class="btn-comprar"
-                    aria-label="Comprar Street Fighter 6"
-                  >
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -542,9 +692,17 @@
                 <h3>Diablo IV</h3>
                 <div class="preco-comprar">
                   <p class="preco">R$ 279,90</p>
-                  <button class="btn-comprar" aria-label="Comprar Diablo IV">
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -558,12 +716,17 @@
                 <h3>Forza Motorsport</h3>
                 <div class="preco-comprar">
                   <p class="preco">R$ 349,90</p>
-                  <button
-                    class="btn-comprar"
-                    aria-label="Comprar Forza Motorsport"
-                  >
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -577,9 +740,17 @@
                 <h3>Tekken 8</h3>
                 <div class="preco-comprar">
                   <p class="preco">R$ 329,90</p>
-                  <button class="btn-comprar" aria-label="Comprar Tekken 8">
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -593,12 +764,17 @@
                 <h3>Dragon's Dogma 2</h3>
                 <div class="preco-comprar">
                   <p class="preco">R$ 299,90</p>
-                  <button
-                    class="btn-comprar"
-                    aria-label="Comprar Dragon's Dogma 2"
-                  >
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -612,12 +788,17 @@
                 <h3>Cities: Skylines II</h3>
                 <div class="preco-comprar">
                   <p class="preco">R$ 249,90</p>
-                  <button
-                    class="btn-comprar"
-                    aria-label="Comprar Cities: Skylines II"
-                  >
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -631,12 +812,17 @@
                 <h3>Persona 5 Tactica</h3>
                 <div class="preco-comprar">
                   <p class="preco">R$ 279,90</p>
-                  <button
-                    class="btn-comprar"
-                    aria-label="Comprar Persona 5 Tactica"
-                  >
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -650,12 +836,17 @@
                 <h3>Like a Dragon: Infinite</h3>
                 <div class="preco-comprar">
                   <p class="preco">R$ 299,90</p>
-                  <button
-                    class="btn-comprar"
-                    aria-label="Comprar Like a Dragon: Infinite"
-                  >
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -669,12 +860,17 @@
                 <h3>Sonic Superstars</h3>
                 <div class="preco-comprar">
                   <p class="preco">R$ 199,90</p>
-                  <button
-                    class="btn-comprar"
-                    aria-label="Comprar Sonic Superstars"
-                  >
-                    <i class="fas fa-shopping-cart"></i> Comprar
-                  </button>
+                  <div class="acoes-jogo">
+                    <button class="btn-comprar">
+                      <i class="fas fa-shopping-bag"></i> Comprar
+                    </button>
+                    <button class="btn-add-cart">
+                      <i class="fas fa-cart-plus"></i>
+                    </button>
+                    <button class="btn-favorito">
+                      <i class="fas fa-star"></i>
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -698,5 +894,5 @@
     </footer>
 
     <script type="module" src="index.js"></script>
-    </body>
+  </body>
 </html>
