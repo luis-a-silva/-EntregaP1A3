@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="../assets/favicon.png" type="image/x-icon" />
+    <title>EduGames - Meu Perfil</title>
+    
+    <link rel="stylesheet" href="style.css" />
+    
+    <link rel="stylesheet" href="perfil.css" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Faster+One&family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+  </head>
+
+  <body>
+    <div class="main-container"> <div class="overlay" id="overlay"></div>
+  
+      <header class="cabecalho">
+        <button class="btn-menu-hamburger" id="btn-menu" aria-label="Abrir menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+        <a href="index.html" class="logo">
+          <img src="../assets/logo_edugames_horizontal.png" alt="EduGames Logo" />
+        </a>
+        <div class="barra-busca">
+          <input type="text" placeholder="Procurar jogos..." />
+          <button aria-label="Buscar">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+        <nav class="navegacao">
+          <div class="dropdown perfil-dropdown">
+            <button class="btn-secundario" id="btnPerfil">
+              <i class="fas fa-user"></i> Meu Perfil
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <ul class="dropdown-menu" id="menuPerfil">
+              <li><a href="#">Acessar meu perfil</a></li>
+              <li><a href="#">Lista de Favoritos</a></li>
+            </ul>
+          </div>
+          <button class="btn-primario" id="btnCarrinho" aria-label="Carrinho">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="badge" id="cartCount">0</span>
+          </button>
+          <button aria-label="Modo claro" id="whiteMode" class="btn-primario">
+            <i class="fas fa-sun"></i>
+          </button>
+          <button aria-label="Modo escuro" id="darkMode" class="btn-secundario" style="display: none">
+            <i class="fas fa-moon"></i>
+          </button>
+        </nav>
+      </header>
+  
+      <aside class="sidebar" id="sidebar">
+        <h3>Categorias</h3>
+        <div class="dropdown">
+          <button class="dropdown-btn">
+            Plataformas <i class="fas fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-list">
+            <li><a href="#">PC</a></li>
+            <li><a href="#">PlayStation</a></li>
+            <li><a href="#">Xbox</a></li>
+            <li><a href="#">Nintendo</a></li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn">
+            Gêneros <i class="fas fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-list">
+            <li><a href="#">Ação</a></li>
+            <li><a href="#">RPG</a></li>
+            <li><a href="#">Corrida</a></li>
+            <li><a href="#">Simulação</a></li>
+            <li><a href="#">Terror</a></li>
+            <li><a href="#">Aventura</a></li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn">
+            Faixa de Preço <i class="fas fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-list">
+            <li><a href="#">Até R$ 50</a></li>
+            <li><a href="#">R$ 50 - R$ 150</a></li>
+            <li><a href="#">R$ 150 - R$ 300</a></li>
+            <li><a href="#">Acima de R$ 300</a></li>
+          </ul>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn">
+            Avaliações <i class="fas fa-chevron-down"></i>
+          </button>
+          <ul class="dropdown-list">
+            <li><a href="#">★★★★★ (5 estrelas)</a></li>
+            <li><a href="#">★★★★☆ (4 estrelas)</a></li>
+            <li><a href="#">★★★☆☆ (3 estrelas)</a></li>
+          </ul>
+        </div>
+      </aside>
+  
+      <main class="container">
+        
+        <div class="layout-perfil">
+  
+          <aside class="perfil-sidebar">
+            <h2>Meu Perfil</h2>
+            <div class="perfil-info-box">
+              <div class="foto-placeholder">
+                <span>Foto do Usuário</span>
+              </div>
+              <div class="info-item">
+                <span>Nome</span>
+                <p>Nome do Usuário</p>
+              </div>
+              <div class="info-item">
+                <span>Email</span>
+                <p>email@exemplo.com</p>
+              </div>
+              <div class="info-item">
+                <span>Data de Nascimento</span>
+                <p>01/01/2000</p>
+              </div>
+            </div>
+          </aside>
+  
+          <section class="pedidos-secao">
+            <h2>Seus Pedidos</h2>
+            
+            <div class="pedidos-container">
+              
+              <div class="pedido-card">
+                <h3>Todos os detalhes da compra aqui</h3>
+                <p>Pedido #12345 - 2 itens - R$ 149,90</p>
+              </div>
+              
+              <div class="pedido-card">
+                <h3>Todos os detalhes da compra aqui</h3>
+                <p>Pedido #12344 - 1 item - R$ 89,90</p>
+              </div>
+              
+              <div class="pedido-card">
+                <h3>Todos os detalhes da compra aqui</h3>
+                <p>Pedido #12343 - 4 itens - R$ 320,50</p>
+              </div>
+  
+            </div>
+          </section>
+      
+        </div> 
+      </main>
+  
+      <footer class="rodape">
+        <div class="rodape-links">
+          <a href="#">Sobre</a>
+          <a href="#">Suporte</a>
+          <a href="#">Contato</a>
+        </div>
+        &copy 2025 EduGames. Todos os direitos reservados.
+        <div class="icones-sociais">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </footer>
+      
+    </div> </body>
+</html>
