@@ -1,4 +1,4 @@
-import { alternarModos , inicializarDropdownPerfil, inicializarMenuLateral} from "./main.js";
+import { alternarModos , inicializarDropdownPerfil, inicializarMenuLateral, mostrarMensagem} from "./main.js";
 
 // Dropdown interativo
 document.querySelectorAll(".dropdown-btn").forEach((btn) => {
@@ -13,7 +13,7 @@ document.querySelectorAll(".dropdown-btn").forEach((btn) => {
     });
 });
 
-// Carousel Functionality
+// Funcionalidade do carrossel
 const track = document.getElementById('carouselTrack');
 const prevBtn = document.querySelector('.carousel-btn.prev');
 const nextBtn = document.querySelector('.carousel-btn.next');
@@ -31,7 +31,7 @@ prevBtn.addEventListener('click', () => {
     track.style.transform = `translateX(-${currentPosition}px)`;
 });
 
-
+//Acionar evento botão comprar
 document.querySelectorAll(".btn-comprar").forEach((btn) => {
     btn.addEventListener("click", (e) => {
         e.preventDefault();
@@ -79,15 +79,45 @@ document.querySelectorAll(".btn-comprar").forEach((btn) => {
 let cartCount = 0;
 const cartBadge = document.getElementById("cartCount");
 
-// Todos os botões de adicionar ao carrinho (criados abaixo)
-document.addEventListener("click", (e) => {
-    if (e.target.closest(".btn-adicionar") || e.target.closest(".btn-add-cart")) {
+//Adicionar evento dos botões de adicionar ao carrinho
+document.querySelectorAll(".btn-add-cart").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        mostrarMensagem('Item adicionado ao carrinho!', 'success');
         cartCount++;
         cartBadge.textContent = cartCount;
-    }
+    });
 });
 
+// ===== FAVORITOS =====
+document.addEventListener("click", (e) => {
+  const favBtn = e.target.closest(".btn-favorito");
+  if (favBtn) {
+    favBtn.classList.toggle("ativo");
+    mostrarMensagem(favBtn.classList.contains("ativo") ? 'Adicionado aos favoritos!' : 'Removido dos favoritos!', 'info');
+  }
+});
 
+// Botão Flutuante + Modal Jogos
+const modalJogos = document.getElementById("modalJogos");
+const btnJogos = document.getElementById("btnJogos");
+const fecharJogos = document.getElementById("fecharJogos");
+
+btnJogos.addEventListener("click", () => {
+  modalJogos.style.display = "flex";
+});
+
+fecharJogos.addEventListener("click", () => {
+  modalJogos.style.display = "none";
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target === modalJogos) {
+    modalJogos.style.display = "none";
+  }
+});
+
+//inicializando funções importadas
 alternarModos();
 inicializarDropdownPerfil();
 inicializarMenuLateral();
