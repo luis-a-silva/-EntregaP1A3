@@ -18,6 +18,7 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 40px 20px; 
 }
 
 footer {
@@ -28,7 +29,7 @@ footer {
 .cabecalho {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; 
   position: relative;
   border-bottom: 1px solid var(--cor-borda);
   padding: 10px 20px;
@@ -38,6 +39,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 15px;
+  flex: 0 1 auto; 
 }
 
 .icone-site {
@@ -59,8 +61,11 @@ footer {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 0 auto; 
-  padding-left: 350px;
+  flex: 1; 
+  justify-content: center;
+  margin: 0; 
+  max-width: 100%; 
+  overflow: hidden; 
 }
 
 .passos-progresso .passo {
@@ -70,6 +75,8 @@ footer {
   color: var(--cor-texto-secundario);
   font-size: 0.9rem;
   font-family: var(--fonte-corpo);
+  white-space: nowrap; 
+  flex-shrink: 1; 
 }
 
 .passos-progresso .passo:not(:last-child)::after {
@@ -77,6 +84,7 @@ footer {
   margin-left: 10px;
   color: var(--cor-texto-secundario);
   font-size: 1.2rem;
+  flex-shrink: 0; 
 }
 
 .passos-progresso .passo span:first-child {
@@ -88,6 +96,7 @@ footer {
   align-items: center;
   justify-content: center;
   font-weight: bold;
+  flex-shrink: 0; 
 }
 
 .passos-progresso .passo.passo-ativo {
@@ -105,7 +114,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-left: auto;
+  flex: 0 1 auto; 
 }
 
 .layout-carrinho {
@@ -275,20 +284,10 @@ footer {
   color: var(--cor-principal-violeta);
 }
 
-
-@media (max-width: 900px) {
-  .layout-carrinho {
-    grid-template-columns: 1fr; 
-    align-items: stretch; 
-  }
-
-  .resumo-compra-secao {
-    height: auto; 
-    justify-content: flex-start; 
-  }
-
+@media (max-width: 830px) {
   .cabecalho {
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 10px;
     padding: 10px;
   }
@@ -299,12 +298,150 @@ footer {
   }
 
   .passos-progresso {
-    margin: 0;
+    order: -1; 
+    width: 100%;
+    justify-content: center;
   }
 
   .navegacao {
-    margin-left: 0;
     justify-content: center;
+  }
+
+  .passos-progresso .rotulo-passo {
+    font-size: 0.8rem; 
+  }
+}
+
+@media (max-width: 900px) {
+  .layout-carrinho {
+    grid-template-columns: 1fr; 
+    align-items: stretch; 
+    gap: 20px;
+    margin-top: 20px;
+  }
+
+  .resumo-compra-secao {
+    height: auto; 
+    justify-content: flex-start; 
+  }
+
+  main {
+    padding: 30px 15px;
+  }
+
+  .carrinho-vazio {
+    padding: 60px 40px;
+    min-height: 350px;
+  }
+
+  .carrinho-secao h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 800px) {
+  main {
+    padding: 25px 12px;
+  }
+
+  .layout-carrinho {
+    gap: 15px;
+    margin-top: 15px;
+  }
+
+  .resumo-compra-secao {
+    padding: 20px;
+  }
+
+  .carrinho-vazio {
+    padding: 50px 30px;
+    min-height: 320px;
+  }
+
+  .icone-carrinho-vazio {
+    width: 70px;
+    height: 70px;
+    font-size: 2rem;
+  }
+
+  .carrinho-vazio h3 {
+    font-size: 1.4rem;
+  }
+
+  .carrinho-vazio p {
+    max-width: 300px;
+    font-size: 0.95rem;
+  }
+
+  .btn-descobrir {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+
+  .cabecalho {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .passos-progresso {
+    gap: 8px;
+  }
+
+  .passos-progresso .passo {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .passos-progresso .rotulo-passo {
+    display: none;
+  }
+
+  .passos-progresso {
+    gap: 5px;
+  }
+
+  .passos-progresso .passo:not(:last-child)::after {
+    font-size: 1rem;
+    margin-left: 5px;
+  }
+
+  main {
+    padding: 20px 10px;
+  }
+
+  .layout-carrinho {
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .resumo-compra-secao {
+    padding: 18px;
+  }
+
+  .resumo-compra-secao h3 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+  }
+
+  .linha-resumo {
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+  }
+
+  .total-resumo {
+    font-size: 1rem;
+  }
+
+  .carrinho-vazio {
+    padding: 45px 25px;
+    min-height: 300px;
+  }
+
+  .carrinho-secao h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
   }
 }
 
@@ -315,28 +452,289 @@ footer {
   
   .cabecalho {
     padding: 5px;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   
   .cabecalho-esquerda {
     flex-wrap: wrap;
     justify-content: center;
+    gap: 6px;
+    order: 1;
   }
   
   .icone-site {
     display: block;
+    font-size: 0.85rem;
+    padding: 5px 10px;
   }
   
+  .navegacao {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    order: 2;
+  }
+
+  .passos-progresso {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    margin: 5px 0;
+  }
+
+  main {
+    padding: 15px 8px;
+  }
+
+  .layout-carrinho {
+    gap: 10px;
+    margin-top: 10px;
+  }
+
   .carrinho-vazio {
     padding: 40px 20px;
-    min-height: 300px;
+    min-height: 280px;
   }
 
   .carrinho-vazio h3 {
     font-size: 1.3rem;
   }
 
+  .carrinho-vazio p {
+    font-size: 0.9rem;
+    max-width: 280px;
+  }
+
+  .btn-descobrir {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  .resumo-compra-secao {
+    padding: 15px;
+  }
+
+  .btn-finalizar {
+    padding: 12px;
+    font-size: 0.9rem;
+    margin-top: 20px;
+  }
+
+  .divisor-ou {
+    margin: 12px 0;
+    font-size: 0.85rem;
+  }
+
+  .link-continuar-comprando {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .cabecalho {
+    padding: 4px;
+    gap: 4px;
+  }
+
+  .cabecalho-esquerda {
+    gap: 4px;
+  }
+
+  .icone-site {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+
   .navegacao {
-    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .passos-progresso {
+    gap: 4px;
+    margin: 4px 0;
+  }
+
+  .passos-progresso .passo {
+    font-size: 0.8rem;
+    gap: 4px;
+  }
+
+  main {
+    padding: 12px 6px;
+  }
+
+  .layout-carrinho {
+    gap: 8px;
+  }
+
+  .carrinho-secao h2 {
+    font-size: 1.4rem;
+  }
+
+  .carrinho-vazio {
+    padding: 35px 15px;
+    min-height: 260px;
+  }
+
+  .icone-carrinho-vazio {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  .carrinho-vazio h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  .carrinho-vazio p {
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+    max-width: 250px;
+  }
+
+  .btn-descobrir {
+    padding: 9px 18px;
+    font-size: 0.85rem;
+  }
+
+  .resumo-compra-secao {
+    padding: 12px;
+  }
+
+  .resumo-compra-secao h3 {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+  }
+
+  .linha-resumo {
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+  }
+
+  .total-resumo {
+    font-size: 0.95rem;
+    margin-top: 15px;
+    padding-top: 15px;
+  }
+
+  .btn-finalizar {
+    padding: 10px;
+    font-size: 0.85rem;
+    margin-top: 15px;
+  }
+
+  .divisor-ou {
+    margin: 10px 0;
+    font-size: 0.8rem;
+  }
+
+  .link-continuar-comprando {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .passos-progresso {
+    display: none; 
+  }
+
+  .cabecalho {
+    padding: 3px;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+  }
+
+  .cabecalho-esquerda {
+    order: 1;
+    width: 100%;
     justify-content: center;
+  }
+
+  .navegacao {
+    order: 2;
+    width: 100%;
+    justify-content: center;
+  }
+
+  main {
+    padding: 10px 4px;
+  }
+
+  .layout-carrinho {
+    gap: 6px;
+    margin-top: 8px;
+  }
+
+  .carrinho-secao h2 {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .carrinho-vazio {
+    padding: 30px 10px;
+    min-height: 240px;
+  }
+
+  .icone-carrinho-vazio {
+    width: 55px;
+    height: 55px;
+    font-size: 1.6rem;
+  }
+
+  .carrinho-vazio h3 {
+    font-size: 1.1rem;
+  }
+
+  .carrinho-vazio p {
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    max-width: 220px;
+  }
+
+  .btn-descobrir {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .resumo-compra-secao {
+    padding: 10px;
+  }
+
+  .resumo-compra-secao h3 {
+    font-size: 1rem;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+  }
+
+  .linha-resumo {
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+  }
+
+  .total-resumo {
+    font-size: 0.9rem;
+    margin-top: 12px;
+    padding-top: 12px;
+  }
+
+  .btn-finalizar {
+    padding: 9px;
+    font-size: 0.8rem;
+    margin-top: 12px;
+  }
+
+  .divisor-ou {
+    margin: 8px 0;
+    font-size: 0.75rem;
+  }
+
+  .link-continuar-comprando {
+    font-size: 0.75rem;
   }
 }
