@@ -150,7 +150,10 @@
 }
 
 .btn-comprar {
+  display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 4px;
   height: 40px;
   padding: 6px 10px;
   border-radius: 8px;

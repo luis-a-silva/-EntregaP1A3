@@ -117,6 +117,15 @@ window.addEventListener("click", (e) => {
   }
 });
 
+
+  const btnCarrinho = document.getElementById("btnCarrinho");
+  if (btnCarrinho) {
+    btnCarrinho.addEventListener("click", () => {
+      // Redireciona para a página do carrinho
+      window.location.href = "carrinho.html";
+    });
+  }
+
 //inicializando funções importadas
 alternarModos();
 inicializarDropdownPerfil();

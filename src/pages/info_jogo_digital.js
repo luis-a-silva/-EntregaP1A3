@@ -388,7 +388,6 @@ document.addEventListener("DOMContentLoaded", () => {
     overlay.addEventListener("click", toggleMenu);
   }
 
-  // --- LÓGICA DO BOTÃO CARRINHO (NOVO) ---
   const btnCarrinho = document.getElementById("btnCarrinho");
   if (btnCarrinho) {
     btnCarrinho.addEventListener("click", () => {
