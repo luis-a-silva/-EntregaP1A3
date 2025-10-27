@@ -4,6 +4,22 @@ inicializarDropdownPerfil();
 inicializarMenuLateral();
 alternarModos();
 
+
+// --- DROPDOWN INTERATIVO (PARA A SIDEBAR) ---
+// Adicionado do seu primeiro arquivo de código
+document.querySelectorAll(".dropdown-btn").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const dropdown = btn.parentElement;
+    dropdown.classList.toggle("open");
+
+    // Fecha os outros dropdowns abertos (APENAS NA SIDEBAR)
+    // (Ajuste para não fechar o dropdown de perfil no header)
+    document.querySelectorAll(".sidebar .dropdown").forEach((other) => {
+      if (other !== dropdown) other.classList.remove("open");
+    });
+  });
+});
+
 // Cria e exibe um modal centralizado para confirmar a compra
 function mostrarConfirmacaoCompra() {
   // Remove modal anterior se existir
