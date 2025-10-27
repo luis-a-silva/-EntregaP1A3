@@ -5,11 +5,8 @@ import {
   inicializarMenuLateral,
 } from "./main.js";
 
-// Ativa os botões de modo claro/escuro (#whiteMode, #darkMode)
+// Ativa os botões de modo claro/escuro 
 alternarModos();
 
-// Ativa o botão de dropdown do perfil (#btnPerfil)
+// Ativa o botão de dropdown do perfil 
 inicializarDropdownPerfil();
-
-// Ativa o botão de menu hamburger (#btn-menu)
-inicializarMenuLateral();
