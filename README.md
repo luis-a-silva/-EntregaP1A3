@@ -3,12 +3,6 @@ Este projeto entrega uma API CRUD (Create, Read, Update, Delete) construída com
 
 O objetivo final deste é entregar uma plataforma digital centralizada para a venda, distribuição e gerenciamento de jogos de PC. O foco é criar um ecossistema completo para jogadores e desenvolvedores, oferecendo conveniência e recursos que vão além da simples compra. 
 
-Tecnologias:  
-Node.js – plataforma de execução JavaScript no servidor  
-Express – framework web minimalista para Node.js, para definir rotas, middlewares e lógica da API  
-MySQL – banco de dados relacional para armazenamento das entidades do sistema  
-Estrutura de pastas organizada (backend, frontend, documentos)
-
 Funcionalidades:  
 Endpoints para operações CRUD:  
 Create – inserção de novos registros  
