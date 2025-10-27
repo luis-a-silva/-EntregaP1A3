@@ -82,12 +82,45 @@
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
-  align-self: flex-start;
-  margin-bottom: 40px;
 }
 
 .btn-comprar-grande:hover {
   background-color: #6a40d3;
+}
+
+/* Container para os botões de compra */
+.container-botoes-compra {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  align-self: flex-start;
+}
+
+.btn-add-cart,
+.btn-favorito {
+  background-color: var(--cor-destaque-amarelo);
+  border: 2px solid var(--cor-borda);
+  color: #000000;
+  border-radius: 8px;
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-add-cart i,
+.btn-favorito i {
+  color: #000000;
+}
+
+.btn-add-cart:hover,
+.btn-favorito:hover {
+  border-color: var(--cor-principal-violeta);
 }
 
 .titulo-descricao {
@@ -300,6 +333,7 @@
   margin-bottom: 50px;
 }
 
+/* BLOCO DE MEDIA QUERY CORRIGIDO */
 @media (max-width: 900px) {
   .secao-detalhes-jogo {
     padding-top: 20px;
@@ -324,6 +358,10 @@
     align-items: center;
     width: 100%;
   }
+
+  .container-botoes-compra {
+    align-self: center;
+  } /* <-- CHAVE } FALTANTE FOI ADICIONADA AQUI */
 
   .nome-jogo {
     font-size: 2.8rem;
@@ -394,9 +432,20 @@
     font-size: 2rem;
   }
 
+  .container-botoes-compra {
+    flex-direction: column;
+    align-self: stretch;
+    padding: 0 20px;
+  }
+
   .btn-comprar-grande {
     font-size: 1.1rem;
     padding: 14px 28px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .btn-add-cart {
     width: 100%;
     max-width: 400px;
   }
@@ -452,3 +501,31 @@
     font-size: 0.75rem;
   }
 }
+
+.comentario-usuario .form-avaliacao {
+  margin-bottom: 0;
+  padding: 20px;
+  margin-top: 15px;
+  border: 1px dashed var(--cor-principal-violeta);
+  background-color: var(--cor-fundo);
+}
+
+.comentario-usuario .form-avaliacao h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
+
+.comentario-usuario.novo-comentario {
+  opacity: 0;
+  transform: translateY(-15px);
+
+  animation: fadeInComentario 0.4s ease-out forwards;
+}
+
+@keyframes fadeInComentario {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+/* A CHAVE } EXTRA QUE ESTAVA AQUI FOI REMOVIDA */

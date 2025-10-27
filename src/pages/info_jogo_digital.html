@@ -21,7 +21,7 @@
     />
   </head>
 
-  <body>
+  <body id="topo">
     <div class="overlay" id="overlay"></div>
 
     <header class="cabecalho">
@@ -73,7 +73,7 @@
       </nav>
     </header>
 
-   <aside class="sidebar" id="sidebar">
+    <aside class="sidebar" id="sidebar">
       <h3>Categorias</h3>
       <div class="dropdown">
         <button class="dropdown-btn">
@@ -138,7 +138,15 @@
             <span class="tag">RPG</span>
           </div>
           <p class="preco-jogo">R$ 129,99</p>
-          <button class="btn-comprar btn-comprar-grande">Comprar Agora</button>
+
+          <div class="container-botoes-compra">
+            <button class="btn-comprar btn-comprar-grande">
+              Comprar Agora
+            </button>
+            <button class="btn-add-cart" aria-label="Adicionar ao carrinho">
+              <i class="fas fa-cart-plus"></i>
+            </button>
+          </div>
 
           <h2 class="titulo-descricao">Descrição completa do jogo</h2>
           <p class="texto-descricao">
@@ -207,32 +215,36 @@
           </button>
         </form>
         <div class="lista-comentarios">
-          <div class="comentario-usuario" data-avaliacao-id="99">
-            <div class="comentario-cabecalho">
-              <span class="nome-usuario">Usuário: Jade123 (Você)</span>
-              <span class="nota-usuario">Nota: 3 ★</span>
-            </div>
-            <p class="texto-comentario">
-              "Esse jogo é muito louco, recomendo apenas para os não loucos"
-            </p>
-            <div class="comentario-acoes">
-              <button class="btn-acao btn-editar">Editar</button>
-              <button class="btn-acao btn-excluir">Excluir</button>
-            </div>
-          </div>
           <div class="comentario-usuario" data-avaliacao-id="101">
             <div class="comentario-cabecalho">
               <span class="nome-usuario">Usuário: Adailton123</span>
               <span class="nota-usuario">Nota: 5 ★</span>
             </div>
             <p class="texto-comentario">
-              "Esse jogo é tão bom que estou há 90 dias sem dormir, só jogando
-              ele"
+              “Esse jogo é tão bom que estou há 90 dias sem dormir, só jogando
+              ele”
             </p>
+            <div class="comentario-acoes">
+              <button class="btn-acao btn-editar">Editar</button>
+              <button class="btn-acao btn-excluir">Excluir</button>
+            </div>
           </div>
+          
+          <div class="comentario-usuario" data-avaliacao-id="102">
+            <div class="comentario-cabecalho">
+              <span class="nome-usuario">Usuário: Jade123</span>
+              <span class="nota-usuario">Nota: 4 ★</span>
+            </div>
+            <p class="texto-comentario">
+              “Gostei bastante, mas o sistema de combate é um pouco travado.”
+            </p>
+            <div class="comentario-acoes">
+              </div>
+          </div>
+          
         </div>
         <div class="ver-mais">
-          <a href="#" class="btn-secundario">Carregar mais comentários</a>
+          <a href="#topo" class="btn-secundario">Voltar ao topo</a>
         </div>
       </section>
     </main>
@@ -252,9 +264,7 @@
       </div>
     </footer>
 
-    <script type="module" src="info_jogo_digital.js"></script>
-    <script type="module" src="info_jogo.js"></script>
-
-    
+    <script src="main.js" type="module"></script>
+    <script src="info_jogo_digital.js" type="module"></script>
   </body>
 </html>
