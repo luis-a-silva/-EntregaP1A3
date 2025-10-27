@@ -1,21 +1,19 @@
 .container {
-  
   padding-top: calc(var(--altura-header) + 30px);
   padding-bottom: 40px;
+  
   flex: 1; 
 }
-
 
 .layout-perfil {
   display: grid;
   grid-template-columns: 1fr 2.5fr; 
   gap: 30px;
-  align-items: flex-start; 
+  align-items: flex-start;
   width: 100%;
   max-width: 1400px; 
   margin: 0 auto; 
 }
-
 
 .perfil-sidebar h2,
 .pedidos-secao h2 {
@@ -34,7 +32,7 @@
   border: 1px solid var(--cor-borda);
   display: flex;
   flex-direction: column;
-  gap: 20px; 
+  gap: 20px;
 }
 
 .foto-placeholder {
@@ -77,7 +75,6 @@
   margin: 0;
 }
 
-
 .pedidos-container {
   background-color: var(--cor-fundo-componente);
   border: 1px solid var(--cor-borda);
@@ -88,6 +85,7 @@
   gap: 20px; 
 }
 
+
 .pedido-card {
   background-color: var(--cor-fundo); 
   border: 1px solid var(--cor-borda);
@@ -95,6 +93,11 @@
   padding: 20px 25px;
   text-align: center;
   transition: border-color 0.2s;
+  width: 100%; 
+  cursor: pointer; 
+  font-family: inherit; 
+  color: inherit; 
+  display: block; 
 }
 
 .pedido-card:hover {
@@ -104,17 +107,15 @@
 .pedido-card h3 {
   font-family: var(--fonte-corpo);
   font-size: 1.2rem;
-  color: var(--cor-texto-principal);
+  color: var(--cor-texto-principal); 
   margin: 0 0 10px 0;
 }
 
 .pedido-card p {
-  color: var(--cor-texto-secundario);
+  color: var(--cor-texto-secundario); 
   margin: 0;
   font-size: 0.95rem;
 }
-
-
 
 @media (max-width: 900px) {
   .layout-perfil {
