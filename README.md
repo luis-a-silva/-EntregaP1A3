@@ -13,7 +13,8 @@ Delete – remoção de registros
 Estrutura de código preparada para ampliação futura (novas entidades, autenticação, front-end, testes)
 Front-end básico incluído
 
-Projeto no FIGMA:  
 [Protótipo no Figma](https://www.figma.com/site/Lt3RDvnYlzxxGsZHj7DH46/UCUsabilidadeA3?node-id=0-1&t=WRCvFxrTgVvdRuOn-1)
+
 [Wireframes no Figma](https://www.figma.com/board/pZWl32wqlymxYwYbnulMpp/A3---USABILIDADE---Wireframes?node-id=0-1&p=f&t=YPiOESVFSrA1sdCB-0)
+
 [Relatório do Projeto](https://docs.google.com/document/d/16SYUg__3Z8TP-X-gwY9DWbS7k4js71DVjRBCKoku9mg/edit?usp=sharing)
